@@ -27,6 +27,9 @@
   details > summary { list-style: none; }
   details > summary::-webkit-details-marker { display: none; }
   details[open] .accordion-icon { transform: rotate(45deg); }
+  /* QR-Leitsystem-Ankerpunkte: Offset = sticky Header (h-16 = 64px) + border-b (1px) = 65px,
+     berechnet aus den tatsächlich verwendeten Tailwind-Klassen, nicht geschätzt. */
+  #home, #vorreinigung, #programme, #highlights, #standort, #prozess { scroll-margin-top: 65px; }
 </style>
 </head>
 <body class="bg-white text-slate-800 antialiased pb-16 md:pb-0">
@@ -81,7 +84,7 @@
 <main id="main">
 
 <!-- ===== HERO ===== -->
-<section class="relative overflow-hidden bg-gradient-to-b from-brand-950 to-brand-800 text-white">
+<section id="home" class="relative overflow-hidden bg-gradient-to-b from-brand-950 to-brand-800 text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
     <div>
       <div class="flex flex-wrap gap-2 mb-6">
@@ -114,7 +117,7 @@
 </section>
 
 <!-- ===== STANDORT-SCHNELLAUSWAHL ===== -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="standorte-schnellauswahl">
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="standort">
   <div class="flex items-end justify-between mb-8 flex-wrap gap-4">
     <div>
       <h2 class="text-3xl font-extrabold text-slate-900">Ihr TOPWASH-Standort</h2>
@@ -187,7 +190,7 @@
   <p class="mt-3 text-slate-600 text-center max-w-2xl mx-auto">Sauber wie von Hand gewaschen: Handvorwäsche im Freien, drei Textilwäsche-Stufen und eine doppelte Trocknung sorgen für ein gründliches und zugleich lackschonendes Ergebnis.</p>
 
   <div class="mt-10 space-y-4">
-    <details class="group rounded-2xl border border-slate-200 overflow-hidden" open>
+    <details id="vorreinigung" class="group rounded-2xl border border-slate-200 overflow-hidden" open>
       <summary class="flex items-center gap-4 p-5 cursor-pointer hover:bg-slate-50">
         <span class="w-9 h-9 shrink-0 rounded-full bg-brand-600 text-white grid place-items-center font-bold">1</span>
         <span class="font-bold text-lg text-slate-900 flex-1">Gründliche Handvorwäsche im Freien</span>
@@ -226,16 +229,16 @@
 </section>
 
 <!-- ===== PREISTABELLE (Kurzfassung) ===== -->
-<section class="bg-slate-50 border-y border-slate-200">
+<section id="programme" class="bg-slate-50 border-y border-slate-200">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="text-center mb-12">
-      <h2 class="text-3xl font-extrabold text-slate-900">Unsere Waschpakete</h2>
-      <p class="mt-3 text-slate-600 max-w-2xl mx-auto">Fünf gestaffelte Pakete – von der schnellen Außenwäsche bis zur Rundum-Pflege. Alle Preise inkl. MwSt.</p>
+      <h2 class="text-3xl font-extrabold text-slate-900">Unsere Waschprogramme</h2>
+      <p class="mt-3 text-slate-600 max-w-2xl mx-auto">Fünf gestaffelte Programme – von der schnellen Außenwäsche bis zur Rundum-Pflege. Alle Preise inkl. MwSt.</p>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
 
       <div class="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col">
-        <h3 class="font-bold text-slate-900">Basic</h3>
+        <h3 class="font-bold text-slate-900">Soft-Schaum</h3>
         <p class="mt-2 text-3xl font-extrabold text-brand-700">12,00&nbsp;€</p>
         <ul class="mt-4 space-y-2 text-sm text-slate-600 flex-1">
           <li>✓ Handvorwäsche</li>
@@ -245,10 +248,10 @@
       </div>
 
       <div class="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col">
-        <h3 class="font-bold text-slate-900">Glanz</h3>
-        <p class="mt-2 text-3xl font-extrabold text-brand-700">16,90&nbsp;€</p>
+        <h3 class="font-bold text-slate-900">Komplett</h3>
+        <p class="mt-2 text-3xl font-extrabold text-brand-700">15,00&nbsp;€</p>
         <ul class="mt-4 space-y-2 text-sm text-slate-600 flex-1">
-          <li>✓ Wie Basic</li>
+          <li>✓ Wie Soft-Schaum</li>
           <li>✓ Felgenreinigung</li>
           <li>✓ Trockenwachs</li>
         </ul>
@@ -256,39 +259,71 @@
 
       <div class="relative rounded-2xl border-2 border-brand-600 bg-white p-6 flex flex-col shadow-lg">
         <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full">Beliebt</span>
-        <h3 class="font-bold text-slate-900">Komfort</h3>
-        <p class="mt-2 text-3xl font-extrabold text-brand-700">22,90&nbsp;€</p>
+        <h3 class="font-bold text-slate-900">Lotus</h3>
+        <p class="mt-2 text-3xl font-extrabold text-brand-700">18,00&nbsp;€</p>
         <ul class="mt-4 space-y-2 text-sm text-slate-600 flex-1">
-          <li>✓ Wie Glanz</li>
-          <li>✓ Unterbodenwäsche</li>
-          <li>✓ Staubsaugen inklusive</li>
+          <li>✓ Wie Komplett</li>
+          <li>✓ Unterbodenwäsche mit Rostschutz</li>
+          <li>✓ Lotusglanz-Versiegelung</li>
         </ul>
       </div>
 
       <div class="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col">
-        <h3 class="font-bold text-slate-900">Premium</h3>
-        <p class="mt-2 text-3xl font-extrabold text-brand-700">29,90&nbsp;€</p>
+        <h3 class="font-bold text-slate-900">DAS BESTE</h3>
+        <p class="mt-2 text-3xl font-extrabold text-brand-700">20,00&nbsp;€</p>
         <ul class="mt-4 space-y-2 text-sm text-slate-600 flex-1">
-          <li>✓ Wie Komfort</li>
+          <li>✓ Wie Lotus</li>
+          <li>✓ Staubsaugen inklusive</li>
           <li>✓ Lackversiegelung</li>
           <li>✓ Textilpflege innen</li>
         </ul>
       </div>
 
       <div class="rounded-2xl border border-slate-200 bg-white p-6 flex flex-col">
-        <h3 class="font-bold text-slate-900">Deluxe</h3>
-        <p class="mt-2 text-3xl font-extrabold text-brand-700">36,90&nbsp;€</p>
+        <h3 class="font-bold text-slate-900">Superschaum</h3>
+        <p class="mt-2 text-3xl font-extrabold text-brand-700">23,00&nbsp;€</p>
         <ul class="mt-4 space-y-2 text-sm text-slate-600 flex-1">
-          <li>✓ Wie Premium</li>
+          <li>✓ Wie DAS BESTE</li>
           <li>✓ Politur</li>
           <li>✓ Felgenversiegelung</li>
-          <li>✓ Lotusglanz-Versiegelung</li>
+          <li>✓ Intensiv-Superschaum</li>
         </ul>
       </div>
 
     </div>
     <div class="text-center mt-8">
       <a href="preise.html" class="text-brand-700 font-semibold hover:underline">Alle Leistungen im Detail vergleichen →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HIGHLIGHTS ===== -->
+<section id="highlights" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-extrabold text-slate-900">Unsere Highlights</h2>
+    <p class="mt-3 text-slate-600 max-w-2xl mx-auto">Das macht TOPWASH-Wäschen besonders.</p>
+  </div>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="text-center md:text-left">
+      <div class="w-12 h-12 rounded-xl bg-brand-600 text-white grid place-items-center mb-4 mx-auto md:mx-0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" /></svg>
+      </div>
+      <h3 class="font-bold text-lg">Lotus-Glanz</h3>
+      <p class="mt-2 text-slate-600 text-sm">Versiegelnde Politur nach dem Lotus-Effekt: Wasser perlt einfach ab, Schmutz haftet spürbar schlechter – ab dem Programm „Lotus".</p>
+    </div>
+    <div class="text-center md:text-left">
+      <div class="w-12 h-12 rounded-xl bg-brand-600 text-white grid place-items-center mb-4 mx-auto md:mx-0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-6.364-.386l1.591-1.591M3 12h2.25m.386-6.364l1.591 1.591M12 9a3 3 0 100 6 3 3 0 000-6z" /></svg>
+      </div>
+      <h3 class="font-bold text-lg">Superschaum</h3>
+      <p class="mt-2 text-slate-600 text-sm">Intensiv-Vorwäsche mit besonders dichtem, hochwirksamem Schaum für gründlich gelösten Schmutz – exklusiv im Programm „Superschaum".</p>
+    </div>
+    <div class="text-center md:text-left">
+      <div class="w-12 h-12 rounded-xl bg-brand-600 text-white grid place-items-center mb-4 mx-auto md:mx-0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.5 4.977l.51 1.41m7.98 14.094l.51 1.41M12 21.75v-1.5" /></svg>
+      </div>
+      <h3 class="font-bold text-lg">Textile Poliertrocknung</h3>
+      <p class="mt-2 text-slate-600 text-sm">Nach den Gebläsen sorgt eine abschließende Textiltrocknung nicht nur für Streifenfreiheit, sondern zusätzlich für Politur-Effekt – bei jeder Wäsche inklusive.</p>
     </div>
   </div>
 </section>
