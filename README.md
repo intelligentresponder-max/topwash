@@ -11,10 +11,22 @@ Statische Website (Jamstack, GitHub-Pages-tauglich) für TOPWASH – textile Aut
 | Datei | Inhalt |
 |---|---|
 | `index.html` | Startseite: Hero, Standort-Schnellauswahl, Prozess, Preisübersicht, Hinweise, FAQ-Auszug |
+| `angebote.html` | Lead-Landingpage mit 3 Knallerpreisen (Neukunden-, Montags- und Vielfahrer-Angebot) |
 | `standorte.html` | Alle 4 Standorte mit Adresse, Öffnungszeiten, Karte |
 | `preise.html` | Vollständiger Vergleich der 5 Waschpakete |
 | `faq.html` | Ausführliches FAQ (Ablauf, Fahrzeugeignung, Haftung, Bezahlung) |
 | `impressum.html`, `datenschutz.html`, `agb.html` | Rechtstexte |
+
+## Lead-Fokus
+Auf allen Seiten: click-to-call-Button im Header (Desktop + mobiles Icon), rot hervorgehobener „Angebote"-Link in
+Navigation/Footer, durchgängiger roter Ankündigungsbalken zu den Knallerpreisen sowie eine feste mobile CTA-Leiste
+(„Anrufen" / „Standort" bzw. „Angebote") am unteren Bildschirmrand. Da die Seite statisch ist (kein Backend), setzt
+die Lead-Erfassung bewusst auf `tel:`- und Maps-Links statt auf ein Kontaktformular – funktioniert ohne weitere
+Infrastruktur sofort.
+
+**Die 3 Knallerpreise auf `angebote.html` (Neukunden-Rabatt 14,90 €, Montags-Special 22,90 €, 5er-Waschkarte 48 €)
+sind vorgeschlagene, noch nicht vom Auftraggeber bestätigte Angebote** – vor Livegang mit den echten,
+gewünschten Aktionen/Preisen und Gültigkeitszeiträumen abgleichen.
 
 ## Vor dem Livegang zu prüfen
 Direkter Zugriff auf top-wash.de war aus dieser Arbeitsumgebung nicht möglich (Netzwerk-Egress blockiert). Folgende
