@@ -53,10 +53,17 @@ Breite verkleinert, um Ladezeit gering zu halten:
 - `images/vorbehandlung-aussen.jpg` – Vorbehandlung eines Fahrzeugs im Freien → Hero-Bild 1 auf `index.html`.
 - `images/hochdruck-felgenreinigung.jpg` – Felgenreinigung mit Hochdruckreiniger → Hero-Bild 2 auf `index.html`.
 
-Die Prozess-Bilder „Textile Waschstraße" und „Trocknung & Finish" zeigen weiterhin Unsplash-Stock-Fotos, da für
-diese beiden Schritte keine passenden echten Fotos vorliegen – bewusst nicht mit einem thematisch nicht
-passenden Foto überschrieben, um nichts Falsches zu suggerieren. Bei Bedarf hier ebenfalls durch echte Fotos
-ersetzen, sobald verfügbar.
+Zusätzlich lieferte der Auftraggeber 9 Standbilder aus einem eigenen Video (mit Letterbox-Balken, teils
+Bewegungsunschärfe). Davon waren 5 brauchbar (Balken automatisiert erkannt und weggeschnitten, ein sichtbares
+KFZ-Kennzeichen unkenntlich gemacht); 4 wurden verworfen (Doppelbelichtung/Geisterbild, starke Unschärfe,
+Duplikat):
+- `images/textile-waschstrasse-eingang.jpg` – TOP-WASH-beschriftete Einfahrt mit Textillamellen → ersetzt das
+  letzte verbliebene Stock-Foto im Prozessschritt „Textile Waschstraße" auf `index.html`.
+- `images/trocknung-geblaese.jpg` – Gebläse-Portal der Anlage → ersetzt das Stock-Foto im Prozessschritt
+  „Trocknung & Finish" auf `index.html`. **Damit sind auf `index.html` keine Stock-Fotos mehr im Einsatz.**
+- `images/impression-frontpartie.jpg`, `images/impression-felge.jpg`, `images/impression-handtrocknung.jpg` –
+  3 Detailaufnahmen (Frontpartie, Felge, Handtrocknung) → neue „So sieht Ihre Wäsche bei uns aus"-Bildergalerie
+  auf `angebote.html`.
 
 ## Vor dem Livegang zu prüfen
 Direkter Zugriff auf top-wash.de war aus dieser Arbeitsumgebung nicht möglich (Netzwerk-Egress blockiert). Folgende
