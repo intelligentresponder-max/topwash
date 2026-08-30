@@ -65,6 +65,15 @@ Duplikat):
   3 Detailaufnahmen (Frontpartie, Felge, Handtrocknung) → neue „So sieht Ihre Wäsche bei uns aus"-Bildergalerie
   auf `angebote.html`.
 
+## Logo (`images/logo-top-wash.png`)
+Direkter Zugriff auf top-wash.de blieb weiterhin durch die Netzwerk-Egress-Sperre dieser Arbeitsumgebung blockiert,
+daher konnte die dort verlinkte SVG-Datei nicht direkt heruntergeladen werden. Der Auftraggeber schickte stattdessen
+einen Handy-Screenshot des im Browser gerenderten Original-Logos. Daraus wurde ein sauberes, transparentes PNG
+erzeugt (Browser-Chrome entfernt, weißer Hintergrund per Helligkeits-Schwellenwert in echte Transparenz umgewandelt,
+Navy-Farbton aus den dunkelsten Bildpixeln ermittelt) und ersetzt den bisherigen „TW"-Platzhalter-Badge im Header
+auf allen 8 Seiten. Ein zusätzlich geliefertes, stilisiertes Logo-Standbild aus einem YouTube-Video (mit
+Farbverlauf-Hintergrund) wurde bewusst nicht verwendet, da es für ein neutrales Website-Logo ungeeignet ist.
+
 ## Prozessbeschreibung (Quelle: offizielles TOPWASH-Werbevideo)
 Der Auftraggeber hat den vollständigen Text des offiziellen Werbevideos geliefert. Die Prozess-Sektion auf
 `index.html` (Anker `#prozess`), der „Ablauf"-Eintrag in `faq.html` (inkl. JSON-LD) sowie die entsprechende
