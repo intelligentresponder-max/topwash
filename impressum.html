@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum – TOPWASH Autowasch Spezialisten</title>
+<meta name="robots" content="noindex">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { brand: {
+    600:'#0080d0',700:'#0166a8',800:'#08578a',900:'#0c4972',950:'#082e4a'
+  } } } } }
+</script>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-2 font-extrabold text-xl text-brand-800">
+        <span class="inline-block w-9 h-9 rounded-lg bg-brand-600 text-white grid place-items-center text-sm">TW</span>
+        TOPWASH <span class="hidden sm:inline text-slate-500 font-medium">Autowasch Spezialisten</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 prose prose-slate">
+  <h1 class="text-3xl font-extrabold text-slate-900">Impressum</h1>
+
+  <p class="text-sm rounded-lg bg-amber-50 border border-amber-200 text-amber-800 p-4">
+    Hinweis für die Redaktion: Die unten mit <strong>[BITTE ERGÄNZEN]</strong> markierten Angaben (Rechtsform,
+    Geschäftsführung, Handelsregister, USt-IdNr.) konnten nicht automatisiert recherchiert werden und müssen vor
+    Veröffentlichung durch die tatsächlichen Firmendaten ersetzt werden – ein unvollständiges Impressum ist nicht
+    rechtssicher (§ 5 DDG).
+  </p>
+
+  <h2 class="text-xl font-bold mt-8">Angaben gemäß § 5 DDG</h2>
+  <p>
+    TOPWASH Autowasch Spezialisten [BITTE ERGÄNZEN: vollständige Rechtsform, z. B. GmbH]<br>
+    [BITTE ERGÄNZEN: Straße und Hausnummer der Hauptniederlassung]<br>
+    [BITTE ERGÄNZEN: PLZ und Ort]
+  </p>
+
+  <h2 class="text-xl font-bold mt-8">Vertreten durch</h2>
+  <p>[BITTE ERGÄNZEN: Name der Geschäftsführung / vertretungsberechtigten Person(en)]</p>
+
+  <h2 class="text-xl font-bold mt-8">Kontakt</h2>
+  <p>
+    Telefon: [BITTE ERGÄNZEN: zentrale Telefonnummer]<br>
+    E-Mail: [BITTE ERGÄNZEN: zentrale E-Mail-Adresse]
+  </p>
+
+  <h2 class="text-xl font-bold mt-8">Registereintrag</h2>
+  <p>
+    Eintragung im Handelsregister<br>
+    Registergericht: [BITTE ERGÄNZEN]<br>
+    Registernummer: [BITTE ERGÄNZEN]
+  </p>
+
+  <h2 class="text-xl font-bold mt-8">Umsatzsteuer-ID</h2>
+  <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: [BITTE ERGÄNZEN]</p>
+
+  <h2 class="text-xl font-bold mt-8">Standorte</h2>
+  <ul>
+    <li>TOPWASH Bad Nauheim, Hubert-Vergölst-Str. 4, 61231 Bad Nauheim</li>
+    <li>TOPWASH Eschborn, Praunheimer Str. 5, 65760 Eschborn</li>
+    <li>TOPWASH Neu-Isenburg, Karlstr. 15, 63263 Neu-Isenburg</li>
+    <li>TOPWASH Raunheim, Anton-Flettner-Str. 26, 65479 Raunheim</li>
+  </ul>
+
+  <h2 class="text-xl font-bold mt-8">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+  <p>[BITTE ERGÄNZEN: Name und Anschrift]</p>
+
+  <h2 class="text-xl font-bold mt-8">EU-Streitschlichtung</h2>
+  <p>
+    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+    <a class="text-brand-700 underline" href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>.
+    Unsere E-Mail-Adresse finden Sie oben. Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren
+    vor einer Verbraucherschlichtungsstelle teilzunehmen.
+  </p>
+</section>
+</main>
+
+<footer class="bg-slate-900 text-slate-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-500">
+    <p>© <span id="year"></span> TOPWASH Autowasch Spezialisten. Alle Rechte vorbehalten.</p>
+    <div class="flex gap-4">
+      <a href="impressum.html" class="hover:text-white">Impressum</a>
+      <a href="datenschutz.html" class="hover:text-white">Datenschutz</a>
+      <a href="agb.html" class="hover:text-white">AGB</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
