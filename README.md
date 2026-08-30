@@ -38,6 +38,13 @@ Infrastruktur sofort.
 sind vorgeschlagene, noch nicht vom Auftraggeber bestätigte Angebote** – vor Livegang mit den echten,
 gewünschten Aktionen/Preisen und Gültigkeitszeiträumen abgleichen.
 
+`angebote.html` wurde zusätzlich um markterprobte Conversion-Elemente ergänzt: berechnete Rabatt-Badges (aus den
+echten Vorher-/Nachher-Preisen, keine erfundenen Werte), eine 3-Schritte-Einlöse-Anleitung sowie eine
+Einwand-FAQ (Anmeldung nötig? Kombinierbar? Gültigkeitsdauer?). Bewusst **keine** erfundenen Kundenstimmen,
+Countdown-Timer oder "X Personen haben gerade gebucht"-Zähler – das wäre bei einem realen Unternehmen irreführende
+Werbung. Aktuell noch Stock-Fotos (Unsplash); echte TOPWASH-Fotos (Personal in Uniform, Handvorwäsche,
+Textillamellen) folgen, sobald der Auftraggeber Originaldateien liefert.
+
 ## Vor dem Livegang zu prüfen
 Direkter Zugriff auf top-wash.de war aus dieser Arbeitsumgebung nicht möglich (Netzwerk-Egress blockiert). Folgende
 Daten wurden zwischenzeitlich per Screenshot der echten Seite bestätigt und eingepflegt: Impressum (TOP WASH
