@@ -42,8 +42,21 @@ gewünschten Aktionen/Preisen und Gültigkeitszeiträumen abgleichen.
 echten Vorher-/Nachher-Preisen, keine erfundenen Werte), eine 3-Schritte-Einlöse-Anleitung sowie eine
 Einwand-FAQ (Anmeldung nötig? Kombinierbar? Gültigkeitsdauer?). Bewusst **keine** erfundenen Kundenstimmen,
 Countdown-Timer oder "X Personen haben gerade gebucht"-Zähler – das wäre bei einem realen Unternehmen irreführende
-Werbung. Aktuell noch Stock-Fotos (Unsplash); echte TOPWASH-Fotos (Personal in Uniform, Handvorwäsche,
-Textillamellen) folgen, sobald der Auftraggeber Originaldateien liefert.
+Werbung.
+
+## Echte TOPWASH-Fotos (`images/`)
+Der Auftraggeber hat 3 echte Fotos (Original-Dateien, keine Handy-Screenshots) geliefert. Passend zugeschnitten
+(von 2,6:1-Panoramaformat auf ca. 2:1, Fokus auf die aktive Handlung statt leerer Randflächen) und auf max. 1200 px
+Breite verkleinert, um Ladezeit gering zu halten:
+- `images/handvorwaesche-team.jpg` – zwei Mitarbeiter bei der Handvorwäsche → ersetzt das Stock-Foto in der
+  Prozess-Sektion „Handvorwäsche in drei Schritten" auf `index.html`.
+- `images/vorbehandlung-aussen.jpg` – Vorbehandlung eines Fahrzeugs im Freien → Hero-Bild 1 auf `index.html`.
+- `images/hochdruck-felgenreinigung.jpg` – Felgenreinigung mit Hochdruckreiniger → Hero-Bild 2 auf `index.html`.
+
+Die Prozess-Bilder „Textile Waschstraße" und „Trocknung & Finish" zeigen weiterhin Unsplash-Stock-Fotos, da für
+diese beiden Schritte keine passenden echten Fotos vorliegen – bewusst nicht mit einem thematisch nicht
+passenden Foto überschrieben, um nichts Falsches zu suggerieren. Bei Bedarf hier ebenfalls durch echte Fotos
+ersetzen, sobald verfügbar.
 
 ## Vor dem Livegang zu prüfen
 Direkter Zugriff auf top-wash.de war aus dieser Arbeitsumgebung nicht möglich (Netzwerk-Egress blockiert). Folgende
