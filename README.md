@@ -94,8 +94,26 @@ DE114221224, Geschäftsführer Dipl.-Ing. Michael Börstler), die 4 echten Stand
 statt des ursprünglich recherchierten Raunheim, Neu-Isenburg), die Einfahrt-Hinweise, die zulässigen
 Fahrzeug-Abmessungen sowie der Einstiegspreis „Autowäsche ab 12 €".
 
-Noch zu prüfen: Die genauen Adressen/Telefonnummern/Öffnungszeiten der Standorte Bad Nauheim, Eschborn und
-Neu-Isenburg stammen weiterhin aus Suchmaschinen-Recherche (nicht von der Live-Seite bestätigt).
+**Update Öffnungszeiten/Adressen/Telefonnummern:** Vom Auftraggeber per Chat-Nachricht bestätigt und korrigiert.
+Adressen waren bereits korrekt recherchiert. Öffnungszeiten wichen an 3 von 4 Standorten ab: Bad Nauheim und
+Neu-Isenburg jetzt **Mo–Fr 08:30–18:30 Uhr** (zuvor 08:00–20:00 Uhr recherchiert), Eschborn **Mo–Fr 08:00–19:00 Uhr,
+Sa 08:00–18:00 Uhr** (zuvor 07:30–20:00/07:30–18:00 Uhr), Frankfurt war bereits korrekt. Frankfurt zusätzlich mit
+Stadtteil **„– Eckenheim"** ergänzt (Standorte-Seite, Impressum). Telefonnummern: Eschborn (06196 7694769) und
+Neu-Isenburg (06102 34419) bestätigt unverändert; Frankfurt hatte fälschlich die Zentrale-Nummer als eigene
+Standort-Nummer eingetragen – korrigiert auf die echte, eigene Nummer **069 54805773**. Die generische
+Zentrale-Nummer bleibt bewusst unverändert im Impressum sowie als standortunabhängige Anruf-CTA in
+Header/mobiler Leiste/Chat auf allen Seiten. Die generische Öffnungszeiten-Zusammenfassung in `chat.js`
+(DE/EN) wurde ebenfalls korrigiert.
+
+**Neuer Haftungsausschluss im Impressum:** Auf Wunsch ergänzt (Abschnitte „Haftung für Inhalte", „Haftung für
+Links", „Urheberrecht") nach aktueller Rechtslage (§§ 7–10 DDG), mit konkretem Bezug auf die eingebundenen
+Google/Apple-Maps-Links statt generischer Phrasen und Verweis auf die fahrzeugspezifische Haftungsklausel in
+`agb.html` § 4. Ersetzt keine Rechtsberatung – vor echtem Livegang anwaltliche Prüfung der Rechtstexte empfohlen.
+
+Noch zu prüfen: Die genaue **Telefonnummer von Bad Nauheim** stammt weiterhin aus Suchmaschinen-Recherche
+(nicht bestätigt). Ein erneuter Abgleich mit dem dann aktuellen Stand von top-wash.de vor dem finalen Livegang
+wird empfohlen, da direkter Zugriff auf die Domain in dieser Arbeitsumgebung durchgehend blockiert war und alle
+Korrekturen auf Nutzer-Angaben statt auf einem erneuten Live-Abgleich beruhen.
 
 ## Preisstruktur (bestätigt: Soft-Schaum / Komplett / Lotus / DAS BESTE / Superschaum)
 Der Auftraggeber hat die bisherige, marktübliche Preisschätzung (Basic/Glanz/Komfort/Premium/Deluxe,

@@ -41,8 +41,8 @@
         en: ["opening", "hours", "open", "when are you", "what time"]
       },
       answer: {
-        de: "Die Öffnungszeiten variieren leicht je Standort: meist Mo–Fr 07:30–20:00 Uhr, Sa 07:30–19:00 Uhr, sonntags geschlossen. Genaue Zeiten je Standort auf der <a href=\"standorte.html\" class=\"underline font-semibold\">Standorte-Seite</a>.",
-        en: "Opening hours vary slightly by location: generally Mon–Fri 7:30am–8pm, Sat 7:30am–7pm, closed Sundays. Exact hours per location on our <a href=\"standorte.html\" class=\"underline font-semibold\">Locations page</a>."
+        de: "Die Öffnungszeiten variieren leicht je Standort: meist Mo–Fr zwischen 08:00 und 19:00 Uhr (je nach Standort 08:30–18:30 bzw. 08:00–19:00 Uhr), Sa 08:00–18:00 Uhr, sonntags geschlossen. Genaue Zeiten je Standort auf der <a href=\"standorte.html\" class=\"underline font-semibold\">Standorte-Seite</a>.",
+        en: "Opening hours vary slightly by location: generally Mon–Fri between 8am and 7pm (8:30am–6:30pm or 8am–7pm depending on location), Sat 8am–6pm, closed Sundays. Exact hours per location on our <a href=\"standorte.html\" class=\"underline font-semibold\">Locations page</a>."
       }
     },
     {
