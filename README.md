@@ -16,6 +16,16 @@ Statische Website (Jamstack, GitHub-Pages-tauglich) für TOPWASH – textile Aut
 | `preise.html` | Vollständiger Vergleich der 5 Waschpakete |
 | `faq.html` | Ausführliches FAQ (Ablauf, Fahrzeugeignung, Haftung, Bezahlung) |
 | `impressum.html`, `datenschutz.html`, `agb.html` | Rechtstexte |
+| `chat.js` | Zweisprachiger (DE/EN) Chat-Assistent, auf jeder Seite eingebunden |
+
+## Chat-Assistent (`chat.js`)
+Regelbasierter, clientseitiger Chat-Assistent unten rechts auf jeder Seite – **kein echtes LLM/keine externe API**,
+da die Seite rein statisch ist und ein API-Key im Browsercode öffentlich einsehbar und missbrauchbar wäre. Fragen
+werden per Stichwort-Abgleich (Deutsch/Englisch) den vorhandenen Website-Inhalten zugeordnet (Preise, Standorte,
+Öffnungszeiten, Angebote, Fahrzeugeignung, Wartezeit, Haftung, Zahlung, Kontakt, Ablauf); bei keinem Treffer wird
+auf Telefonnummer und FAQ verwiesen. Die Sprache wird beim ersten Öffnen automatisch aus `navigator.language`
+erkannt und ist per Umschalter (DE/EN) im Chat-Header jederzeit wechselbar; die Wahl wird in `localStorage`
+gemerkt. Wissensbasis in `chat.js` (`KB`-Array) erweitern, um neue Themen zu ergänzen.
 
 ## Lead-Fokus
 Auf allen Seiten: click-to-call-Button im Header (Desktop + mobiles Icon), rot hervorgehobener „Angebote"-Link in
