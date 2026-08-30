@@ -172,7 +172,7 @@
       '<button id="topwash-chat-toggle" aria-label="" class="fixed z-50 right-4 bottom-20 md:bottom-6 w-14 h-14 rounded-full bg-brand-600 text-white shadow-xl grid place-items-center hover:bg-brand-700 transition">' +
         '<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" /></svg>' +
       '</button>' +
-      '<div id="topwash-chat-panel" hidden class="fixed z-50 right-4 bottom-20 md:bottom-6 w-[calc(100vw-2rem)] max-w-sm h-[70vh] max-h-[560px] bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden" role="dialog" aria-modal="false" aria-label="TOPWASH Chat">' +
+      '<div id="topwash-chat-panel" hidden style="height:min(55vh,420px)" class="fixed z-50 right-4 bottom-20 md:bottom-6 w-[calc(100vw-2rem)] max-w-sm bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden" role="dialog" aria-modal="false" aria-label="TOPWASH Chat">' +
         '<div class="bg-brand-700 text-white px-4 py-3 flex items-center justify-between">' +
           '<div>' +
             '<p id="topwash-chat-title" class="font-bold leading-tight"></p>' +
