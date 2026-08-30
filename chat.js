@@ -131,8 +131,8 @@
         en: ["how does it work", "process", "steps"]
       },
       answer: {
-        de: "In 3 Schritten: dreistufige Handvorwäsche, schonende Textilwäsche, kraftvolle Trocknung. Mehr dazu auf der <a href=\"index.html#prozess\" class=\"underline font-semibold\">Startseite</a>.",
-        en: "In 3 steps: a three-stage hand pre-wash, gentle textile wash, and powerful drying. More on our <a href=\"index.html#prozess\" class=\"underline font-semibold\">homepage</a>."
+        de: "Sauber wie von Hand gewaschen: gründliche Handvorwäsche im Freien (Felgen, Schmutzlöser, Hochdruck, Handwäsche), 3 Textilwäsche-Stufen in der Waschhalle, dann doppelte Trocknung mit 2 Gebläsen plus polierender Textiltrocknung. Mehr dazu auf der <a href=\"index.html#prozess\" class=\"underline font-semibold\">Startseite</a>.",
+        en: "Clean as if washed by hand: thorough outdoor hand pre-wash (free rim cleaning, dirt loosener, pressure wash, hand wash), 3 textile wash stages inside, then double drying with 2 blowers plus a polishing textile dry. More on our <a href=\"index.html#prozess\" class=\"underline font-semibold\">homepage</a>."
       }
     }
   ];
