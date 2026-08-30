@@ -269,7 +269,6 @@
         addMessage(STRINGS[lang].greeting, "bot");
         greeted = true;
       }
-      inputEl.focus();
     }
 
     function closeChat() {
