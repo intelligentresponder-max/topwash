@@ -51,8 +51,8 @@
         en: ["price", "cost", "how much", "euro", "€"]
       },
       answer: {
-        de: "Unsere Waschpakete starten bei 12 € (Basic) und reichen bis 36,90 € (Deluxe mit Politur &amp; Felgenversiegelung). Alle Pakete im Vergleich: <a href=\"preise.html\" class=\"underline font-semibold\">Preise-Seite</a>. Aktuell gibt es außerdem 3 Sonderangebote: <a href=\"angebote.html\" class=\"underline font-semibold\">Knallerpreise ansehen</a>.",
-        en: "Our wash packages start at €12 (Basic) and go up to €36.90 (Deluxe with polish &amp; wheel sealant). Full comparison: <a href=\"preise.html\" class=\"underline font-semibold\">Prices page</a>. We currently also have 3 special offers: <a href=\"angebote.html\" class=\"underline font-semibold\">see offers</a>."
+        de: "Unsere Waschprogramme starten bei 12 € (Soft-Schaum) und reichen bis 23 € (Superschaum mit Politur &amp; Felgenversiegelung). Alle Programme im Vergleich: <a href=\"preise.html\" class=\"underline font-semibold\">Preise-Seite</a>. Aktuell gibt es außerdem 3 Sonderangebote: <a href=\"angebote.html\" class=\"underline font-semibold\">Knallerpreise ansehen</a>.",
+        en: "Our wash programs start at €12 (Soft-Schaum) and go up to €23 (Superschaum with polish &amp; wheel sealant). Full comparison: <a href=\"preise.html\" class=\"underline font-semibold\">Prices page</a>. We currently also have 3 special offers: <a href=\"angebote.html\" class=\"underline font-semibold\">see offers</a>."
       }
     },
     {
@@ -71,8 +71,8 @@
         en: ["offer", "deal", "discount", "promo", "voucher", "save"]
       },
       answer: {
-        de: "Aktuell 3 Knallerpreise: Neukunden-Wäsche für 14,90 € statt 22,90 €, montags Premium zum Komfort-Preis (22,90 € statt 29,90 €), und die 5er-Waschkarte (5× waschen, nur 4× zahlen). Details: <a href=\"angebote.html\" class=\"underline font-semibold\">Angebote ansehen</a>.",
-        en: "We currently have 3 special deals: a new-customer wash for €14.90 instead of €22.90, Premium at the Komfort price every Monday (€22.90 instead of €29.90), and a 5-wash card (wash 5×, pay for 4×). Details: <a href=\"angebote.html\" class=\"underline font-semibold\">see offers</a>."
+        de: "Aktuell 3 Knallerpreise: Neukunden-Wäsche „Lotus\" für 13,90 € statt 18 €, montags „Superschaum\" zum Preis von „DAS BESTE\" (20 € statt 23 €), und die 5er-Waschkarte Soft-Schaum (5× waschen, nur 4× zahlen). Details: <a href=\"angebote.html\" class=\"underline font-semibold\">Angebote ansehen</a>.",
+        en: "We currently have 3 special deals: a first-time „Lotus\" wash for €13.90 instead of €18, „Superschaum\" at the „DAS BESTE\" price every Monday (€20 instead of €23), and a Soft-Schaum 5-wash card (wash 5×, pay for 4×). Details: <a href=\"angebote.html\" class=\"underline font-semibold\">see offers</a>."
       }
     },
     {

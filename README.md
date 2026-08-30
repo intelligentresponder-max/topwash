@@ -13,7 +13,7 @@ Statische Website (Jamstack, GitHub-Pages-tauglich) für TOPWASH – textile Aut
 | `index.html` | Startseite: Hero, Standort-Schnellauswahl, Prozess, Preisübersicht, Hinweise, FAQ-Auszug |
 | `angebote.html` | Lead-Landingpage mit 3 Knallerpreisen (Neukunden-, Montags- und Vielfahrer-Angebot) |
 | `standorte.html` | Alle 4 Standorte mit Adresse, Öffnungszeiten, Karte |
-| `preise.html` | Vollständiger Vergleich der 5 Waschpakete |
+| `preise.html` | Vollständiger Vergleich der 5 Waschprogramme |
 | `faq.html` | Ausführliches FAQ (Ablauf, Fahrzeugeignung, Haftung, Bezahlung) |
 | `impressum.html`, `datenschutz.html`, `agb.html` | Rechtstexte |
 | `chat.js` | Zweisprachiger (DE/EN) Chat-Assistent, auf jeder Seite eingebunden |
@@ -34,9 +34,11 @@ Navigation/Footer, durchgängiger roter Ankündigungsbalken zu den Knallerpreise
 die Lead-Erfassung bewusst auf `tel:`- und Maps-Links statt auf ein Kontaktformular – funktioniert ohne weitere
 Infrastruktur sofort.
 
-**Die 3 Knallerpreise auf `angebote.html` (Neukunden-Rabatt 14,90 €, Montags-Special 22,90 €, 5er-Waschkarte 48 €)
-sind vorgeschlagene, noch nicht vom Auftraggeber bestätigte Angebote** – vor Livegang mit den echten,
-gewünschten Aktionen/Preisen und Gültigkeitszeiträumen abgleichen.
+**Die 3 Knallerpreise auf `angebote.html` (Lotus-Wäsche 13,90 € statt 18 €, Superschaum zum DAS-BESTE-Preis
+20 € statt 23 €, 5er-Waschkarte Soft-Schaum 48 €) sind weiterhin vorgeschlagene, noch nicht vom Auftraggeber
+bestätigte Angebote** – nur die zugrunde liegenden regulären Programmpreise sind bestätigt (siehe Prozess-Sektion
+unten), die Rabattaktionen selbst nicht. Vor Livegang mit den echten, gewünschten Aktionen/Preisen und
+Gültigkeitszeiträumen abgleichen.
 
 `angebote.html` wurde zusätzlich um markterprobte Conversion-Elemente ergänzt: berechnete Rabatt-Badges (aus den
 echten Vorher-/Nachher-Preisen, keine erfundenen Werte), eine 3-Schritte-Einlöse-Anleitung sowie eine
@@ -81,8 +83,8 @@ Chat-Antwort in `chat.js` wurden daran ausgerichtet: (1) Handvorwäsche im Freie
 Schmutzlöser, Hochdruckreiniger und Handwäsche von Ecken/Kanten/Scheiben/Spiegeln/Heck, (2) **drei** Textilwäsche-Stufen
 in der Waschhalle – „zwei mehr als bei herkömmlichen Autowaschanlagen" laut Original –, (3) doppelte Trocknung aus
 zwei Gebläsen **plus** einer zusätzlich polierenden Textiltrocknung. Der bis dahin nicht abgebildete Zusatz
-**„Lotusglanz"** wurde als Deluxe-Feature auf `index.html`/`preise.html` ergänzt sowie als einzeln buchbare Option
-vermerkt (Preis dafür nicht bekannt – bitte am Terminal erfragen, siehe `preise.html`).
+**„Lotusglanz"** wurde zunächst als Deluxe-Feature ergänzt, ist inzwischen (siehe Preisstruktur-Update unten)
+Bestandteil des Programms „Lotus".
 
 ## Vor dem Livegang zu prüfen
 Direkter Zugriff auf top-wash.de war aus dieser Arbeitsumgebung nicht möglich (Netzwerk-Egress blockiert). Folgende
@@ -93,9 +95,33 @@ statt des ursprünglich recherchierten Raunheim, Neu-Isenburg), die Einfahrt-Hin
 Fahrzeug-Abmessungen sowie der Einstiegspreis „Autowäsche ab 12 €".
 
 Noch zu prüfen: Die genauen Adressen/Telefonnummern/Öffnungszeiten der Standorte Bad Nauheim, Eschborn und
-Neu-Isenburg stammen weiterhin aus Suchmaschinen-Recherche (nicht von der Live-Seite bestätigt). Die vier
-gestaffelten Preispakete auf `preise.html`/`index.html` sind bis auf den bestätigten Basic-Einstiegspreis (12 €)
-weiterhin marktübliche Richtwerte und sollten durch die echten TOPWASH-Paketpreise ersetzt werden.
+Neu-Isenburg stammen weiterhin aus Suchmaschinen-Recherche (nicht von der Live-Seite bestätigt).
+
+## Preisstruktur (bestätigt: Soft-Schaum / Komplett / Lotus / DAS BESTE / Superschaum)
+Der Auftraggeber hat die bisherige, marktübliche Preisschätzung (Basic/Glanz/Komfort/Premium/Deluxe,
+12–36,90 €) durch die echte TOPWASH-Programmstruktur ersetzt: **Soft-Schaum 12,00 €, Komplett 15,00 €,
+Lotus 18,00 € (inkl. Unterbodenwäsche mit Rostschutz &amp; Lotusglanz-Versiegelung), DAS BESTE 20,00 € (inkl.
+Staubsaugen, Lackversiegelung &amp; Textilpflege innen), Superschaum 23,00 € (inkl. Politur, Felgenversiegelung
+&amp; Intensiv-Superschaum)**. Umgesetzt auf `index.html` (`#programme`), `preise.html`, `chat.js` und den
+Knallerpreisen auf `angebote.html`.
+
+**Wichtig – Umfang der Bestätigung**: Bestätigt sind Programmnamen und -preise. Die genaue Zuordnung, welche
+einzelne Zusatzleistung zu welchem Programm gehört, wurde NICHT einzeln vom Auftraggeber spezifiziert (nur
+Namen + Preise), sondern von Claude als in sich konsistente Fortschreibung des bisherigen „Gut-besser-am
+besten"-Musters konstruiert – vor Livegang mit dem Betreiber gegenprüfen.
+
+## QR-Code-Leitsystem (Anker-IDs auf `index.html`)
+Für ein geplantes QR-Code-Leitsystem (z. B. Aushänge/Flyer, die auf `domain.de/#programme` verweisen) tragen
+5 Bereiche auf `index.html` feste IDs: `#home` (Hero), `#vorreinigung` (erster Prozessschritt – bewusst direkt
+auf dem bereits standardmäßig aufgeklappten `<details>`-Element, damit ein QR-Scan sofort sichtbaren Inhalt
+zeigt statt eines eingeklappten Akkordions), `#programme` (Preistabelle), `#highlights` (neue Sektion:
+Lotus-Glanz, Superschaum, textile Poliertrocknung) und `#standort` (Standort-Schnellauswahl, vormals
+`#standorte-schnellauswahl` – umbenannt, da intern nirgends verlinkt). `html { scroll-behavior: smooth }` sorgt
+für sanftes Scrollen, `scroll-margin-top: 65px` verhindert, dass der Sticky-Header (`h-16` = 64px + 1px
+`border-b`) den Zielbereich beim Anspringen überdeckt – der Wert ist aus den tatsächlich verwendeten
+Tailwind-Klassen berechnet, nicht geschätzt. **Wichtig für die QR-Codes selbst**: müssen exakt auf
+`https://intelligentresponder-max.github.io/topwash/#<id>` zeigen (Groß-/Kleinschreibung beachten), sonst
+landen Scans nicht am richtigen Abschnitt.
 
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
