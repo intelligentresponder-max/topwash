@@ -65,6 +65,16 @@ Duplikat):
   3 Detailaufnahmen (Frontpartie, Felge, Handtrocknung) → neue „So sieht Ihre Wäsche bei uns aus"-Bildergalerie
   auf `angebote.html`.
 
+## Prozessbeschreibung (Quelle: offizielles TOPWASH-Werbevideo)
+Der Auftraggeber hat den vollständigen Text des offiziellen Werbevideos geliefert. Die Prozess-Sektion auf
+`index.html` (Anker `#prozess`), der „Ablauf"-Eintrag in `faq.html` (inkl. JSON-LD) sowie die entsprechende
+Chat-Antwort in `chat.js` wurden daran ausgerichtet: (1) Handvorwäsche im Freien mit kostenloser Felgenreinigung,
+Schmutzlöser, Hochdruckreiniger und Handwäsche von Ecken/Kanten/Scheiben/Spiegeln/Heck, (2) **drei** Textilwäsche-Stufen
+in der Waschhalle – „zwei mehr als bei herkömmlichen Autowaschanlagen" laut Original –, (3) doppelte Trocknung aus
+zwei Gebläsen **plus** einer zusätzlich polierenden Textiltrocknung. Der bis dahin nicht abgebildete Zusatz
+**„Lotusglanz"** wurde als Deluxe-Feature auf `index.html`/`preise.html` ergänzt sowie als einzeln buchbare Option
+vermerkt (Preis dafür nicht bekannt – bitte am Terminal erfragen, siehe `preise.html`).
+
 ## Vor dem Livegang zu prüfen
 Direkter Zugriff auf top-wash.de war aus dieser Arbeitsumgebung nicht möglich (Netzwerk-Egress blockiert). Folgende
 Daten wurden zwischenzeitlich per Screenshot der echten Seite bestätigt und eingepflegt: Impressum (TOP WASH
