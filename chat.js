@@ -178,10 +178,10 @@
             '<p id="topwash-chat-title" class="font-bold leading-tight"></p>' +
             '<p id="topwash-chat-subtitle" class="text-xs text-brand-100 leading-tight"></p>' +
           '</div>' +
-          '<div class="flex items-center gap-2">' +
-            '<button id="topwash-chat-lang" class="text-xs font-semibold border border-white/40 rounded px-2 py-1 hover:bg-white/10"></button>' +
-            '<button id="topwash-chat-close" aria-label="" class="p-1 hover:bg-white/10 rounded">' +
-              '<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>' +
+          '<div class="flex items-center gap-1">' +
+            '<button id="topwash-chat-lang" class="min-w-[40px] min-h-[40px] text-xs font-semibold border border-white/40 rounded px-2 py-1 hover:bg-white/10"></button>' +
+            '<button id="topwash-chat-close" aria-label="" class="min-w-[40px] min-h-[40px] flex items-center justify-center hover:bg-white/10 rounded-lg">' +
+              '<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>' +
             '</button>' +
           '</div>' +
         '</div>' +
