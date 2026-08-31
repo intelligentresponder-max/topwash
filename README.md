@@ -258,6 +258,16 @@ Telefonnummer dieses Standorts statt der zentralen Nummer. Alle internen Verweis
 der Standort-Link im SB-Waschboxen-Blogbeitrag) wurden auf die neuen Einzelseiten umgestellt; `sitemap.xml` um
 die 4 neuen URLs ergänzt.
 
+**Externer Bewertungslink „wer kennt den BESTEN" (nur Frankfurt)**: Nutzer schickte eine URL zu einem
+Bewertungsprofil auf `werkenntdenbesten.de`, deren Slug den Standort Frankfurt eindeutig zuordnet, mit der
+Bitte um einen „adäquaten Ort" dafür. Als dritter Button neben „Route planen"/„Google-Bewertung
+ansehen/schreiben" auf `standorte/frankfurt.html` ergänzt — **ohne** die dort angezeigte Sternezahl oder
+Bewertungsanzahl zu übernehmen, da weder `WebFetch` (Domain geblockt) noch eine gezielte `WebSearch` die auf
+der Zielseite tatsächlich gezeigten Werte liefern konnten; reiner Verlinkungs-Button, Besucher sehen die
+echten Zahlen direkt auf der Zielseite. Bewusst nicht in die aggregierten, standortübergreifenden
+Vertrauens-Bereiche übernommen, da der Link nur für Frankfurt vorliegt und dort optisch eine Symmetrie mit
+den anderen 3 Standorten vorgetäuscht hätte, die nicht besteht.
+
 ## Startseiten-CTAs ohne Zentrale-Nummer
 Auf Wunsch des Auftraggebers verlinken die Telefon-CTAs auf `index.html` nicht mehr auf die generische
 Zentrale-Nummer (06047 98 69 15) — die bleibt weiterhin unverändert im Impressum sowie als
