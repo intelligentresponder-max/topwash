@@ -1,4 +1,4 @@
-/* TOPWASH Chat-Assistent — regelbasiert, zweisprachig (DE/EN), kein Backend nötig */
+/* TOP WASH Chat-Assistent — regelbasiert, zweisprachig (DE/EN), kein Backend nötig */
 (function () {
   "use strict";
 
@@ -7,25 +7,25 @@
 
   var STRINGS = {
     de: {
-      title: "TOPWASH Assistent",
+      title: "TOP WASH Assistent",
       subtitle: "Schnelle Antworten auf Ihre Fragen",
       openLabel: "Chat öffnen",
       closeLabel: "Chat schließen",
       placeholder: "Frage eingeben …",
       send: "Senden",
-      greeting: "Hallo! Ich bin der TOPWASH Assistent und beantworte häufige Fragen zu Preisen, Standorten und Öffnungszeiten. Was möchten Sie wissen?",
+      greeting: "Hallo! Ich bin der TOP WASH Assistent und beantworte häufige Fragen zu Preisen, Standorten und Öffnungszeiten. Was möchten Sie wissen?",
       chips: ["Öffnungszeiten", "Preise", "Standorte", "Aktuelle Angebote", "Fahrzeug geeignet?"],
       fallback: "Diese Frage kann ich leider nicht automatisch beantworten. Rufen Sie uns gerne direkt an: <a href=\"" + PHONE_TEL + "\" class=\"underline font-semibold\">" + PHONE_DISPLAY + "</a>, oder schauen Sie in unsere <a href=\"faq.html\" class=\"underline font-semibold\">FAQ</a>.",
       langToggle: "EN"
     },
     en: {
-      title: "TOPWASH Assistant",
+      title: "TOP WASH Assistant",
       subtitle: "Quick answers to your questions",
       openLabel: "Open chat",
       closeLabel: "Close chat",
       placeholder: "Type a question …",
       send: "Send",
-      greeting: "Hi! I'm the TOPWASH Assistant and can answer common questions about prices, locations and opening hours. What would you like to know?",
+      greeting: "Hi! I'm the TOP WASH Assistant and can answer common questions about prices, locations and opening hours. What would you like to know?",
       chips: ["Opening hours", "Prices", "Locations", "Current offers", "Is my car suitable?"],
       fallback: "I can't answer that automatically yet. Feel free to call us directly: <a href=\"" + PHONE_TEL + "\" class=\"underline font-semibold\">" + PHONE_DISPLAY + "</a>, or check our <a href=\"faq.html\" class=\"underline font-semibold\">FAQ</a>.",
       langToggle: "DE"
@@ -61,8 +61,8 @@
         en: ["location", "where are you", "address", "near me", "bad nauheim", "eschborn", "frankfurt", "neu-isenburg"]
       },
       answer: {
-        de: "TOPWASH hat 4 Standorte in Rhein-Main: Bad Nauheim, Eschborn, Frankfurt und Neu-Isenburg. Adressen, Karte &amp; Routenplaner: <a href=\"standorte.html\" class=\"underline font-semibold\">Standorte-Seite</a>.",
-        en: "TOPWASH has 4 locations in the Rhein-Main area: Bad Nauheim, Eschborn, Frankfurt and Neu-Isenburg. Addresses, map &amp; directions: <a href=\"standorte.html\" class=\"underline font-semibold\">Locations page</a>."
+        de: "TOP WASH hat 4 Standorte in Rhein-Main: Bad Nauheim, Eschborn, Frankfurt und Neu-Isenburg. Adressen, Karte &amp; Routenplaner: <a href=\"standorte.html\" class=\"underline font-semibold\">Standorte-Seite</a>.",
+        en: "TOP WASH has 4 locations in the Rhein-Main area: Bad Nauheim, Eschborn, Frankfurt and Neu-Isenburg. Addresses, map &amp; directions: <a href=\"standorte.html\" class=\"underline font-semibold\">Locations page</a>."
       }
     },
     {
@@ -172,7 +172,7 @@
       '<button id="topwash-chat-toggle" aria-label="" class="fixed z-50 right-4 bottom-20 md:bottom-6 w-14 h-14 rounded-full bg-brand-600 text-white shadow-xl grid place-items-center hover:bg-brand-700 transition">' +
         '<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" /></svg>' +
       '</button>' +
-      '<div id="topwash-chat-panel" hidden style="height:min(55vh,420px);display:none" class="fixed z-50 right-4 bottom-20 md:bottom-6 w-[calc(100vw-2rem)] max-w-sm bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden" role="dialog" aria-modal="false" aria-label="TOPWASH Chat">' +
+      '<div id="topwash-chat-panel" hidden style="height:min(55vh,420px);display:none" class="fixed z-50 right-4 bottom-20 md:bottom-6 w-[calc(100vw-2rem)] max-w-sm bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden" role="dialog" aria-modal="false" aria-label="TOP WASH Chat">' +
         '<div class="bg-brand-700 text-white px-4 py-3 flex items-center justify-between">' +
           '<div>' +
             '<p id="topwash-chat-title" class="font-bold leading-tight"></p>' +

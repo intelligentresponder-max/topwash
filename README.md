@@ -582,5 +582,34 @@ Jede der 3 Karten hat jetzt zwei Buttons nebeneinander: „Anrufen" (`tel:`, unv
 dieselbe bereits im Repo vorhandene Test-Nummer aus dem Gutschein-Bestellsystem (`gutschein-shop.html`)
 wiederverwendet — vor Livegang gegen die finale WhatsApp-Business-Nummer austauschen.
 
+## Online-Shop-Vorschau, restliche Anruf-Buttons ersetzt, Markenname repoweit „TOP WASH"
+Nutzer bat um drei zusammenhängende Änderungen: die verbliebenen roten Telefon-Buttons durch einen Link zum Shop
+ersetzen, dafür eine neue Shop-Vorschauseite anlegen, und den Markennamen repoweit von „TOPWASH" auf „TOP WASH"
+umstellen.
+
+**Rote Buttons**: Site-weit systematisch alle rot gestylten (`bg-red-600`/`mobile-cta-bar__item--danger`)
+Telefon-Buttons ermittelt. Außer den 3 bereits um WhatsApp ergänzten Angebotskarten-Buttons gab es nur 2 weitere,
+beide auf `angebote.html` — beide jetzt durch einen Shop-Button ersetzt. Der blaue Header-Telefonlink, die reinen
+Kontakt-Telefonnummern auf den Standort-Seiten sowie `jobs.html`s Bewerbungs-Anruf-Button (anderer Kontext)
+blieben unangetastet.
+
+**`online-shop.html` (neu)**: Vorschau-Seite mit deutlichem Hinweis-Banner direkt unter dem Hero, dass die
+Online-Zahlung (Stripe) noch nicht verfügbar ist. Produktraster mit den 5 echten Waschprogrammen (Preise aus
+`preise.html`) und der real bestätigten 5er-Waschkarte (48 €). Für Wertkarten/Waschabos bewusst kein Preis
+erfunden (im Repo nicht beziffert) — „Betrag frei wählbar" / „Details in Kürze" verwendet. Die „Online
+kaufen"-Buttons verlinken (statt erfundener, potenziell zu einer 404-Seite führender `buy.stripe.com`-URLs) per
+Anker zurück auf das Hinweis-Banner — technisch verlinkt, aber ohne irreführenden externen Absprung. Zusätzlich
+wird der bereits real funktionierende WhatsApp-Gutschein-Konfigurator (`gutschein-shop.html`) als „✓ Schon heute
+bestellbar" hervorgehoben. Der bestehende Countdown-Beitrag `blog/online-shop-eroeffnung.html` verlinkt jetzt auf
+diese Vorschau. „Shop" wurde als neuer Eintrag in die Hauptnavigation aller Seiten aufgenommen und in
+`sitemap.xml` ergänzt.
+
+**Markenname „TOPWASH" → „TOP WASH"**: Alle 216 Vorkommen der Großschreibung „TOPWASH" repoweit (26 Dateien,
+`chat.js`/`theme-config.js` eingeschlossen) automatisiert ersetzt — geprüft, dass der Begriff nie mit direkt
+angehängten Buchstaben auftritt und keine echten URLs/Pfade/technische IDs betroffen sind (die lowercase-ID
+`topwash-chat-panel` sowie der GitHub-Pages-Pfad `/topwash/` blieben unverändert). Eine dabei entstandene
+Fehlerquelle behoben: die 3 vorausgefüllten WhatsApp-Nachrichten auf `angebote.html` hätten sonst ein rohes,
+ungültiges Leerzeichen mitten in der bereits Prozent-kodierten URL enthalten — auf `TOP%20WASH` korrigiert.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
