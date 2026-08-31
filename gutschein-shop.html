@@ -465,11 +465,12 @@
   }
 
   function processOrder() {
-    // TODO(vor Livegang): echte WhatsApp-Bestellnummer eintragen.
-    // Nutzer hat die im ursprünglichen Entwurf enthaltene Nummer als
-    // unbestätigt zurückgewiesen -- Platzhalter, damit keine echten
-    // Bestellungen an eine falsche/erfundene Nummer gehen.
-    const phone = "491700000000"; // PLATZHALTER - NICHT ECHT
+    // TODO(vor Livegang): mit der echten TOPWASH-Bestellnummer ersetzen.
+    // Aktuell testweise die vom Auftraggeber selbst genannte private
+    // Mobilnummer hinterlegt (siehe Fehlerprotokoll) -- ausdrücklich
+    // nur für Tests, wird vor Livegang gegen die echte Geschäftsnummer
+    // getauscht.
+    const phone = "491632692255"; // TEST-NUMMER (Auftraggeber), noch nicht die finale Geschäftsnummer
 
     let message = `Hallo Topwash-Team! Ich möchte einen Kombi-Gutschein bestellen:\n\n`;
     message += `*Gutschein-ID:* ${uniqueId}\n`;
