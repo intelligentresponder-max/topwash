@@ -378,5 +378,21 @@ entspricht der von Beginn an geltenden Vorgabe „kein 1:1-Content-Klon, alle Te
 „Jobs" wurde in die Hauptnavigation aller Seiten mit vollständigem Header (vor „FAQ"), in die mobile
 Menüleiste und den Footer von `index.html` sowie in `sitemap.xml` aufgenommen.
 
+## Über-uns-Galerie (`ueber-uns.html`)
+Nutzer schickte 12 Fotos der echten TOP-WASH-Anlage (Außenansicht, Handvorwäsche, Bürstenwäsche im Tunnel,
+SB-Waschboxen) mit der Bitte, sie im Header-Bereich als Vorschau-Artikel einzubinden. Da sowohl der
+angekündigte Artikeltext als auch ein konkreter Verwendungsort für die Fotos fehlten, wurde vorab per
+`AskUserQuestion` nachgefragt statt geraten — Ergebnis: Fotos auf eine neue Galerie-/Über-uns-Seite, Artikeltext
+wird separat nachgereicht. `ueber-uns.html` zeigt die 12 Fotos in einem Karten-Grid mit rein beschreibenden
+Bildunterschriften, die ausschließlich auf bereits bestätigten Fakten beruhen (der 3-Schritte-Waschprozess von
+der Startseite, Verweis auf den bestehenden SB-Waschboxen-Blogbeitrag statt einer eigenen Standort-Behauptung)
+— **keine neue Firmengeschichte oder Gründungsjahr erfunden**, da dazu keine bestätigten Fakten vorliegen.
+
+„Über uns" wurde in die Hauptnavigation der 14 Seiten mit dem üblichen 6-Punkte-Header aufgenommen (vor
+„Jobs"). Auf `index.html` bewusst **nur** in mobiles Menü und Footer aufgenommen, nicht in die Desktop-Nav:
+die Startseiten-Nav hat mit „Bewertungen" und „Blog" bereits 8 statt 6 Punkte und lag bei einem
+Playwright-Breitentest bei 768 px praktisch ohne Puffer zum „Standort finden"-Button — ein neunter Punkt hätte
+dort mit hoher Wahrscheinlichkeit überlappt.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
