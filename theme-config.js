@@ -1,4 +1,4 @@
-// TOPWASH — geteilte Tailwind-Konfiguration (Marken-Blau).
+// TOP WASH — geteilte Tailwind-Konfiguration (Marken-Blau).
 // Muss NACH dem Tailwind-CDN-Script geladen werden, siehe Einbindung in jeder Seite.
 // Ersetzt das bisher auf jeder Seite identisch wiederholte <script>tailwind.config = ...</script>.
 // Die Farbwerte sind identisch zu den CSS-Variablen in theme.css (dort maßgeblich).
