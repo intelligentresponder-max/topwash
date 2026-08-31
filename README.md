@@ -507,5 +507,28 @@ vorhandene Fotos wiederverwendet statt neuer Bilder. Cross-Links zu den bestehen
 **Nebenbei behoben**: `blog/glanz-werterhalt-autopflege.html` fehlte in der Footer-Spalte „Wissen & Technik"
 auf `index.html` (offenbar bei diesem PR übersehen) — zusammen mit dem neuen Beitrag nachgetragen.
 
+## Site-weiter Alt-Text-Audit nach 2026er Image-SEO-Regeln
+Nutzer bestätigte den Standort eines bereits verwendeten Fotos (SB-Waschboxen = Bad Nauheim, 4 Boxen) und bat,
+alle Bilder site-weit mit passenden Alt-Texten zu versehen sowie die „KI-SEO-Regeln 2026" zu prüfen. Per
+`WebSearch` aktuelle Richtlinien recherchiert statt aus dem Gedächtnis zu urteilen: 80–125 Zeichen (Screenreader
+brechen bei ca. 125 Zeichen ab), spezifisch und faktisch, genau ein natürlich eingebundenes Keyword, **kein**
+Keyword-Stuffing (2026 als Spam-Signal gewertet), `ImageObject`-Schema für KI-Zitierfähigkeit. Laut Google ist
+keine `llms.txt` nötig — bewusst nicht angelegt.
+
+Alle `<img>`-Tags site-weit ausgewertet. Logo (`logo-top-wash.png`, ~24× verwendet) bewusst **nicht** auf
+80+ Zeichen aufgebläht — für ein Marken-/Navigations-Logo ist eine kurze, prägnante Beschreibung weiterhin
+Standard, eine künstliche Verlängerung wäre selbst eine Form von Stuffing. 9 Content-Bilder mit zu kurzem oder
+generischem Alt-Text angehoben (`angebote.html`, mehrere Hero-/Prozess-Bilder auf `index.html`, mehrere
+Galerie-Bilder auf `ueber-uns.html`) — jedes Bild vor der Neuformulierung erneut visuell geprüft, um keine
+unbestätigten Details zu erfinden. `sb-waschboxen-aussenansicht.jpg` an beiden Verwendungsstellen (`ueber-uns.html`,
+`blog/beste-autowaesche-im-vergleich.html`) jetzt explizit als „Bad Nauheim" beschriftet.
+
+**Bewusst nicht umgesetzt**: Konvertierung aller Bilder auf WebP/AVIF (ebenfalls Teil der 2026-Empfehlungen) —
+das wäre eine größere technische Umstellung (Neucodierung aller ~24 Bilddateien, Anpassung aller Referenzen)
+außerhalb des Auftrags „Bilder beschriften"; als Empfehlung für ein separates Vorhaben vermerkt.
+`ImageObject`-Schema für die `AutoWash`-Einträge der Standort-Seiten ebenfalls nicht ergänzt, da dort aktuell
+keine echten Standort-Fotos existieren (nur das gemeinsame Logo) — ein unpassendes Bildschema wäre schlechter
+als keins.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
