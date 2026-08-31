@@ -206,8 +206,13 @@ wissen"-Liste.
 ## Bewertungen-Sektion (`index.html#bewertungen`)
 Zeigt die bereits an anderer Stelle (`angebote.html`, „VERTRAUEN"-Sektion) bestätigten Kennzahlen — ★ 4,5/5,
 651 Google-Bewertungen, ADAC-Testnote „GUT", hr-Testsieger „Textile Autowaschstraßen" — kompakt gebündelt auf
-der Startseite, mit zwei Buttons zum echten Google-Maps-Eintrag (`https://maps.app.goo.gl/EVwrtbTB2TpMaKg87`,
-vom Auftraggeber bestätigt). Nav-Link „Bewertungen" (Desktop + Mobile) sowie Anker-Eintrag in der
+der Startseite, mit je einem eigenen „Bewertung ansehen/schreiben"-Button pro Standort (jeder Standort hat ein
+eigenes Google-Unternehmensprofil mit eigenen Bewertungen): Bad Nauheim (`https://maps.app.goo.gl/WqC9jzkMd1pfiKLB9`),
+Eschborn (`https://maps.app.goo.gl/PSLt6REL7yTegZ5X6`), Neu-Isenburg (`https://maps.app.goo.gl/6NA7nce9eVcJBa6G6`),
+Frankfurt (`https://maps.app.goo.gl/EVwrtbTB2TpMaKg87`) — alle vom Auftraggeber bestätigt. **Ursprünglich (PR #21)
+gab es nur einen einzigen, globalen Link (den Frankfurt-Link) für alle 4 Standorte** — vom Auftraggeber nach dem
+Merge als Fehler gemeldet (Bewertungen aller Standorte wären fälschlich Frankfurt zugeordnet worden) und in PR #22
+auf die 4 standortspezifischen Links korrigiert. Nav-Link „Bewertungen" (Desktop + Mobile) sowie Anker-Eintrag in der
 `scroll-margin-top`-Liste ergänzt. Bewusst NICHT umgesetzt aus einem vom Nutzer vorgelegten Widget-Entwurf:
 zwei namentlich zugeordnete Kundenzitate („Juan Ignacio", „Steve C.") — unverifiziert, auf Nachfrage vom
 Nutzer selbst zum Weglassen entschieden; ein referenziertes Logo-Asset (`assets/logos/google-g.svg`), das im
