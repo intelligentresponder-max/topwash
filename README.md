@@ -236,5 +236,41 @@ Telefonnummer dieses Standorts statt der zentralen Nummer. Alle internen Verweis
 der Standort-Link im SB-Waschboxen-Blogbeitrag) wurden auf die neuen Einzelseiten umgestellt; `sitemap.xml` um
 die 4 neuen URLs ergänzt.
 
+## Startseiten-CTAs ohne Zentrale-Nummer
+Auf Wunsch des Auftraggebers verlinken die Telefon-CTAs auf `index.html` nicht mehr auf die generische
+Zentrale-Nummer (06047 98 69 15) — die bleibt weiterhin unverändert im Impressum sowie als
+standortunabhängige Anruf-CTA auf allen anderen Seiten (Standort-Unterseiten haben ohnehin ihre eigene
+Nummer, siehe oben). Konkret auf `index.html`: der Telefon-Link im Desktop-Header wurde entfernt (die
+„Standort finden"-Schaltfläche daneben deckt denselben Zweck bereits ab), das Telefon-Icon im mobilen Header
+wurde durch ein Standort-Icon ersetzt (führt zu `standorte.html`), und der linke Button der mobilen
+Sticky-CTA-Leiste unten wurde von „Anrufen" (Zentrale) zu „🔥 Angebote" geändert — passend zum bereits auf
+allen anderen Seiten verwendeten Anrufen-/Angebote-Muster, nur dass hier statt eines Zentrale-Anrufs auf
+Angebote verwiesen wird; der rechte Button „Standort" blieb unverändert.
+
+## Blog-Verlinkung & SEO-Check (`blog/die-top-wash-formel.html`)
+Der Pillar-Blogbeitrag war bereits über einen Hero-Teaser-Link und die Footer-Spalte „Wissen & Technik" von der
+Startseite aus erreichbar — beide leicht zu übersehen. Zusätzlich einen „Blog"-Eintrag in die Haupt-Navigation
+(Desktop + Mobile) von `index.html` aufgenommen für bessere Sichtbarkeit und internes Linking.
+
+Auf ausdrücklichen Wunsch die SEO der Seite geprüft und folgende, ausschließlich technische (keine
+Fakten-)Korrekturen vorgenommen:
+- **Title zu lang** (77 statt der im Projekt selbst verwendeten Zielgrenze von ≤60 Zeichen, wäre in Google-
+  Suchergebnissen abgeschnitten worden) → gekürzt auf „Die Top Wash Formel: Sicherer als Handwäsche – TOPWASH"
+  (54 Zeichen).
+- **Meta-Description zu lang** (172 statt ≤155 Zeichen) → gekürzt auf 144 Zeichen, Kerninhalt erhalten.
+- **Keine Open-Graph-/Twitter-Card-Tags** → ergänzt (`og:title`, `og:description`, `og:image`, `og:url`,
+  `og:type`, `og:site_name`, `og:locale`, `twitter:card` etc.), damit geteilte Links (WhatsApp, Facebook, X)
+  eine korrekte Vorschau zeigen statt gar keiner.
+- **Kein strukturiertes Daten-Markup** → `BlogPosting`-JSON-LD ergänzt (Headline, Description, Bild, Autor/
+  Publisher, `mainEntityOfPage`). `datePublished`/`dateModified` stammen aus den echten Git-Commit-Zeitstempeln
+  dieser Datei (PR #17 bzw. #20) — bewusst kein erfundenes Datum.
+- **`robots.txt` fehlte im gesamten Repo** → ergänzt (`Allow: /` + Verweis auf `sitemap.xml`), verbessert die
+  Crawlbarkeit aller Seiten, nicht nur des Blogbeitrags.
+
+**Nicht umgesetzt, nur als Befund gemeldet** (da siteweit und ein zusätzlicher visueller Design-Entscheid nötig
+wäre, außerhalb des Umfangs eines reinen SEO-„Checks"): Der gesamten Seite fehlt ein Favicon
+(`<link rel="icon">`) — kein einziges HTML-Dokument im Repo referenziert eines. Sollte aus dem echten Logo
+erzeugt werden, wenn gewünscht.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
