@@ -611,5 +611,12 @@ angehängten Buchstaben auftritt und keine echten URLs/Pfade/technische IDs betr
 Fehlerquelle behoben: die 3 vorausgefüllten WhatsApp-Nachrichten auf `angebote.html` hätten sonst ein rohes,
 ungültiges Leerzeichen mitten in der bereits Prozent-kodierten URL enthalten — auf `TOP%20WASH` korrigiert.
 
+## WhatsApp-Testnummer korrigiert
+Nutzer meldete einen Tippfehler in der hinterlegten WhatsApp-Testnummer: korrekt ist `491634692255` (statt
+`491632692255`). An allen 4 Stellen korrigiert (3× `angebote.html`, 1× `gutschein-shop.html`). Der Kommentar
+„TEST-NUMMER, noch nicht die finale Geschäftsnummer" bleibt bestehen — nur die Ziffern wurden korrigiert. Nebenbei
+eine weitere Altlast behoben: die WhatsApp-Bestellnachricht in `gutschein-shop.html` begann mit gemischt
+geschriebenem „Hallo Topwash-Team!" — auf „TOP WASH-Team!" vereinheitlicht.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
