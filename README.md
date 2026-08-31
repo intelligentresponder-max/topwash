@@ -16,6 +16,7 @@ Statische Website (Jamstack, GitHub-Pages-tauglich) für TOPWASH – textile Aut
 | `preise.html` | Vollständiger Vergleich der 5 Waschprogramme |
 | `faq.html` | Ausführliches FAQ (Ablauf, Fahrzeugeignung, Haftung, Bezahlung) |
 | `impressum.html`, `datenschutz.html`, `agb.html` | Rechtstexte |
+| `blog/die-top-wash-formel.html` | USP-Pillar-Beitrag „Die Top Wash Formel" (Schmirgel-Effekt, Faktor Mensch, High-Tech Finish, SB-Boxen) |
 | `chat.js` | Zweisprachiger (DE/EN) Chat-Assistent, auf jeder Seite eingebunden |
 
 ## Chat-Assistent (`chat.js`)
@@ -140,6 +141,23 @@ für sanftes Scrollen, `scroll-margin-top: 65px` verhindert, dass der Sticky-Hea
 Tailwind-Klassen berechnet, nicht geschätzt. **Wichtig für die QR-Codes selbst**: müssen exakt auf
 `https://intelligentresponder-max.github.io/topwash/#<id>` zeigen (Groß-/Kleinschreibung beachten), sonst
 landen Scans nicht am richtigen Abschnitt.
+
+## Blog: „Die Top Wash Formel" (`blog/die-top-wash-formel.html`)
+USP-Pillar-Beitrag nach Vorgabe des Auftraggebers (vier Abschnitte: Schmirgel-Effekt, Faktor Mensch, High-Tech
+Finish, SB-Integration). Verlinkt per neuer Footer-Sektion „Wissen &amp; Technik" auf `index.html` sowie per
+Quick-Link-Box zurück auf die Anker `#vorreinigung`, `#programme` und `#highlights` der Startseite (bewusst
+verlinkt statt dupliziert, um nicht zwei getrennt zu pflegende Quellen für dieselbe Information zu schaffen).
+
+**Wichtig – Abweichung von der Vorgabe:** Die Vorgabe beschrieb die Vorwäsche als „Einsprühen → Abdampfen →
+Bürsten" – exakt dieselbe Formulierung, die bereits einmal zuvor per ähnlicher Nachricht kam und dem echten
+Video-Transkript widersprach (siehe Fehlerprotokoll). Da diese Entscheidung („Video-Transkript bleibt
+maßgeblich") bereits getroffen war, wurde hier ohne erneute Rückfrage die bestätigte, transkriptbasierte
+Beschreibung verwendet.
+
+**Neue, ungeprüfte Tatsachenbehauptung bestätigt:** Die „überdachten SB-Boxen" am Standort Bad Nauheim waren
+bislang in keiner bestätigten Quelle erwähnt – vor Veröffentlichung per Rückfrage vom Auftraggeber als real
+bestätigt. Der Blogtext beschreibt bewusst nur die Existenz und den Zweck, keine darüber hinausgehenden Details
+(Preise, genaue Ausstattung), da nur die Existenz bestätigt wurde.
 
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
