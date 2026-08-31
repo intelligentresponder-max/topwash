@@ -12,7 +12,8 @@ Statische Website (Jamstack, GitHub-Pages-tauglich) für TOPWASH – textile Aut
 |---|---|
 | `index.html` | Startseite: Hero, Standort-Schnellauswahl, Prozess, Preisübersicht, Hinweise, FAQ-Auszug |
 | `angebote.html` | Lead-Landingpage mit 3 Knallerpreisen (Neukunden-, Montags- und Vielfahrer-Angebot) |
-| `standorte.html` | Alle 4 Standorte mit Adresse, Öffnungszeiten, Karte |
+| `standorte.html` | Standort-Übersicht (Kurzkarten), verlinkt auf die 4 Standort-Einzelseiten |
+| `standorte/bad-nauheim.html`, `standorte/eschborn.html`, `standorte/neu-isenburg.html`, `standorte/frankfurt.html` | Eigenständige Standort-Seiten: Adresse, Öffnungszeiten, Route, Karte, standorteigener Google-Bewertungslink, eigenes `<title>`/Meta/Canonical + `AutoWash`-JSON-LD (lokales SEO) |
 | `preise.html` | Vollständiger Vergleich der 5 Waschprogramme |
 | `faq.html` | Ausführliches FAQ (Ablauf, Fahrzeugeignung, Haftung, Bezahlung) |
 | `impressum.html`, `datenschutz.html`, `agb.html` | Rechtstexte |
@@ -220,6 +221,20 @@ Repo nicht existiert und dessen Pfadkonvention (`assets/logos/`) auch nicht zum 
 passt; sowie ein Platzhalter-Link mit `placeid=IHRE_PLACE_ID` — durch den echten, vom Auftraggeber gelieferten
 Maps-Link ersetzt. Keine `AggregateRating`-JSON-LD ergänzt, da dafür ein vollständiges, korrekt verknüpftes
 `LocalBusiness`-Schema nötig wäre, das `index.html` bisher nicht hat — außerhalb des Umfangs dieser Änderung.
+
+## Eigene Standort-Seiten (`standorte/*.html`)
+Auf Wunsch des Auftraggebers wurden die bisher als Anker-Karten innerhalb einer Seite (`standorte.html#bad-nauheim`
+usw.) geführten 4 Standorte in eigenständige Unterseiten mit eigener URL umgewandelt, um lokale Suchanfragen wie
+„Autowaschstraße Bad Nauheim" gezielter zu bedienen: eigenes `<title>`, eigene Meta-Description und Canonical-URL
+pro Standort sowie ein `AutoWash`-JSON-LD-Block (Adresse, Telefon, Öffnungszeiten — ausschließlich bereits
+bestätigte Daten, keine `aggregateRating`, da nur die unternehmensweite Gesamtzahl 651 Google-Bewertungen bekannt
+ist, nicht die Aufteilung je Standort). `standorte.html` ist jetzt eine reine Übersichtsseite mit 4 Kurzkarten,
+die auf die Einzelseiten verlinken. Jede Standort-Seite bekommt zusätzlich ihren eigenen, standortspezifischen
+Google-Bewertungslink (siehe „Bewertungen-Sektion" oben) sowie in der mobilen Sticky-CTA-Leiste die direkte
+Telefonnummer dieses Standorts statt der zentralen Nummer. Alle internen Verweise auf die alten
+`standorte.html#anker`-Adressen (Standort-Schnellauswahl auf `index.html`, Footer-Links, `angebote.html`-Karten,
+der Standort-Link im SB-Waschboxen-Blogbeitrag) wurden auf die neuen Einzelseiten umgestellt; `sitemap.xml` um
+die 4 neuen URLs ergänzt.
 
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
