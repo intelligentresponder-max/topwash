@@ -638,5 +638,23 @@ echte, später nachgereichte Fotos einfach ergänzt werden können. Cross-Links 
 zweifelsfrei von einem Sandbox-Ladeproblem unterscheiden — beide Dateien sicherheitshalber auf das bereits
 bewährte `<span>`-Muster vereinheitlicht.
 
+## Echtes Video vom Standort Neu-Isenburg auf der Startseite
+Nutzer lud eine echte MP4-Datei vom Standort Neu-Isenburg hoch (28,4 s, 1920×1080, H.264, 11,5 MB, ohne Ton) und
+schickte zusätzlich eine Code-Vorlage für einen YouTube-Link mit unbrauchbarem Platzhaltertext
+(„HIER-YOUTUBE-ID-EINFUEGEN") statt einer echten Video-ID. Diese Vorlage wurde bewusst **nicht** übernommen — ein
+Link mit nicht ersetzter Platzhalter-ID wäre live schlicht kaputt gewesen, aus demselben Grund, aus dem zuvor auch
+keine erfundenen `buy.stripe.com`-Links verwendet wurden. Stattdessen die tatsächlich vorhandene Datei direkt
+eingebettet (`videos/neu-isenburg-eindruecke.mp4`, natives `<video controls preload="metadata">`).
+
+**Faststart-Fix**: Die Originaldatei hatte den `moov`-Atom (Metadaten) am Dateiende statt am Anfang (typisch für
+unbearbeitete Kamera-/Handyaufnahmen) — per `ffmpeg -c copy -movflags +faststart` verlustfrei auf Web-optimiertes
+Faststart-Layout umgemuxt.
+
+**Sandbox-Hinweis**: Playwright/Chromium konnte die Wiedergabe in dieser Sandbox nicht verifizieren
+(`video.canPlayType()` bestätigt: der hier installierte Chromium-Build unterstützt H.264 gar nicht, nur VP8/VP9) —
+das betrifft nur diesen Test-Build, nicht echte Chrome-/Safari-/Firefox-/Edge-Installationen. Die Datei selbst
+wurde stattdessen strukturell verifiziert (`ffprobe`: sauberer H.264-Codec; Byte-Inspektion: korrektes
+Faststart-Layout).
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
