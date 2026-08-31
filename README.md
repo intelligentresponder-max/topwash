@@ -17,6 +17,7 @@ Statische Website (Jamstack, GitHub-Pages-tauglich) für TOPWASH – textile Aut
 | `faq.html` | Ausführliches FAQ (Ablauf, Fahrzeugeignung, Haftung, Bezahlung) |
 | `impressum.html`, `datenschutz.html`, `agb.html` | Rechtstexte |
 | `blog/die-top-wash-formel.html` | USP-Pillar-Beitrag „Die Top Wash Formel" (Schmirgel-Effekt, Faktor Mensch, High-Tech Finish, SB-Boxen) |
+| `blog/online-shop-eroeffnung.html` | Ankündigung Online-Shop (Wertkarten/Waschabos), mit echtem Countdown bis 1.10.2026 |
 | `chat.js` | Zweisprachiger (DE/EN) Chat-Assistent, auf jeder Seite eingebunden |
 
 ## Chat-Assistent (`chat.js`)
@@ -158,6 +159,15 @@ Beschreibung verwendet.
 bislang in keiner bestätigten Quelle erwähnt – vor Veröffentlichung per Rückfrage vom Auftraggeber als real
 bestätigt. Der Blogtext beschreibt bewusst nur die Existenz und den Zweck, keine darüber hinausgehenden Details
 (Preise, genaue Ausstattung), da nur die Existenz bestätigt wurde.
+
+## Blog: „Online-Shop kommt" (`blog/online-shop-eroeffnung.html`)
+Ankündigt, dass Wertkarten und Waschabos (bisher nur vor Ort erhältlich) ab **1. Oktober 2026** auch online
+kaufbar sein sollen – ein reales, vom Auftraggeber direkt genanntes Datum, kein Fall der zuvor im Projekt
+abgelehnten Fake-Dringlichkeit. Der Countdown oben im Beitrag berechnet die verbleibenden Tage rein clientseitig
+(`new Date(2026, 9, 1)` minus aktuelles Datum) und zeigt nach dem Stichtag automatisch „Ab sofort verfügbar"
+statt einer negativen Zahl – so bleibt die Seite auch ohne manuelles Update nach dem Start korrekt. Verlinkt in
+der Footer-Sektion „Wissen &amp; Technik" sowie direkt bei der Wertkarten-Erwähnung in `preise.html`s „Gut zu
+wissen"-Liste.
 
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
