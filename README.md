@@ -37,7 +37,9 @@ werden per Stichwort-Abgleich (Deutsch/Englisch) den vorhandenen Website-Inhalte
 Öffnungszeiten, Angebote, Fahrzeugeignung, Wartezeit, Haftung, Zahlung, Kontakt, Ablauf); bei keinem Treffer wird
 auf Telefonnummer und FAQ verwiesen. Die Sprache wird beim ersten Öffnen automatisch aus `navigator.language`
 erkannt und ist per Umschalter (DE/EN) im Chat-Header jederzeit wechselbar; die Wahl wird in `localStorage`
-gemerkt. Wissensbasis in `chat.js` (`KB`-Array) erweitern, um neue Themen zu ergänzen.
+gemerkt. Beim Umschalten wird der **gesamte bisherige Gesprächsverlauf** in die neue Sprache neu gerendert (nicht
+nur neue Nachrichten) – jede Nachricht wird intern sprachunabhängig gespeichert und beim Sprachwechsel aus der
+`KB`/`STRINGS`-Datenbasis neu aufgelöst. Wissensbasis in `chat.js` (`KB`-Array) erweitern, um neue Themen zu ergänzen.
 
 ## Lead-Fokus
 Auf allen Seiten: click-to-call-Button im Header (Desktop + mobiles Icon), rot hervorgehobener „Angebote"-Link in

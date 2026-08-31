@@ -208,6 +208,12 @@
     var inputEl = document.getElementById("topwash-chat-input");
 
     var greeted = false;
+    // Records every message as language-independent data (a KB topic index,
+    // "greeting"/"fallback", or literal user text) so the whole conversation
+    // can be re-rendered in the new language when the user toggles DE/EN —
+    // otherwise only newly-added messages would switch, while everything
+    // already on screen stayed in the old language.
+    var history = [];
 
     function addMessage(html, from) {
       var bubble = document.createElement("div");
@@ -216,6 +222,29 @@
         : "mr-auto max-w-[85%] bg-slate-100 text-slate-800 rounded-2xl rounded-bl-sm px-3.5 py-2";
       bubble.innerHTML = html;
       messagesEl.appendChild(bubble);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function renderEntry(entry) {
+      if (entry.from === "user") {
+        addMessage(escapeHtml(entry.text), "user");
+      } else if (entry.kind === "greeting") {
+        addMessage(STRINGS[lang].greeting, "bot");
+      } else if (entry.kind === "fallback") {
+        addMessage(STRINGS[lang].fallback, "bot");
+      } else {
+        addMessage(KB[entry.kind].answer[lang], "bot");
+      }
+    }
+
+    function pushMessage(entry) {
+      history.push(entry);
+      renderEntry(entry);
+    }
+
+    function rerenderHistory() {
+      messagesEl.innerHTML = "";
+      history.forEach(renderEntry);
       messagesEl.scrollTop = messagesEl.scrollHeight;
     }
 
@@ -248,11 +277,11 @@
 
     function handleUserInput(text, chipIndex) {
       if (!text.trim()) return;
-      addMessage(escapeHtml(text), "user");
+      pushMessage({ from: "user", text: text });
       inputEl.value = "";
       var topic = typeof chipIndex === "number" ? KB[chipIndex] : matchTopic(text, lang);
-      var reply = topic ? topic.answer[lang] : STRINGS[lang].fallback;
-      setTimeout(function () { addMessage(reply, "bot"); }, 250);
+      var kind = topic ? KB.indexOf(topic) : "fallback";
+      setTimeout(function () { pushMessage({ from: "bot", kind: kind }); }, 250);
     }
 
     function escapeHtml(str) {
@@ -274,7 +303,7 @@
       toggleBtn.style.display = "none";
       if (!greeted) {
         applyLang();
-        addMessage(STRINGS[lang].greeting, "bot");
+        pushMessage({ from: "bot", kind: "greeting" });
         greeted = true;
       }
     }
@@ -291,7 +320,8 @@
     langBtn.addEventListener("click", function () {
       lang = lang === "de" ? "en" : "de";
       applyLang();
-      addMessage(STRINGS[lang].greeting, "bot");
+      rerenderHistory();
+      pushMessage({ from: "bot", kind: "greeting" });
     });
     formEl.addEventListener("submit", function (e) {
       e.preventDefault();
