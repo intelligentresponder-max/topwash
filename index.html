@@ -29,7 +29,7 @@
   details[open] .accordion-icon { transform: rotate(45deg); }
   /* QR-Leitsystem-Ankerpunkte: Offset = sticky Header (h-16 = 64px) + border-b (1px) = 65px,
      berechnet aus den tatsächlich verwendeten Tailwind-Klassen, nicht geschätzt. */
-  #home, #vorreinigung, #programme, #highlights, #standort, #prozess { scroll-margin-top: 65px; }
+  #home, #vorreinigung, #programme, #highlights, #standort, #prozess, #bewertungen { scroll-margin-top: 65px; }
   .hero-slide { transition: opacity 1s ease-in-out; }
   .hero-slideshow-dot { width: 8px; height: 8px; border-radius: 9999px; background: rgba(255,255,255,0.5); cursor: pointer; border: none; padding: 0; }
   .hero-slideshow-dot.active { background: #fff; }
@@ -56,6 +56,7 @@
         <a href="standorte.html" class="hover:text-brand-700">Standorte</a>
         <a href="preise.html" class="hover:text-brand-700">Preise</a>
         <a href="#prozess" class="hover:text-brand-700">So funktioniert's</a>
+        <a href="#bewertungen" class="hover:text-brand-700">Bewertungen</a>
         <a href="faq.html" class="hover:text-brand-700">FAQ</a>
       </nav>
       <div class="hidden md:flex items-center gap-4">
@@ -79,6 +80,7 @@
       <a href="standorte.html" class="py-1">Standorte</a>
       <a href="preise.html" class="py-1">Preise</a>
       <a href="#prozess" class="py-1">So funktioniert's</a>
+      <a href="#bewertungen" class="py-1">Bewertungen</a>
       <a href="faq.html" class="py-1">FAQ</a>
     </nav>
   </div>
@@ -332,6 +334,34 @@
       </div>
       <h3 class="font-bold text-lg">Textile Poliertrocknung</h3>
       <p class="mt-2 text-slate-600 text-sm">Nach den Gebläsen sorgt eine abschließende Textiltrocknung nicht nur für Streifenfreiheit, sondern zusätzlich für Politur-Effekt – bei jeder Wäsche inklusive.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BEWERTUNGEN ===== -->
+<section id="bewertungen" class="bg-slate-50 border-y border-slate-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+    <h2 class="text-3xl font-extrabold text-slate-900">Bewertungen unserer Kunden</h2>
+    <p class="mt-3 text-slate-600 max-w-2xl mx-auto">Nachlesbar direkt bei Google – hier sehen Sie, wie unsere Kunden TOPWASH bewerten.</p>
+
+    <div class="mt-8 inline-flex flex-col sm:flex-row items-center gap-6 rounded-2xl border border-slate-200 bg-white px-8 py-6 shadow-sm">
+      <div>
+        <p class="text-4xl font-extrabold text-slate-900">4,5<span class="text-xl text-slate-400 font-semibold">/5</span></p>
+        <p class="mt-1 text-amber-500 text-xl tracking-wide" aria-hidden="true">★★★★★</p>
+        <p class="mt-1 text-sm text-slate-500">651 Google-Bewertungen</p>
+      </div>
+      <div class="hidden sm:block w-px h-16 bg-slate-200" aria-hidden="true"></div>
+      <div class="text-left">
+        <p class="font-bold text-slate-900">ADAC Test Waschstraßen</p>
+        <p class="text-sm text-slate-600">Gesamtnote „GUT"</p>
+        <p class="mt-2 font-bold text-slate-900">hr-Testsieger</p>
+        <p class="text-sm text-slate-600">„Textile Autowaschstraßen"</p>
+      </div>
+    </div>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <a href="https://maps.app.goo.gl/EVwrtbTB2TpMaKg87" target="_blank" rel="noopener" class="inline-flex items-center rounded-full bg-brand-600 text-white px-6 py-3 font-semibold hover:bg-brand-700 transition">Alle Bewertungen auf Google ansehen</a>
+      <a href="https://maps.app.goo.gl/EVwrtbTB2TpMaKg87" target="_blank" rel="noopener" class="inline-flex items-center rounded-full border border-slate-300 text-slate-700 px-6 py-3 font-semibold hover:bg-slate-100 transition">Eigene Bewertung schreiben</a>
     </div>
   </div>
 </section>
