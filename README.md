@@ -195,5 +195,18 @@ statt einer negativen Zahl – so bleibt die Seite auch ohne manuelles Update na
 der Footer-Sektion „Wissen &amp; Technik" sowie direkt bei der Wertkarten-Erwähnung in `preise.html`s „Gut zu
 wissen"-Liste.
 
+## Bewertungen-Sektion (`index.html#bewertungen`)
+Zeigt die bereits an anderer Stelle (`angebote.html`, „VERTRAUEN"-Sektion) bestätigten Kennzahlen — ★ 4,5/5,
+651 Google-Bewertungen, ADAC-Testnote „GUT", hr-Testsieger „Textile Autowaschstraßen" — kompakt gebündelt auf
+der Startseite, mit zwei Buttons zum echten Google-Maps-Eintrag (`https://maps.app.goo.gl/EVwrtbTB2TpMaKg87`,
+vom Auftraggeber bestätigt). Nav-Link „Bewertungen" (Desktop + Mobile) sowie Anker-Eintrag in der
+`scroll-margin-top`-Liste ergänzt. Bewusst NICHT umgesetzt aus einem vom Nutzer vorgelegten Widget-Entwurf:
+zwei namentlich zugeordnete Kundenzitate („Juan Ignacio", „Steve C.") — unverifiziert, auf Nachfrage vom
+Nutzer selbst zum Weglassen entschieden; ein referenziertes Logo-Asset (`assets/logos/google-g.svg`), das im
+Repo nicht existiert und dessen Pfadkonvention (`assets/logos/`) auch nicht zum bestehenden `images/`-Schema
+passt; sowie ein Platzhalter-Link mit `placeid=IHRE_PLACE_ID` — durch den echten, vom Auftraggeber gelieferten
+Maps-Link ersetzt. Keine `AggregateRating`-JSON-LD ergänzt, da dafür ein vollständiges, korrekt verknüpftes
+`LocalBusiness`-Schema nötig wäre, das `index.html` bisher nicht hat — außerhalb des Umfangs dieser Änderung.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
