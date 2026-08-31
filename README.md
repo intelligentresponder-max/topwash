@@ -425,5 +425,20 @@ Wash Formel" zeigend) zeigt jetzt auf den neuen, aktuelleren Beitrag. Damit der 
 weiterhin von der Startseite aus erreichbar bleibt, wurde dort ein Rücklink auf den neuen Beitrag ergänzt.
 `sitemap.xml` aktualisiert.
 
+## Vorbereitungs-Checkliste „Vor der Einfahrt: bitte beachten" (`index.html#vor-der-einfahrt`)
+Nutzer übergab fertigen Inline-SVG-Code für 14 Fahrzeug-Vorbereitungs-Piktogramme (Scheibenwischer aus,
+Assistenzsysteme aus, Antenne einfahren, Tankklappe schließen, Dachträger entfernen, Fenster/Schiebedach
+geschlossen, Außenspiegel einklappen, Gang „N", Handbremse lösen, Nicht bremsen, Lenkrad nicht festhalten,
+Motor nicht ausschalten, Vorschäden/Hochglanzfelgen melden). `agb.html` § 3 „Mitwirkungspflichten des Kunden"
+deckt inhaltlich bereits einen Teil davon rechtlich-textlich ab — beide Stellen wurden gegeneinander geprüft
+und sind konsistent (die Piktogramme sind eine detailliertere, bildbasierte Ergänzung, kein Widerspruch) und
+gegenseitig verlinkt.
+
+Neue Sektion auf `index.html` zwischen den „3 Vorteile"-Kacheln und „So läuft Ihre Wäsche ab" eingefügt, als
+responsives Karten-Grid mit Icon + kurzer Beschriftung (reine Piktogramme ohne Text wären nicht eindeutig
+genug). SVG-Code unverändert aus der Nutzer-Vorlage übernommen, inkl. der vom Nutzer definierten
+Warnfarben (Schwarz für neutrale Hinweise, Rot für Verbote/Warnungen). Verlinkt von der bestehenden
+FAQ-Frage zum Sitzenbleiben im Fahrzeug; `agb.html` § 3 bekam eine Anker-ID für die Rückverlinkung.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
