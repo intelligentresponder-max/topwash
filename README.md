@@ -394,5 +394,36 @@ die Startseiten-Nav hat mit „Bewertungen" und „Blog" bereits 8 statt 6 Punkt
 Playwright-Breitentest bei 768 px praktisch ohne Puffer zum „Standort finden"-Button — ein neunter Punkt hätte
 dort mit hoher Wahrscheinlichkeit überlappt.
 
+## Neuer Blogbeitrag „Glanz & Werterhalt durch Autopflege" (`blog/glanz-werterhalt-autopflege.html`)
+Der in der Über-uns-Galerie noch offene Artikeltext wurde vom Auftraggeber nachgereicht und als neuer
+Blogbeitrag umgesetzt. Da der Text vom Auftraggeber selbst für dieses Projekt verfasst wurde (nicht von der
+echten top-wash.de kopiert), musste er nicht wie sonst üblich aus Copyright-Gründen neu formuliert werden —
+Tatsachenbehauptungen wurden aber trotzdem geprüft.
+
+**„Testsieger"-Aussage — inzwischen mit Quelle belegt**: Der Originaltext bezeichnete TOP WASH als
+„Testsieger-Qualität", ohne eine konkrete, benennbare Quelle (Test, Jahr, Aussteller) zu nennen. Eine
+unbelegte „Testsieger"-Behauptung ist in Deutschland potenziell irreführende Werbung (UWG). Per
+`AskUserQuestion` nachgefragt: Der Auftraggeber lieferte zwei Screenshots der echten, live top-wash.de-Seite
+nach — hr-Testsieger „Textile Autowaschstraßen" (Hessischer Rundfunk, April 2016) sowie eine ADAC-Testnote
+„GUT" im ADAC-Waschstraßentest (Jahr nicht bekannt). Beide Auszeichnungen waren an anderer Stelle im Repo
+bereits als Fakt bestätigt (Hero-Badges auf `index.html`, VERTRAUEN-Sektion auf `angebote.html`) — neu war
+nur das genaue Datum des hr-Tests. Wichtig: die beiden Auszeichnungen sind unterschiedlich (Testsieger vs.
+Testnote „Gut") und wurden entsprechend differenziert formuliert, nicht pauschal vereinheitlicht. Der Absatz
+„Ausgezeichnete Qualität" in `blog/glanz-werterhalt-autopflege.html` nennt jetzt beide Auszeichnungen korrekt
+zugeordnet. Bewusst NICHT nachgebaut: die grafischen hr-/ADAC-Banner selbst (fremde Logos/Marken ohne
+bestätigte Nutzungsrechte für diesen Rebuild) — nur die Tatsachenbehauptung in Textform, wie es die
+bestehenden Badges auch schon tun.
+
+Die übrigen Fakten aus dem Text (Ablauf, 4 Standorte) wurden gegen bereits bestätigte Fakten geprüft und sind
+konsistent. Eine neue Zahl wurde vom Auftraggeber direkt bestätigt: vier überdachte SB-Waschboxen in Bad
+Nauheim (zuvor nur „überdachte SB-Waschboxen" ohne Anzahl) — für Konsistenz auch rückwirkend in
+`blog/sb-waschplaetze-bad-nauheim.html` ergänzt.
+
+Der ursprüngliche Wunsch „im Header-Bereich als Vorschau-Artikel" wurde über den bestehenden
+Hero-Teaser-Mechanismus auf `index.html` umgesetzt: der Teaser-Link (bisher auf den Pillar-Beitrag „Die Top
+Wash Formel" zeigend) zeigt jetzt auf den neuen, aktuelleren Beitrag. Damit der bisherige Pillar-Beitrag
+weiterhin von der Startseite aus erreichbar bleibt, wurde dort ein Rücklink auf den neuen Beitrag ergänzt.
+`sitemap.xml` aktualisiert.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
