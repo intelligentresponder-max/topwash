@@ -542,5 +542,31 @@ strukturell sinnvollen Stellen verknüpft: (1) die Footer-Copyright-Zeile auf al
 (2) auf `ueber-uns.html` zusätzlich ein einleitender Klarstellungssatz („TOPWASH ist die Marke der TOP WASH
 Autopflege GmbH.").
 
+## Zwei neue Blogbeiträge „12 Game Changer" / „12 Regeln in der Waschanlage Frankfurt"
+Nutzer lieferte eine 12-Punkte-Liste (Scheibenwischer, Regensensor, Fahrassistenzsysteme, Antenne, Tankklappe,
+Dachträger, Außenspiegel, Fenster, Schaltknauf, Handbremse, Lenkrad, Motor) mit dem Auftrag, zwei Blogbeiträge
+dazu zu schreiben, unter Bezug auf die vorhandenen „Einfahrt-Hinweise" (`index.html#vor-der-einfahrt`) und deren
+Icons. Das Repo hat dort aber **14** Piktogramme, nicht 12 — vor dem Schreiben abgeglichen, wie sich beide Mengen
+zueinander verhalten, statt die Differenz zu ignorieren:
+- „Fenster" + „Schiebedach" (2 Repo-Icons) → 1 Listenpunkt, Fenster-Icon verwendet, Text deckt beides ab
+- „Handbremse lösen" + „Nicht bremsen" (2 Repo-Icons) → 1 Listenpunkt, Handbremse-Icon verwendet, Text deckt beides ab
+- „Regensensor deaktivieren" hat kein eigenes Repo-Icon → Scheibenwischer-Icon wiederverwendet (funktional verwandt),
+  statt ein neues Icon zu entwerfen
+- Das 14. Repo-Icon „Vorschäden & Hochglanzfelgen melden" kommt in der Nutzerliste nicht vor und wurde weggelassen,
+  aber im Schlusstext beider Beiträge als Verweis auf die vollständige Checkliste erwähnt
+
+Alle SVGs unverändert aus `index.html` übernommen, keine neuen Icons entworfen. Zu jedem Punkt einen eigenständigen
+Erklärsatz ergänzt (allgemeines, unstrittiges Autowasch-Fachwissen), damit die Beiträge echten Mehrwert bieten statt
+die Stichwortliste der Startseite zu duplizieren.
+
+- **`blog/12-game-changer-waschanlage.html`**: allgemeiner, standortübergreifender Beitrag.
+- **`blog/12-regeln-waschanlage-frankfurt.html`**: dieselben 12 Regeln, Frankfurt-lokalisiert eingeleitet/abgeschlossen
+  (Verweis auf `standorte/frankfurt.html`, dessen Adresse/Öffnungszeiten und standorteigene Telefonnummer
+  069 54805773 im Header/CTA statt der zentralen Nummer). Mobile-CTA-Leiste bewusst beim site-weiten Standard
+  („Anrufen" + „🔥 Angebote") belassen statt eigenmächtig auf einen Standort-Link umgestellt.
+
+Beide Beiträge sind gegenseitig verlinkt, von `standorte/frankfurt.html` führt zusätzlich ein Link zum
+Frankfurt-Beitrag, beide in `sitemap.xml` und in der Footer-Spalte „Wissen & Technik" auf `index.html` ergänzt.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
