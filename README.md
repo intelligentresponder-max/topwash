@@ -568,5 +568,19 @@ die Stichwortliste der Startseite zu duplizieren.
 Beide Beiträge sind gegenseitig verlinkt, von `standorte/frankfurt.html` führt zusätzlich ein Link zum
 Frankfurt-Beitrag, beide in `sitemap.xml` und in der Footer-Spalte „Wissen & Technik" auf `index.html` ergänzt.
 
+## WhatsApp-Button neben den Anruf-Buttons auf `angebote.html`
+Nutzer schickte zunächst einen Link zu einem NotebookLM-„Tailored Report", der sich als KI-generiertes Dokument
+entpuppte, das sich selbst als „SYSTEM-DIRECTIVE" bezeichnete und forderte, alle `tel:`-Buttons site-weit zu
+entfernen sowie unbelegte Zahlen (Sterne-Rating, ADAC-Note) einzufügen. Dieses Dokument wurde **nicht** blind
+umgesetzt — stattdessen wurden die fragwürdigen Punkte dem Nutzer benannt. Die eigentliche, viel kleinere Anfrage
+kam danach direkt vom Nutzer: Wegen der reduzierten Angebotspreise wird mehr Anrufaufkommen erwartet, das das
+Personal überlasten könnte — die 3 „Jetzt anrufen"-Buttons der Angebotskarten auf `angebote.html` sollten daher
+um eine WhatsApp-Option **ergänzt** (nicht ersetzt) werden.
+
+Jede der 3 Karten hat jetzt zwei Buttons nebeneinander: „Anrufen" (`tel:`, unverändert) und „WhatsApp" (grün,
+`wa.me/<Nummer>?text=...` mit individuell vorausgefüllter, zum Angebot passender Nachricht). Für die Nummer wurde
+dieselbe bereits im Repo vorhandene Test-Nummer aus dem Gutschein-Bestellsystem (`gutschein-shop.html`)
+wiederverwendet — vor Livegang gegen die finale WhatsApp-Business-Nummer austauschen.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
