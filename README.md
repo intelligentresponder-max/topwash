@@ -300,13 +300,15 @@ Bild" wie angefragt): eine Rabatt-Leiter mit 4 Stufen-Kacheln (aktuelle Stufe he
 Hinweis), eine „Sie sparen X €"-Anzeige sowie 3 kurze Vorteils-Kacheln mit Icon (günstiger pro Wäsche, eine
 Zahlung statt vieler, übertragbar).
 
-**WhatsApp-Bestellnummer ist ein Platzhalter, nicht echt**: Der vom Nutzer eingereichte Code enthielt die
-Nummer 491632692255 mit dem Kommentar „Verifizierte Nummer" — das war lediglich ein Kommentar im
-eingefügten Code, keine durch mich geprüfte Quelle. Auf Nachfrage bestätigte der Nutzer, dass eine
-Dummy-Nummer verwendet werden soll. Eingesetzt: `491700000000` (offensichtlicher Platzhalter, mit
-`// PLATZHALTER — NICHT ECHT`-Kommentar direkt im Code markiert). **Muss vor Livegang durch die echte
-WhatsApp-Bestellnummer ersetzt werden** — bis dahin würde der Bestell-Button auf eine nicht existierende
-Nummer verweisen.
+**WhatsApp-Bestellnummer ist aktuell eine Test-Nummer, noch nicht die finale Geschäftsnummer**: Der vom
+Nutzer ursprünglich eingereichte Code enthielt die Nummer 491632692255 mit dem Kommentar „Verifizierte
+Nummer" — das war lediglich ein Kommentar im eingefügten Code, keine durch mich geprüfte Quelle, daher
+zunächst durch den offensichtlichen Platzhalter `491700000000` ersetzt. In einer späteren Nachricht hat der
+Nutzer dieselbe Nummer (0163 2692255, als 491632692255 im `wa.me`-Format) direkt und ausdrücklich als seine
+eigene private Mobilnummer für Testzwecke bestätigt („nimm trotzdem zum Test meine Handynummer wir können
+das ändern") — das ist eine andere Quellenlage als der ursprüngliche unbelegte Code-Kommentar, deshalb jetzt
+eingesetzt. Im Code als `// TEST-NUMMER (Auftraggeber), noch nicht die finale Geschäftsnummer` markiert.
+**Muss vor Livegang durch die echte TOPWASH-Geschäftsnummer ersetzt werden.**
 
 Verlinkt von `preise.html` („Gut zu wissen") und im Footer von `index.html`; in `sitemap.xml` ergänzt.
 
