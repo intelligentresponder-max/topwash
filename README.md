@@ -611,6 +611,13 @@ angehängten Buchstaben auftritt und keine echten URLs/Pfade/technische IDs betr
 Fehlerquelle behoben: die 3 vorausgefüllten WhatsApp-Nachrichten auf `angebote.html` hätten sonst ein rohes,
 ungültiges Leerzeichen mitten in der bereits Prozent-kodierten URL enthalten — auf `TOP%20WASH` korrigiert.
 
+## WhatsApp-Testnummer korrigiert
+Nutzer meldete einen Tippfehler in der hinterlegten WhatsApp-Testnummer: korrekt ist `491634692255` (statt
+`491632692255`). An allen 4 Stellen korrigiert (3× `angebote.html`, 1× `gutschein-shop.html`). Der Kommentar
+„TEST-NUMMER, noch nicht die finale Geschäftsnummer" bleibt bestehen — nur die Ziffern wurden korrigiert. Nebenbei
+eine weitere Altlast behoben: die WhatsApp-Bestellnachricht in `gutschein-shop.html` begann mit gemischt
+geschriebenem „Hallo Topwash-Team!" — auf „TOP WASH-Team!" vereinheitlicht.
+
 ## Neuer Blogbeitrag: „Bestellen per WhatsApp bei TOP WASH" (`blog/whatsapp-bestellung-erklaert.html`)
 Da die Firma bislang nicht mit WhatsApp arbeitet, bat der Nutzer um einen Erklär-Beitrag zum neuen Bestellweg —
 insbesondere zum Gutschein-Konfigurator. Vor dem Schreiben `gutschein-shop.html` vollständig gelesen, um den
