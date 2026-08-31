@@ -394,5 +394,30 @@ die Startseiten-Nav hat mit „Bewertungen" und „Blog" bereits 8 statt 6 Punkt
 Playwright-Breitentest bei 768 px praktisch ohne Puffer zum „Standort finden"-Button — ein neunter Punkt hätte
 dort mit hoher Wahrscheinlichkeit überlappt.
 
+## Neuer Blogbeitrag „Glanz & Werterhalt durch Autopflege" (`blog/glanz-werterhalt-autopflege.html`)
+Der in der Über-uns-Galerie noch offene Artikeltext wurde vom Auftraggeber nachgereicht und als neuer
+Blogbeitrag umgesetzt. Da der Text vom Auftraggeber selbst für dieses Projekt verfasst wurde (nicht von der
+echten top-wash.de kopiert), musste er nicht wie sonst üblich aus Copyright-Gründen neu formuliert werden —
+Tatsachenbehauptungen wurden aber trotzdem geprüft.
+
+**Offener Punkt vor Livegang — „Testsieger"-Aussage**: Der Originaltext bezeichnete TOP WASH als
+„Testsieger-Qualität", ohne eine konkrete, benennbare Quelle (Test, Jahr, Aussteller) zu nennen. Eine
+unbelegte „Testsieger"-Behauptung ist in Deutschland potenziell irreführende Werbung (UWG) und damit ein
+echtes rechtliches Risiko. Per `AskUserQuestion` nachgefragt: Der Auftraggeber bestätigte, dass es eine
+Quelle gibt, reicht sie aber separat nach. Bis dahin wurde „Testsieger-Qualität" durch die unverfängliche
+Formulierung „Premiumqualität" ersetzt. **Sobald die Quelle vorliegt, kann „Testsieger" mit Beleg (Name,
+Jahr, Aussteller, idealerweise verlinkt) wieder ergänzt werden.**
+
+Die übrigen Fakten aus dem Text (Ablauf, 4 Standorte) wurden gegen bereits bestätigte Fakten geprüft und sind
+konsistent. Eine neue Zahl wurde vom Auftraggeber direkt bestätigt: vier überdachte SB-Waschboxen in Bad
+Nauheim (zuvor nur „überdachte SB-Waschboxen" ohne Anzahl) — für Konsistenz auch rückwirkend in
+`blog/sb-waschplaetze-bad-nauheim.html` ergänzt.
+
+Der ursprüngliche Wunsch „im Header-Bereich als Vorschau-Artikel" wurde über den bestehenden
+Hero-Teaser-Mechanismus auf `index.html` umgesetzt: der Teaser-Link (bisher auf den Pillar-Beitrag „Die Top
+Wash Formel" zeigend) zeigt jetzt auf den neuen, aktuelleren Beitrag. Damit der bisherige Pillar-Beitrag
+weiterhin von der Startseite aus erreichbar bleibt, wurde dort ein Rücklink auf den neuen Beitrag ergänzt.
+`sitemap.xml` aktualisiert.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
