@@ -75,6 +75,10 @@ Breite verkleinert, um Ladezeit gering zu halten:
 - `images/handvorwaesche-team.jpg` – zwei Mitarbeiter bei der Handvorwäsche → ersetzt das Stock-Foto in der
   Prozess-Sektion „Handvorwäsche in drei Schritten" auf `index.html`.
 - `images/vorbehandlung-aussen.jpg` – Vorbehandlung eines Fahrzeugs im Freien → Hero-Bild 1 auf `index.html`.
+  **Nachträglich zugeschnitten**: Nutzer meldete ein im unteren Bildbereich sichtbares Bildschirmfoto-/Moiré-Artefakt
+  (Asphaltfläche unterhalb des Fahrzeugs) — entgegen der ursprünglichen Annahme oben war dieses eine Bild also doch
+  von einem Bildschirm/Ausdruck abfotografiert. Unterste 90 der ursprünglich 481 Bildzeilen entfernt (1200×481 →
+  1200×391); das Artefakt war lokal auf diesen Bereich begrenzt, der Rest des Fotos ist unverändert.
 - `images/hochdruck-felgenreinigung.jpg` – Felgenreinigung mit Hochdruckreiniger → Hero-Bild 2 auf `index.html`.
 
 Zusätzlich lieferte der Auftraggeber 9 Standbilder aus einem eigenen Video (mit Letterbox-Balken, teils
