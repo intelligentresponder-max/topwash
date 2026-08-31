@@ -16,7 +16,10 @@ Statische Website (Jamstack, GitHub-Pages-tauglich) für TOPWASH – textile Aut
 | `preise.html` | Vollständiger Vergleich der 5 Waschprogramme |
 | `faq.html` | Ausführliches FAQ (Ablauf, Fahrzeugeignung, Haftung, Bezahlung) |
 | `impressum.html`, `datenschutz.html`, `agb.html` | Rechtstexte |
-| `blog/die-top-wash-formel.html` | USP-Pillar-Beitrag „Die Top Wash Formel" (Schmirgel-Effekt, Faktor Mensch, High-Tech Finish, SB-Boxen) |
+| `blog/die-top-wash-formel.html` | USP-Pillar-Beitrag „Die Top Wash Formel" (Übersicht aller 4 Themen, verlinkt auf die Cluster-Seiten) |
+| `blog/schmirgel-effekt-vermeiden.html` | Cluster-Seite: Schmirgel-Effekt und die TOPWASH-Vorwäsche (inkl. FAQPage-Schema) |
+| `blog/sb-waschplaetze-bad-nauheim.html` | Cluster-Seite: SB-Waschboxen am Standort Bad Nauheim |
+| `blog/lotus-glanz-poliertrocknung.html` | Cluster-Seite: Lotus-Glanz-Versiegelung und textile Poliertrocknung |
 | `blog/online-shop-eroeffnung.html` | Ankündigung Online-Shop (Wertkarten/Waschabos), mit echtem Countdown bis 1.10.2026 |
 | `chat.js` | Zweisprachiger (DE/EN) Chat-Assistent, auf jeder Seite eingebunden |
 
@@ -159,6 +162,29 @@ Beschreibung verwendet.
 bislang in keiner bestätigten Quelle erwähnt – vor Veröffentlichung per Rückfrage vom Auftraggeber als real
 bestätigt. Der Blogtext beschreibt bewusst nur die Existenz und den Zweck, keine darüber hinausgehenden Details
 (Preise, genaue Ausstattung), da nur die Existenz bestätigt wurde.
+
+## Blog-Cluster: Schmirgel-Effekt / SB-Waschboxen / Lotus-Glanz
+Auf Wunsch des Auftraggebers wurde der Pillar-Beitrag um 3 vertiefende Cluster-Seiten ergänzt (klassisches
+Pillar-&amp;-Cluster-SEO-Muster): `blog/schmirgel-effekt-vermeiden.html`, `blog/sb-waschplaetze-bad-nauheim.html`,
+`blog/lotus-glanz-poliertrocknung.html`. Der Pillar-Beitrag selbst bleibt als Übersicht bestehen und verlinkt an
+den passenden Stellen auf die drei Cluster-Seiten, statt Inhalte zu duplizieren.
+
+Die zugrunde liegende Anfrage kam als ausführliche "SYSTEM-DIRECTIVE" inkl. SEO-Snippet-Tabelle, die mehrere
+faktische Probleme enthielt und **nicht 1:1 übernommen wurde**:
+- Die Vorwäsche-Beschreibung „Einsprühen → Abdampfen → Bürsten" widerspricht weiterhin dem echten
+  Video-Transkript (bereits zweimal zuvor abgelehnt) – stattdessen die bestätigte, transkriptbasierte
+  Beschreibung verwendet.
+- Eine exakte Anzahl „4" SB-Waschplätze und die Angabe „biologisch abbaubare Reiniger" waren nirgends bestätigt
+  (nur die reine Existenz der SB-Boxen wurde vom Auftraggeber bestätigt) – beide Detailangaben bewusst
+  weggelassen.
+- Die Canonical-Domain im Beispiel (`topwash-frankfurt.de`) existiert nicht – korrekt auf
+  `intelligentresponder-max.github.io/topwash` gesetzt.
+- Ein neuer eigener Fehler wurde gefunden und korrigiert: Lotus-Glanz wurde fälschlich exklusiv dem Programm
+  „DAS BESTE" für 23 € zugeordnet – tatsächlich startet Lotus-Glanz bereits bei „Lotus" (18 €), „DAS BESTE"
+  kostet 20 €, nicht 23 € (das ist „Superschaum").
+
+Meta-Titles/-Descriptions wurden gegen die selbst genannten Zeichenlimits geprüft (Title ≤ 60, Description
+≤ 155 Zeichen, gemessen am dekodierten Text, nicht am HTML-Quelltext mit `&amp;`-Entities).
 
 ## Blog: „Online-Shop kommt" (`blog/online-shop-eroeffnung.html`)
 Ankündigt, dass Wertkarten und Waschabos (bisher nur vor Ort erhältlich) ab **1. Oktober 2026** auch online
