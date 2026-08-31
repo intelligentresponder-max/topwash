@@ -530,6 +530,18 @@ außerhalb des Auftrags „Bilder beschriften"; als Empfehlung für ein separate
 keine echten Standort-Fotos existieren (nur das gemeinsame Logo) — ein unpassendes Bildschema wäre schlechter
 als keins.
 
+## Markenname „TOPWASH" mit dem Firmennamen verknüpft
+Nutzer bat, den einwortig geschriebenen Marketing-Namen „TOPWASH" (site-weit ~24× verwendet) repoweit mit dem
+juristischen Firmennamen zu verknüpfen. `impressum.html` enthält bereits an 2 Stellen die autoritative Schreibweise
+„TOP WASH Autopflege GmbH" (großgeschrieben, mit Leerzeichen) — diese wurde übernommen statt einer abweichenden
+Groß-/Kleinschreibung aus der Anfrage, um keine zweite, widersprüchliche Schreibweise einzuführen.
+
+Statt jede der ~24 „TOPWASH"-Erwähnungen einzeln zu ergänzen (hätte den Fließtext redundant gemacht), an zwei
+strukturell sinnvollen Stellen verknüpft: (1) die Footer-Copyright-Zeile auf allen 22 HTML-Seiten
+(„© TOPWASH Autowasch Spezialisten – eine Marke der TOP WASH Autopflege GmbH. Alle Rechte vorbehalten."),
+(2) auf `ueber-uns.html` zusätzlich ein einleitender Klarstellungssatz („TOPWASH ist die Marke der TOP WASH
+Autopflege GmbH.").
+
 ## Zwei neue Blogbeiträge „12 Game Changer" / „12 Regeln in der Waschanlage Frankfurt"
 Nutzer lieferte eine 12-Punkte-Liste (Scheibenwischer, Regensensor, Fahrassistenzsysteme, Antenne, Tankklappe,
 Dachträger, Außenspiegel, Fenster, Schaltknauf, Handbremse, Lenkrad, Motor) mit dem Auftrag, zwei Blogbeiträge
