@@ -6,27 +6,11 @@
 <title>TOPWASH Autowasch Spezialisten – Autowaschstraßen in Rhein-Main</title>
 <meta name="description" content="TOPWASH Autowasch Spezialisten: textile Autowäsche mit Handvorwäsche an 4 Standorten in Rhein-Main – Bad Nauheim, Eschborn, Frankfurt, Neu-Isenburg. Autowäsche ab 12 €, ADAC-getestet.">
 <link rel="canonical" href="https://intelligentresponder-max.github.io/topwash/">
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="components.css">
 <script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          brand: {
-            50: '#eff9ff', 100: '#dcf1ff', 200: '#b3e4ff', 300: '#75d1ff',
-            400: '#2fb9ff', 500: '#049ef2', 600: '#0080d0', 700: '#0166a8',
-            800: '#08578a', 900: '#0c4972', 950: '#082e4a'
-          }
-        }
-      }
-    }
-  }
-</script>
+<script src="theme-config.js"></script>
 <style>
-  html { scroll-behavior: smooth; }
-  details > summary { list-style: none; }
-  details > summary::-webkit-details-marker { display: none; }
-  details[open] .accordion-icon { transform: rotate(45deg); }
   /* QR-Leitsystem-Ankerpunkte: Offset = sticky Header (h-16 = 64px) + border-b (1px) = 65px,
      berechnet aus den tatsächlich verwendeten Tailwind-Klassen, nicht geschätzt. */
   #home, #vorreinigung, #programme, #highlights, #standort, #prozess, #bewertungen { scroll-margin-top: 65px; }
@@ -35,39 +19,39 @@
   .hero-slideshow-dot.active { background: #fff; }
 </style>
 </head>
-<body class="bg-white text-slate-800 antialiased pb-16 md:pb-0">
+<body class="has-mobile-bar">
 
 <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-brand-700 focus:text-white focus:px-4 focus:py-2">Zum Inhalt springen</a>
 
-<a href="angebote.html" class="block bg-red-600 text-white text-center text-sm font-semibold py-2 px-4 hover:bg-red-700 transition">
+<a href="angebote.html" class="site-banner">
   🔥 3 Knallerpreise diese Woche – jetzt sichern →
 </a>
 
 <!-- ===== HEADER ===== -->
-<header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
-      <a href="index.html" class="flex items-center gap-2 font-extrabold text-xl text-brand-800">
-        <img src="images/logo-top-wash.png" alt="TOP WASH Logo" class="h-10 w-auto">
-        <span class="hidden sm:inline text-slate-500 font-medium">Autowasch Spezialisten</span>
+<header class="site-header">
+  <div class="site-header__container">
+    <div class="site-header__bar">
+      <a href="index.html" class="site-logo">
+        <img src="images/logo-top-wash.png" alt="TOP WASH Logo">
+        <span>Autowasch Spezialisten</span>
       </a>
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-        <a href="angebote.html" class="text-red-600 font-bold hover:text-red-700">Angebote 🔥</a>
-        <a href="standorte.html" class="hover:text-brand-700">Standorte</a>
-        <a href="preise.html" class="hover:text-brand-700">Preise</a>
-        <a href="#prozess" class="hover:text-brand-700">So funktioniert's</a>
-        <a href="#bewertungen" class="hover:text-brand-700">Bewertungen</a>
-        <a href="blog/die-top-wash-formel.html" class="hover:text-brand-700">Blog</a>
-        <a href="faq.html" class="hover:text-brand-700">FAQ</a>
+      <nav class="hidden md:flex site-nav">
+        <a href="angebote.html" class="is-danger">Angebote 🔥</a>
+        <a href="standorte.html">Standorte</a>
+        <a href="preise.html">Preise</a>
+        <a href="#prozess">So funktioniert's</a>
+        <a href="#bewertungen">Bewertungen</a>
+        <a href="blog/die-top-wash-formel.html">Blog</a>
+        <a href="faq.html">FAQ</a>
       </nav>
       <div class="hidden md:flex items-center gap-4">
-        <a href="standorte.html" class="inline-flex items-center rounded-full bg-brand-600 text-white px-5 py-2.5 text-sm font-semibold hover:bg-brand-700 transition">Standort finden</a>
+        <a href="standorte.html" class="btn btn--sm btn-primary">Standort finden</a>
       </div>
       <div class="flex items-center gap-1 md:hidden">
-        <a href="standorte.html" aria-label="Standort finden" class="p-2 text-brand-700">
+        <a href="standorte.html" aria-label="Standort finden" class="icon-btn icon-btn--brand">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
         </a>
-        <button id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" class="p-2 -mr-2" aria-label="Menü öffnen">
+        <button id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" class="icon-btn -mr-2" aria-label="Menü öffnen">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
         </button>
       </div>
@@ -462,67 +446,67 @@
 </main>
 
 <!-- ===== FOOTER ===== -->
-<footer class="bg-slate-900 text-slate-300">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
+<footer class="site-footer">
+  <div class="site-footer__grid">
     <div>
       <img src="images/logo-top-wash.png" alt="TOP WASH Logo" class="h-8 w-auto brightness-0 invert">
-      <p class="mt-3 text-sm text-slate-400">Autowasch Spezialisten für Rhein-Main. Textile Autowäsche mit Handvorwäsche an 4 Standorten.</p>
+      <p>Autowasch Spezialisten für Rhein-Main. Textile Autowäsche mit Handvorwäsche an 4 Standorten.</p>
     </div>
-    <div>
-      <h4 class="font-semibold text-white mb-3">Seiten</h4>
-      <ul class="space-y-2 text-sm">
-        <li><a href="index.html" class="hover:text-white">Startseite</a></li>
-        <li><a href="angebote.html" class="hover:text-white">Angebote</a></li>
-        <li><a href="standorte.html" class="hover:text-white">Standorte</a></li>
-        <li><a href="preise.html" class="hover:text-white">Preise</a></li>
-        <li><a href="gutschein-shop.html" class="hover:text-white">Gutschein-Shop</a></li>
-        <li><a href="faq.html" class="hover:text-white">FAQ</a></li>
+    <div class="site-footer__col">
+      <h4>Seiten</h4>
+      <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="angebote.html">Angebote</a></li>
+        <li><a href="standorte.html">Standorte</a></li>
+        <li><a href="preise.html">Preise</a></li>
+        <li><a href="gutschein-shop.html">Gutschein-Shop</a></li>
+        <li><a href="faq.html">FAQ</a></li>
       </ul>
     </div>
-    <div>
-      <h4 class="font-semibold text-white mb-3">Standorte</h4>
-      <ul class="space-y-2 text-sm">
-        <li><a href="standorte/bad-nauheim.html" class="hover:text-white">Bad Nauheim</a></li>
-        <li><a href="standorte/eschborn.html" class="hover:text-white">Eschborn</a></li>
-        <li><a href="standorte/neu-isenburg.html" class="hover:text-white">Neu-Isenburg</a></li>
-        <li><a href="standorte/frankfurt.html" class="hover:text-white">Frankfurt</a></li>
+    <div class="site-footer__col">
+      <h4>Standorte</h4>
+      <ul>
+        <li><a href="standorte/bad-nauheim.html">Bad Nauheim</a></li>
+        <li><a href="standorte/eschborn.html">Eschborn</a></li>
+        <li><a href="standorte/neu-isenburg.html">Neu-Isenburg</a></li>
+        <li><a href="standorte/frankfurt.html">Frankfurt</a></li>
       </ul>
     </div>
-    <div>
-      <h4 class="font-semibold text-white mb-3">Wissen &amp; Technik</h4>
-      <ul class="space-y-2 text-sm">
-        <li><a href="blog/die-top-wash-formel.html" class="hover:text-white">Die Top Wash Formel</a></li>
-        <li><a href="blog/schmirgel-effekt-vermeiden.html" class="hover:text-white">Der Schmirgel-Effekt</a></li>
-        <li><a href="blog/lotus-glanz-poliertrocknung.html" class="hover:text-white">Lotus-Glanz &amp; Finish</a></li>
-        <li><a href="blog/sb-waschplaetze-bad-nauheim.html" class="hover:text-white">SB-Waschboxen Bad Nauheim</a></li>
-        <li><a href="blog/online-shop-eroeffnung.html" class="hover:text-white">Online-Shop kommt bald</a></li>
+    <div class="site-footer__col">
+      <h4>Wissen &amp; Technik</h4>
+      <ul>
+        <li><a href="blog/die-top-wash-formel.html">Die Top Wash Formel</a></li>
+        <li><a href="blog/schmirgel-effekt-vermeiden.html">Der Schmirgel-Effekt</a></li>
+        <li><a href="blog/lotus-glanz-poliertrocknung.html">Lotus-Glanz &amp; Finish</a></li>
+        <li><a href="blog/sb-waschplaetze-bad-nauheim.html">SB-Waschboxen Bad Nauheim</a></li>
+        <li><a href="blog/online-shop-eroeffnung.html">Online-Shop kommt bald</a></li>
       </ul>
     </div>
-    <div>
-      <h4 class="font-semibold text-white mb-3">Rechtliches</h4>
-      <ul class="space-y-2 text-sm">
-        <li><a href="impressum.html" class="hover:text-white">Impressum</a></li>
-        <li><a href="datenschutz.html" class="hover:text-white">Datenschutz</a></li>
-        <li><a href="agb.html" class="hover:text-white">AGB</a></li>
+    <div class="site-footer__col">
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="agb.html">AGB</a></li>
       </ul>
     </div>
   </div>
-  <div class="border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-500">
+  <div class="site-footer__divider">
+    <div class="site-footer__row">
       <p>© <span id="year"></span> TOPWASH Autowasch Spezialisten. Alle Rechte vorbehalten.</p>
-      <div class="flex gap-4">
-        <a href="#" class="hover:text-white" aria-label="Instagram">Instagram</a>
-        <a href="#" class="hover:text-white" aria-label="Facebook">Facebook</a>
+      <div class="site-footer__links">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
       </div>
     </div>
   </div>
 </footer>
 
-<div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t border-slate-200 shadow-[0_-4px_16px_rgba(0,0,0,0.1)] grid grid-cols-2">
-  <a href="angebote.html" class="flex items-center justify-center gap-2 py-3.5 font-semibold text-white bg-red-600 border-r border-slate-200">
+<div class="md:hidden mobile-cta-bar">
+  <a href="angebote.html" class="mobile-cta-bar__item--danger" style="border-right:1px solid var(--slate-200)">
     🔥 Angebote
   </a>
-  <a href="standorte.html" class="flex items-center justify-center gap-2 py-3.5 font-semibold text-white bg-brand-600">
+  <a href="standorte.html" class="mobile-cta-bar__item--brand">
     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
     Standort
   </a>

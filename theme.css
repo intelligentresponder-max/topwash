@@ -1,0 +1,63 @@
+/* ==========================================================================
+   TOPWASH — Design Tokens
+   Kern-Identität: Marken-Blau (echtes TOP-WASH-Logo).
+   Kraftpapier/Sock-Weiß bleibt bewusst ein Akzent-System für Gutschein-/
+   Aktions-Elemente (siehe gutschein-shop.html), keine site-weite Umfärbung.
+   ========================================================================== */
+
+:root {
+  /* Marken-Blau — identisch zur bisherigen tailwind.config auf jeder Seite,
+     jetzt zusätzlich als CSS-Variablen für components.css nutzbar. */
+  --brand-50: #eff9ff;
+  --brand-100: #dcf1ff;
+  --brand-200: #b3e4ff;
+  --brand-300: #75d1ff;
+  --brand-400: #2fb9ff;
+  --brand-500: #049ef2;
+  --brand-600: #0080d0;
+  --brand-700: #0166a8;
+  --brand-800: #08578a;
+  --brand-900: #0c4972;
+  --brand-950: #082e4a;
+
+  /* Kraftpapier/Sock-Weiß — Akzent-Palette, nur für ausgewählte Elemente
+     (Gutschein-Konfigurator). Nicht die site-weite Basis. */
+  --kraft-paper: #C4A67A;
+  --kraft-dark: #AE8F62;
+  --kraft-ink: #1B1815;
+  --kraft-ink-soft: #4A433C;
+  --kraft-white: #F6F2E9;
+  --kraft-card: #FFFFFF;
+  --kraft-stamp-red: #C1442D;
+  --kraft-lime: #7CA518;
+  --kraft-lime-bg: #EAF3D6;
+
+  /* Neutrale/Funktions-Farben, wie bisher direkt über Tailwind (slate/red)
+     genutzt — hier zusätzlich als Variablen für components.css. */
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-500: #64748b;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+}
+
+/* ---- Basis ---- */
+html { scroll-behavior: smooth; }
+body { background-color: #fff; color: var(--slate-800); }
+body.has-mobile-bar { padding-bottom: 4rem; }
+@media (min-width: 768px) {
+  body.has-mobile-bar { padding-bottom: 0; }
+}
+
+/* ---- Schrift-Utilities (Kraftpapier-Schrift-Trio) ---- */
+.font-oswald { font-family: 'Oswald', sans-serif; }
+.font-mono { font-family: 'IBM Plex Mono', monospace; font-variant-numeric: tabular-nums; }
+
+/* ---- Akkordeon (Prozess-Schritte, FAQ) ---- */
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .accordion-icon { transform: rotate(45deg); }
+.accordion-icon { display: inline-block; transition: transform 0.15s ease; }

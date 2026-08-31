@@ -4,7 +4,9 @@ Statische Website (Jamstack, GitHub-Pages-tauglich) für TOPWASH – textile Aut
 
 ## Stack
 - Semantisches HTML5, kein JS-Framework
-- Tailwind CSS via CDN (`cdn.tailwindcss.com`)
+- Tailwind CSS via CDN (`cdn.tailwindcss.com`) für Utility-Klassen im Seiteninhalt
+- `theme.css`/`components.css`/`theme-config.js` als geteiltes Design-System für Marken-Tokens
+  und die auf jeder Seite wiederkehrende Rahmen-Struktur (siehe „Design-System" unten)
 - Keine Build-Pipeline nötig – Dateien direkt per GitHub Pages ausliefern
 
 ## Seiten
@@ -23,6 +25,9 @@ Statische Website (Jamstack, GitHub-Pages-tauglich) für TOPWASH – textile Aut
 | `blog/lotus-glanz-poliertrocknung.html` | Cluster-Seite: Lotus-Glanz-Versiegelung und textile Poliertrocknung |
 | `blog/online-shop-eroeffnung.html` | Ankündigung Online-Shop (Wertkarten/Waschabos), mit echtem Countdown bis 1.10.2026 |
 | `chat.js` | Zweisprachiger (DE/EN) Chat-Assistent, auf jeder Seite eingebunden |
+| `theme.css` | Marken-Design-Tokens (Farben, Basis-Styles) als CSS-Variablen, auf jeder Seite eingebunden |
+| `components.css` | Wiederverwendbare Komponenten (Header, Footer, mobile CTA-Leiste, Buttons, Kraftpapier-Akzent) |
+| `theme-config.js` | Geteilte Tailwind-Konfiguration (Marken-Blau-Palette), ersetzt das früher pro Seite wiederholte Config-Script |
 
 ## Chat-Assistent (`chat.js`)
 Regelbasierter, clientseitiger Chat-Assistent unten rechts auf jeder Seite – **kein echtes LLM/keine externe API**,
@@ -301,6 +306,39 @@ WhatsApp-Bestellnummer ersetzt werden** — bis dahin würde der Bestell-Button 
 Nummer verweisen.
 
 Verlinkt von `preise.html` („Gut zu wissen") und im Footer von `index.html`; in `sitemap.xml` ergänzt.
+
+## Design-System (`theme.css` / `components.css` / `theme-config.js`)
+Bis dahin trug jede der 18 Seiten ihr eigenes, identisches `<script>tailwind.config = {...}</script>` sowie
+die komplette Header-/Footer-/mobile-CTA-Leiste-Struktur als 1:1 wiederholte Tailwind-Klassenketten. Für ein
+konsistentes, „aus einem Guss" wirkendes Erscheinungsbild (Ziel: überzeugende Abnahme-Präsentation) in ein
+geteiltes Design-System extrahiert:
+
+- **`theme.css`** — Marken-Design-Tokens als CSS-Variablen: das echte TOP-WASH-Blau (`--brand-50` … `--brand-950`,
+  bleibt die Kern-Identität) sowie die Kraftpapier/Sock-Weiß-Akzent-Palette (`--kraft-*`, bisher nur lokal in
+  `gutschein-shop.html`). Dazu Basis-Regeln, die vorher auf mehreren Seiten einzeln als `<style>`-Block
+  dupliziert waren (`html{scroll-behavior:smooth}`, Akkordeon-Icon-Rotation, Schrift-Utilities).
+- **`components.css`** — reines, buildfreies CSS (kein `@apply`, funktioniert unabhängig von der
+  Tailwind-Play-CDN) für die auf jeder Seite wiederkehrende Rahmen-Struktur: `.site-banner`, `.site-header`
+  (+ `.site-logo`, `.site-nav`), `.site-footer` (schlanke Variante + `.site-footer__grid` für die reiche
+  5-Spalten-Variante auf `index.html`), `.mobile-cta-bar`, sowie ein kleines Button-System (`.btn-primary`,
+  `.btn-outline`, `.btn-danger`) und die Kraftpapier-Akzent-Komponenten (`.kraft-panel`, `.tier-stamp`).
+- **`theme-config.js`** — die zuvor 18-fach identisch wiederholte `tailwind.config`-Zuweisung (Marken-Blau)
+  jetzt an einer Stelle.
+
+**Bewusste Abgrenzung des Umfangs**: Nur die auf jeder Seite ident *wiederholte* Rahmen-Struktur (Header,
+Footer, mobile CTA-Leiste, Banner, Tailwind-Config) wurde in Komponenten überführt, plus ein paar besonders
+oft wiederholte Buttons (Standort-Karten „Route planen"/„Google-Bewertung", „Standort finden"). Der übrige,
+seitenspezifische Content (Preistabellen, FAQ-Akkordeon, Blog-Prosa, Standort-Karten) bleibt bewusst bei
+Tailwind-Utilities — ein kompletter Rewrite jedes einzelnen Elements auf 18 Seiten wäre ein deutlich größeres
+Risiko für visuelle Regressionen gewesen, ohne proportionalen Nutzen. Jede CSS-Regel in `components.css` wurde
+händisch aus den exakten, bisher verwendeten Tailwind-Werten übersetzt (keine Schätzung) und nach dem Rollout
+mit Playwright gegen die berechneten Farbwerte verifiziert (`getComputedStyle`) — u. a. Header-Hintergrund,
+Banner-/Footer-/Button-Farben, aktive Tarif-Stufe im Gutschein-Konfigurator — alle exakt identisch zu vorher.
+
+**Kraftpapier/Sock-Weiß bleibt bewusst ein Akzent-System**, keine site-weite Neufärbung: das Marken-Blau
+(passend zum echten TOP-WASH-Logo) ist weiterhin die Basis-Identität auf allen Seiten; Kraftpapier ist auf den
+Gutschein-Konfigurator begrenzt. Diese Aufteilung wurde vor Beginn der Arbeit ausdrücklich abgefragt und
+bestätigt (siehe Fehlerprotokoll).
 
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
