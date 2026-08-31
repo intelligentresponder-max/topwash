@@ -307,6 +307,27 @@ Nummer verweisen.
 
 Verlinkt von `preise.html` („Gut zu wissen") und im Footer von `index.html`; in `sitemap.xml` ergänzt.
 
+**Gutschein-Vorschau (Geschenkgutschein-Feature)**: Nutzer bat, den zuvor als Beispiel-Artifact gezeigten
+Geschenkgutschein-Entwurf (Kraftpapier-Karte, Von/Für/Nachricht, Muster-Stempel) als echtes Feature in den
+Konfigurator einzubauen. Umgesetzt als live mitlaufende Vorschau direkt im Konfigurator: optionale Felder
+„Für"/„Von"/„Persönliche Nachricht", darunter eine Gutschein-Karte (`.voucher-card`-Komponenten in
+`components.css`, im selben Kraftpapier-Akzent-System wie der Rest der Seite), die sich bei jeder Änderung an
+Positionen, Menge oder den Gift-Feldern live aktualisiert — zeigt alle gewählten Positionen (auch bei mehreren
+verschiedenen Programmen, z. B. „10 × Lotus + 5 × Komplett"), den tatsächlich berechneten Rabatt/Endpreis (kein
+separater, zweiter Berechnungspfad), sowie Ausstellungs- und Gültigkeitsdatum (automatisch: heute + 3 Jahre,
+angelehnt an die gesetzliche Regelverjährung nach § 195 BGB, da die AGB keine abweichende Frist nennen). Ein
+„Vorschau drucken"-Button nutzt `window.print()` mit einer Print-Stylesheet-Regel, die nur die Gutschein-Karte
+zeigt. Die Gutschein-ID ist identisch mit der bereits vorhandenen Bestell-ID (`TW-XXXXX`) — keine zweite,
+inkonsistente Nummer. Bei ausgefüllten Gift-Feldern werden diese zusätzlich in die WhatsApp-Bestellnachricht
+aufgenommen, damit der Auftraggeber erkennt, dass es sich um ein Geschenk handelt.
+
+**Bewusste Sicherheitsentscheidung — der „VORSCHAU/noch nicht bestellt"-Stempel bleibt auch beim Drucken
+sichtbar**: Da die Bestellung erst per WhatsApp bestätigt und vor Ort bezahlt wird (kein echter Online-Kauf),
+wäre ein Ausdruck ohne diesen Hinweis mit einem bereits bezahlten, echten Gutschein verwechselbar — jemand
+könnte ihn ausdrucken und an einem Standort als vermeintlich gültigen Gutschein vorlegen, obwohl nie bestellt
+oder bezahlt wurde. Der Stempel bleibt deshalb absichtlich auch im Druck-Layout erhalten, obwohl das
+naheliegender gewesen wäre, ihn wie in der ursprünglichen Artifact-Demo beim Drucken auszublenden.
+
 ## Design-System (`theme.css` / `components.css` / `theme-config.js`)
 Bis dahin trug jede der 18 Seiten ihr eigenes, identisches `<script>tailwind.config = {...}</script>` sowie
 die komplette Header-/Footer-/mobile-CTA-Leiste-Struktur als 1:1 wiederholte Tailwind-Klassenketten. Für ein

@@ -205,3 +205,87 @@
   border-color: var(--kraft-dark);
   opacity: 0.75;
 }
+
+/* ---- Gutschein-Vorschau (Geschenkgutschein-Karte im Konfigurator) ---- */
+.voucher-card {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  position: relative;
+}
+@media (max-width: 560px) {
+  .voucher-card { grid-template-columns: 1fr; }
+}
+.voucher-card__main {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.voucher-card__stub {
+  padding: 1.5rem 1.1rem;
+  border-left: 2px dashed var(--kraft-dark);
+  background: rgba(246, 242, 233, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+@media (max-width: 560px) {
+  .voucher-card__stub { border-left: none; border-top: 2px dashed var(--kraft-dark); }
+}
+.voucher-card__stamp {
+  position: absolute;
+  top: 1rem;
+  right: 196px;
+  transform: rotate(-10deg);
+  border: 3px double var(--kraft-stamp-red);
+  border-radius: 8px;
+  color: var(--kraft-stamp-red);
+  padding: 0.25rem 0.6rem;
+  text-align: center;
+  opacity: 0.85;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+@media (max-width: 560px) { .voucher-card__stamp { right: 1rem; } }
+.voucher-card__stamp-main { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; line-height: 1; }
+.voucher-card__stamp-sub { font-size: 0.5rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.1rem; }
+
+.voucher-card__names {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.7rem 0;
+  border-top: 1px dashed var(--kraft-dark);
+  border-bottom: 1px dashed var(--kraft-dark);
+}
+.voucher-card__name-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--kraft-ink-soft);
+  display: block;
+  margin-bottom: 0.1rem;
+}
+.voucher-card__name-value { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1rem; color: var(--kraft-ink); }
+
+.voucher-card__message {
+  font-style: italic;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--kraft-ink);
+  position: relative;
+  padding-left: 0.85rem;
+}
+.voucher-card__message::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.15em; bottom: 0.15em;
+  width: 3px;
+  background: var(--kraft-dark);
+  border-radius: 2px;
+}
+
+.voucher-card__code { font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 1.25rem; color: var(--kraft-ink); }
+.voucher-card__list { list-style: none; margin: 0; padding: 0; font-size: 0.72rem; color: var(--kraft-ink-soft); line-height: 1.6; }
+.voucher-card__dates { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--kraft-ink-soft); line-height: 1.6; }
+.voucher-card__legal { font-size: 0.64rem; color: var(--kraft-ink-soft); line-height: 1.5; }
