@@ -463,5 +463,25 @@ ohne Tatsachenbezug, daher direkt umgesetzt. Bewusst nur auf `preise.html` besch
 verortet) — die separate Karten-Ansicht derselben 5 Programme auf `index.html#programme` wurde nicht
 mitgeändert, um den Umfang nicht eigenmächtig auszuweiten.
 
+## Standort-Karten neu sortiert + Icons (`index.html#standort`)
+Nutzer bat, die 4 Standort-Karten auf der Startseite nach „Jahren am Markt" zu sortieren (Frankfurt soll oben
+stehen) und pro Standort ein passendes Bild statt des bisher identischen Pin-Icons zu ergänzen, mit dem
+Vorschlag „vielleicht das Stadtwappen".
+
+**Sortierung**: Per `WebSearch` recherchiert (direkter Fetch von top-wash.de ist weiterhin blockiert, WebSearch
+funktioniert aber). Gefunden wurde nur das unternehmensweite Gründungsjahr **1982** — keine Quelle nannte ein
+Eröffnungsjahr für die 4 Standorte einzeln. Eine vollständige Alters-Sortierung ist damit **nicht belegbar**.
+Umgesetzt wurde nur, was tatsächlich abgesichert ist: Frankfurt auf Position 1 (direkte, unmissverständliche
+Nutzeranweisung), die übrigen 3 Standorte bleiben in ihrer bisherigen Reihenfolge, da keine verifizierte
+Grundlage für eine weitere Sortierung vorliegt.
+
+**Icons statt Stadtwappen**: Echte kommunale Wappen haben exakt vorgeschriebene heraldische Gestaltung. Ohne
+verlässliche Bildquelle (auch der direkte Fetch von Wikimedia Commons ist in dieser Umgebung blockiert) hätte
+ein aus dem Gedächtnis nachgezeichnetes Wappen bei 3 der 4 Städte mit hoher Wahrscheinlichkeit ungenau
+ausfallen können — dasselbe Vorsichtsprinzip wie bei den hr-/ADAC-Logos in einem früheren PR. Stattdessen 4
+sichere, unstrittige Linien-Icons gewählt: Frankfurt → Skyline-Silhouette, Bad Nauheim → Wassertropfen
+(„Bad"/Kurstadt-Namensgebung), Eschborn → Bürogebäude, Neu-Isenburg → Papierflieger (Nähe zum Frankfurter
+Flughafen). Bewusst nicht auf `standorte.html`s eigene Karten-Übersicht ausgeweitet.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
