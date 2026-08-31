@@ -400,13 +400,19 @@ Blogbeitrag umgesetzt. Da der Text vom Auftraggeber selbst für dieses Projekt v
 echten top-wash.de kopiert), musste er nicht wie sonst üblich aus Copyright-Gründen neu formuliert werden —
 Tatsachenbehauptungen wurden aber trotzdem geprüft.
 
-**Offener Punkt vor Livegang — „Testsieger"-Aussage**: Der Originaltext bezeichnete TOP WASH als
+**„Testsieger"-Aussage — inzwischen mit Quelle belegt**: Der Originaltext bezeichnete TOP WASH als
 „Testsieger-Qualität", ohne eine konkrete, benennbare Quelle (Test, Jahr, Aussteller) zu nennen. Eine
-unbelegte „Testsieger"-Behauptung ist in Deutschland potenziell irreführende Werbung (UWG) und damit ein
-echtes rechtliches Risiko. Per `AskUserQuestion` nachgefragt: Der Auftraggeber bestätigte, dass es eine
-Quelle gibt, reicht sie aber separat nach. Bis dahin wurde „Testsieger-Qualität" durch die unverfängliche
-Formulierung „Premiumqualität" ersetzt. **Sobald die Quelle vorliegt, kann „Testsieger" mit Beleg (Name,
-Jahr, Aussteller, idealerweise verlinkt) wieder ergänzt werden.**
+unbelegte „Testsieger"-Behauptung ist in Deutschland potenziell irreführende Werbung (UWG). Per
+`AskUserQuestion` nachgefragt: Der Auftraggeber lieferte zwei Screenshots der echten, live top-wash.de-Seite
+nach — hr-Testsieger „Textile Autowaschstraßen" (Hessischer Rundfunk, April 2016) sowie eine ADAC-Testnote
+„GUT" im ADAC-Waschstraßentest (Jahr nicht bekannt). Beide Auszeichnungen waren an anderer Stelle im Repo
+bereits als Fakt bestätigt (Hero-Badges auf `index.html`, VERTRAUEN-Sektion auf `angebote.html`) — neu war
+nur das genaue Datum des hr-Tests. Wichtig: die beiden Auszeichnungen sind unterschiedlich (Testsieger vs.
+Testnote „Gut") und wurden entsprechend differenziert formuliert, nicht pauschal vereinheitlicht. Der Absatz
+„Ausgezeichnete Qualität" in `blog/glanz-werterhalt-autopflege.html` nennt jetzt beide Auszeichnungen korrekt
+zugeordnet. Bewusst NICHT nachgebaut: die grafischen hr-/ADAC-Banner selbst (fremde Logos/Marken ohne
+bestätigte Nutzungsrechte für diesen Rebuild) — nur die Tatsachenbehauptung in Textform, wie es die
+bestehenden Badges auch schon tun.
 
 Die übrigen Fakten aus dem Text (Ablauf, 4 Standorte) wurden gegen bereits bestätigte Fakten geprüft und sind
 konsistent. Eine neue Zahl wurde vom Auftraggeber direkt bestätigt: vier überdachte SB-Waschboxen in Bad
