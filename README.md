@@ -51,6 +51,14 @@ Einwand-FAQ (Anmeldung nötig? Kombinierbar? Gültigkeitsdauer?). Bewusst **kein
 Countdown-Timer oder "X Personen haben gerade gebucht"-Zähler – das wäre bei einem realen Unternehmen irreführende
 Werbung.
 
+## Hero-Slideshow & Blog-Link (`index.html`)
+Der statische 2-Bilder-Grid im Hero wurde durch eine auto-rotierende Slideshow (5 echte Fotos, alle 4 s
+Crossfade, Dot-Navigation, Pause bei Hover, respektiert `prefers-reduced-motion`) ersetzt. Alle Slides laden mit
+`loading="eager"`, nicht `lazy` – ein erster Versuch mit `lazy` für die nicht-ersten Slides führte dazu, dass der
+Browser sie trotz Sichtbarkeit im Viewport erst beim ersten automatischen Wechsel nachlud (sichtbares
+Nachladen), da sie durch `opacity-0` als unsichtbar galten. Zusätzlich verlinkt ein Hero-Textlink direkt auf den
+Blog-Beitrag „Die Top Wash Formel".
+
 ## Echte TOPWASH-Fotos (`images/`)
 Der Auftraggeber hat 3 echte Fotos (Original-Dateien, keine Handy-Screenshots) geliefert. Passend zugeschnitten
 (von 2,6:1-Panoramaformat auf ca. 2:1, Fokus auf die aktive Handlung statt leerer Randflächen) und auf max. 1200 px
