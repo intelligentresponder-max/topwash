@@ -444,5 +444,14 @@ genug). SVG-Code unverändert aus der Nutzer-Vorlage übernommen, inkl. der vom 
 Warnfarben (Schwarz für neutrale Hinweise, Rot für Verbote/Warnungen). Verlinkt von der bestehenden
 FAQ-Frage zum Sitzenbleiben im Fahrzeug; `agb.html` § 3 bekam eine Anker-ID für die Rückverlinkung.
 
+## Icons in der Preistabelle (`preise.html`)
+Nutzer bat per Screenshot um ein Icon je Waschprogramm in der Preistabelle. 5 thematisch passende Inline-SVGs
+im bestehenden Icon-Stil der Seite ergänzt (kleines rundes Badge über dem Produktnamen): Soft-Schaum →
+Seifenblasen, Komplett → Felge/Rad (passend zur Felgenreinigung), Lotus → Blatt mit Tropfen
+(Lotus-Effekt-Bildsprache), DAS BESTE → Stern, Superschaum → Glanz-/Polier-Funkeln. Reine Gestaltungsfrage
+ohne Tatsachenbezug, daher direkt umgesetzt. Bewusst nur auf `preise.html` beschränkt (dort war die Anfrage
+verortet) — die separate Karten-Ansicht derselben 5 Programme auf `index.html#programme` wurde nicht
+mitgeändert, um den Umfang nicht eigenmächtig auszuweiten.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
