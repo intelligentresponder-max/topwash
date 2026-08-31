@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kombi-Gutschein Konfigurator – TOPWASH</title>
+<meta name="description" content="Stellen Sie Ihren TOPWASH-Kombi-Gutschein selbst zusammen (2–99 Waschmarken) und bestellen Sie ihn direkt per WhatsApp – mit Mengenrabatt ab 10 Marken, gedeckelt bei 25 %.">
+<link rel="canonical" href="https://intelligentresponder-max.github.io/topwash/gutschein-shop.html">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@600;700&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { brand: {
+    50:'#eff9ff',100:'#dcf1ff',200:'#b3e4ff',300:'#75d1ff',400:'#2fb9ff',
+    500:'#049ef2',600:'#0080d0',700:'#0166a8',800:'#08578a',900:'#0c4972',950:'#082e4a'
+  } } } } }
+</script>
+<style>
+  :root {
+    --kraftpapier: #C4A67A;
+    --kraft-dunkel: #AE8F62;
+    --tinte: #1B1815;
+    --tinte-soft: #4A433C;
+    --sock-weiss: #F6F2E9;
+    --karte: #FFFFFF;
+    --stempel-rot: #C1442D;
+    --lime-gruen: #7CA518;
+    --lime-flaeche: #EAF3D6;
+  }
+  .font-oswald { font-family: 'Oswald', sans-serif; }
+  .font-mono { font-family: 'IBM Plex Mono', monospace; font-variant-numeric: tabular-nums; }
+  .kraft-bg {
+    background-color: var(--kraftpapier);
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 3px),
+      repeating-linear-gradient(90deg, rgba(0,0,0,0.01) 0px, rgba(0,0,0,0.01) 1px, transparent 1px, transparent 3px);
+    box-shadow: inset 0 0 120px rgba(0,0,0,0.08);
+  }
+  .tier-stamp {
+    border: 2px dashed var(--kraft-dunkel);
+    background: var(--sock-weiss);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+  }
+  .tier-stamp.is-active {
+    border-style: solid;
+    border-color: var(--lime-gruen);
+    background: var(--lime-flaeche);
+    transform: translateY(-2px) rotate(-1deg);
+    box-shadow: 0 3px 0 rgba(0,0,0,0.08);
+  }
+  .tier-stamp.is-passed {
+    border-style: solid;
+    border-color: var(--kraft-dunkel);
+    opacity: 0.75;
+  }
+</style>
+</head>
+<body class="bg-white text-slate-800 antialiased pb-16 md:pb-0">
+
+<a href="angebote.html" class="block bg-red-600 text-white text-center text-sm font-semibold py-2 px-4 hover:bg-red-700 transition">
+  🔥 3 Knallerpreise diese Woche – jetzt sichern →
+</a>
+
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-2 font-extrabold text-xl text-brand-800">
+        <img src="images/logo-top-wash.png" alt="TOP WASH Logo" class="h-10 w-auto">
+        <span class="hidden sm:inline text-slate-500 font-medium">Autowasch Spezialisten</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="angebote.html" class="text-red-600 font-bold hover:text-red-700">Angebote 🔥</a>
+        <a href="standorte.html" class="hover:text-brand-700">Standorte</a>
+        <a href="preise.html" class="text-brand-700 font-semibold">Preise</a>
+        <a href="index.html#prozess" class="hover:text-brand-700">So funktioniert's</a>
+        <a href="faq.html" class="hover:text-brand-700">FAQ</a>
+      </nav>
+      <a href="tel:+496047986915" aria-label="TOPWASH anrufen" class="p-2 text-brand-700 md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h.75a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+      </a>
+      <a href="tel:+496047986915" class="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold text-brand-800 hover:text-brand-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h.75a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+        06047 98 69 15
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <a href="preise.html" class="text-sm text-brand-700 font-semibold hover:underline">← Zurück zu Preise &amp; Programme</a>
+
+  <header class="mt-4 mb-8 text-center">
+    <h1 class="font-oswald text-4xl tracking-tight uppercase mb-2 text-[--tinte]">Kombi-Gutschein Konfigurator</h1>
+    <p class="text-sm tracking-widest uppercase text-[--tinte-soft]">Autowasch Spezialisten Frankfurt</p>
+    <p class="mt-2 text-sm text-slate-600 max-w-md mx-auto">Stellen Sie sich Ihren eigenen Gutschein aus 2 bis 99 Waschmarken zusammen und bestellen Sie ihn direkt per WhatsApp – bezahlt wird bequem vor Ort am Standort.</p>
+  </header>
+
+  <div class="kraft-bg border border-[--kraft-dunkel] rounded-lg p-6 md:p-10 shadow-xl relative overflow-hidden">
+
+    <div class="flex justify-between items-start mb-6">
+      <div>
+        <h2 class="font-oswald text-2xl uppercase text-[--tinte]">Gutschein Konfigurator</h2>
+        <p class="text-xs font-mono opacity-60">FORM-REF: TW-SHOP-2026</p>
+      </div>
+      <div class="text-right text-xs opacity-70">
+        <p>ID: <span id="display-id" class="text-[--lime-gruen] font-mono text-lg font-bold">TW-00000</span></p>
+        <p class="font-mono">STATUS: NEU</p>
+      </div>
+    </div>
+
+    <div id="positions-container" class="space-y-4 mb-6">
+      <div class="position-row bg-[--karte]/80 p-3 rounded border border-black/5">
+        <div class="flex items-center gap-3">
+          <select class="service-select flex-1 p-2 border rounded bg-white">
+            <option value="12" data-name="Soft-Schaum">Soft-Schaum (12,00 €)</option>
+            <option value="15" data-name="Komplett">Komplett (15,00 €)</option>
+            <option value="18" data-name="Lotus">Lotus (18,00 €)</option>
+            <option value="20" data-name="DAS BESTE">DAS BESTE (20,00 €)</option>
+            <option value="23" data-name="Superschaum">Superschaum (23,00 €)</option>
+          </select>
+          <input type="number" min="1" max="99" value="1" class="qty-input w-16 p-2 border rounded bg-white text-center font-mono">
+          <button type="button" onclick="removeRow(this)" aria-label="Position entfernen" class="text-[--stempel-rot] font-bold text-xl px-2 leading-none">×</button>
+        </div>
+        <div class="text-right text-sm font-mono mt-2">
+          Zwischensumme: <span class="row-total">12,00 €</span>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" onclick="addRow()" class="w-full border-2 border-dashed border-black/25 py-2 mb-6 text-sm font-bold uppercase tracking-widest hover:bg-black/5 transition-colors rounded text-[--tinte]">
+      + Weitere Marke hinzufügen
+    </button>
+
+    <div class="mb-6">
+      <div class="flex items-baseline justify-between mb-2">
+        <span class="text-xs font-bold uppercase tracking-widest text-[--tinte]">Mengenrabatt-Leiter</span>
+        <span id="tier-nudge" class="text-xs font-mono text-[--tinte-soft]"></span>
+      </div>
+      <div class="grid grid-cols-4 gap-2" id="tier-ladder">
+        <div class="tier-stamp rounded px-2 py-2 text-center" data-threshold="10">
+          <p class="font-oswald text-lg leading-none text-[--tinte]">10%</p>
+          <p class="text-[10px] font-mono opacity-70 mt-1">ab 10</p>
+        </div>
+        <div class="tier-stamp rounded px-2 py-2 text-center" data-threshold="20">
+          <p class="font-oswald text-lg leading-none text-[--tinte]">15%</p>
+          <p class="text-[10px] font-mono opacity-70 mt-1">ab 20</p>
+        </div>
+        <div class="tier-stamp rounded px-2 py-2 text-center" data-threshold="30">
+          <p class="font-oswald text-lg leading-none text-[--tinte]">20%</p>
+          <p class="text-[10px] font-mono opacity-70 mt-1">ab 30</p>
+        </div>
+        <div class="tier-stamp rounded px-2 py-2 text-center" data-threshold="50">
+          <p class="font-oswald text-lg leading-none text-[--tinte]">25%</p>
+          <p class="text-[10px] font-mono opacity-70 mt-1">ab 50</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t-2 border-dashed border-black/25 pt-6 space-y-3 text-[--tinte]">
+      <div class="flex justify-between items-center text-sm">
+        <span>Anzahl Waschmarken</span>
+        <span id="total-quantity" class="font-mono font-bold">1</span>
+      </div>
+      <div class="flex justify-between items-center text-sm">
+        <span>Zwischensumme (Brutto)</span>
+        <span id="gross-price" class="font-mono">12,00 €</span>
+      </div>
+      <div class="flex justify-between items-center text-sm">
+        <span>Mengenrabatt</span>
+        <span id="discount-amount" class="font-mono text-[--stempel-rot] font-bold">− 0,00 € (0%)</span>
+      </div>
+      <div class="flex justify-between items-end pt-3 border-t border-black/15">
+        <span class="text-xs uppercase font-bold tracking-widest">Gesamtsumme (Netto)</span>
+        <span id="net-price" class="font-oswald text-4xl">12,00 €</span>
+      </div>
+      <div id="savings-line" class="hidden justify-end">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-[--lime-flaeche] border border-[--lime-gruen] text-[--tinte] px-3 py-1 text-xs font-bold font-mono">
+          Sie sparen <span id="savings-amount">0,00 €</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="mt-6 pt-6 border-t border-black/10">
+      <p class="text-xs font-bold uppercase tracking-widest mb-3 text-[--tinte]">Warum lohnt sich mehr Marken auf einmal?</p>
+      <div class="grid grid-cols-3 gap-3 text-center">
+        <div class="bg-[--karte]/60 rounded p-3">
+          <svg class="w-6 h-6 mx-auto mb-1.5" viewBox="0 0 24 24" fill="none" stroke="#1B1815" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v3m0 12v3M5.6 5.6l2.1 2.1m8.6 8.6l2.1 2.1M3 12h3m12 0h3M5.6 18.4l2.1-2.1m8.6-8.6l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg>
+          <p class="text-[11px] leading-tight text-[--tinte-soft]">Günstiger pro Wäsche, je mehr Marken Sie wählen</p>
+        </div>
+        <div class="bg-[--karte]/60 rounded p-3">
+          <svg class="w-6 h-6 mx-auto mb-1.5" viewBox="0 0 24 24" fill="none" stroke="#1B1815" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <p class="text-[11px] leading-tight text-[--tinte-soft]">Einmal zahlen, ohne an der Kasse anstehen</p>
+        </div>
+        <div class="bg-[--karte]/60 rounded p-3">
+          <svg class="w-6 h-6 mx-auto mb-1.5" viewBox="0 0 24 24" fill="none" stroke="#1B1815" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
+          <p class="text-[11px] leading-tight text-[--tinte-soft]">Marken sind übertragbar, nutzbar für Familie &amp; Team</p>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" onclick="processOrder()" class="w-full bg-[--tinte] text-white py-4 mt-6 font-oswald text-xl uppercase tracking-widest hover:bg-[--stempel-rot] transition-colors rounded shadow-lg">
+      Gutschein per WhatsApp bestellen
+    </button>
+    <p class="mt-3 text-center text-xs text-[--tinte-soft]">Kein Online-Kauf – Sie senden Ihre Zusammenstellung per WhatsApp, bezahlt wird direkt am Standort.</p>
+  </div>
+
+  <div class="mt-8 rounded-2xl bg-slate-50 border border-slate-200 p-6 text-sm text-slate-600">
+    <h2 class="font-bold text-slate-900 mb-2">Gut zu wissen</h2>
+    <ul class="space-y-1.5 list-disc list-inside">
+      <li>Die Bestellung ist eine unverbindliche Anfrage – TOPWASH bestätigt sie per WhatsApp.</li>
+      <li>Bezahlt wird bei Abholung bar oder per Karte am gewünschten Standort.</li>
+      <li>Ab dem 1. Oktober 2026 sollen Wertkarten &amp; Waschabos zusätzlich direkt online kaufbar sein – <a href="blog/online-shop-eroeffnung.html" class="text-brand-700 underline">mehr dazu im Blog</a>.</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="bg-slate-900 text-slate-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-500">
+    <p>© <span id="year"></span> TOPWASH Autowasch Spezialisten. Alle Rechte vorbehalten.</p>
+    <div class="flex gap-4">
+      <a href="impressum.html" class="hover:text-white">Impressum</a>
+      <a href="datenschutz.html" class="hover:text-white">Datenschutz</a>
+      <a href="agb.html" class="hover:text-white">AGB</a>
+    </div>
+  </div>
+</footer>
+
+<div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t border-slate-200 shadow-[0_-4px_16px_rgba(0,0,0,0.1)] grid grid-cols-2">
+  <a href="tel:+496047986915" class="flex items-center justify-center gap-2 py-3.5 font-semibold text-brand-700 border-r border-slate-200">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h.75a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+    Anrufen
+  </a>
+  <a href="angebote.html" class="flex items-center justify-center gap-2 py-3.5 font-semibold text-white bg-red-600">
+    🔥 Angebote
+  </a>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Rabattstaffel: feste, gedeckelte Stufen (10-25%), keine unbegrenzte Formel.
+  // Gedeckelt bei 25%, damit auch beim günstigsten Programm (Soft-Schaum, 12 €)
+  // bei sehr großen Stückzahlen keine Marge unterschritten wird. Einstieg ab
+  // 10 Marken, da darunter der administrative Vorteil des Vorverkaufs (eine
+  // Zahlung statt vieler Einzelzahlungen) noch gering ist.
+  const DISCOUNT_TIERS = [
+    { threshold: 50, percent: 25 },
+    { threshold: 30, percent: 20 },
+    { threshold: 20, percent: 15 },
+    { threshold: 10, percent: 10 },
+  ];
+
+  function getDiscountPercent(qty) {
+    for (const tier of DISCOUNT_TIERS) {
+      if (qty >= tier.threshold) return tier.percent;
+    }
+    return 0;
+  }
+
+  function getNextTier(qty) {
+    const ascending = [...DISCOUNT_TIERS].reverse();
+    for (const tier of ascending) {
+      if (qty < tier.threshold) return tier;
+    }
+    return null;
+  }
+
+  const uniqueId = "TW-" + Math.floor(10000 + Math.random() * 90000);
+  document.getElementById('display-id').innerText = uniqueId;
+
+  function attachEvents() {
+    document.querySelectorAll('.position-row').forEach(row => {
+      row.querySelector('.service-select').addEventListener('change', updateUI);
+      row.querySelector('.qty-input').addEventListener('input', updateUI);
+    });
+  }
+
+  function addRow() {
+    const container = document.getElementById('positions-container');
+    const newRow = document.createElement('div');
+    newRow.className = 'position-row bg-[--karte]/80 p-3 rounded border border-black/5';
+    newRow.innerHTML = `
+      <div class="flex items-center gap-3">
+        <select class="service-select flex-1 p-2 border rounded bg-white">
+          <option value="12" data-name="Soft-Schaum">Soft-Schaum (12,00 €)</option>
+          <option value="15" data-name="Komplett">Komplett (15,00 €)</option>
+          <option value="18" data-name="Lotus">Lotus (18,00 €)</option>
+          <option value="20" data-name="DAS BESTE">DAS BESTE (20,00 €)</option>
+          <option value="23" data-name="Superschaum">Superschaum (23,00 €)</option>
+        </select>
+        <input type="number" min="1" max="99" value="1" class="qty-input w-16 p-2 border rounded bg-white text-center font-mono">
+        <button type="button" onclick="removeRow(this)" aria-label="Position entfernen" class="text-[--stempel-rot] font-bold text-xl px-2 leading-none">×</button>
+      </div>
+      <div class="text-right text-sm font-mono mt-2">
+        Zwischensumme: <span class="row-total">12,00 €</span>
+      </div>
+    `;
+    container.appendChild(newRow);
+    attachEvents();
+    updateUI();
+  }
+
+  function removeRow(btn) {
+    const container = document.getElementById('positions-container');
+    if (container.children.length <= 1) {
+      alert('Mindestens eine Marke muss ausgewählt bleiben.');
+      return;
+    }
+    btn.closest('.position-row').remove();
+    updateUI();
+  }
+
+  function formatEuro(n) {
+    return n.toFixed(2).replace('.', ',') + ' €';
+  }
+
+  function updateUI() {
+    let totalQty = 0;
+    let grossPrice = 0;
+
+    document.querySelectorAll('.position-row').forEach(row => {
+      const price = parseFloat(row.querySelector('.service-select').value);
+      const qty = parseInt(row.querySelector('.qty-input').value) || 0;
+      const rowTotal = price * qty;
+      row.querySelector('.row-total').innerText = formatEuro(rowTotal);
+      totalQty += qty;
+      grossPrice += rowTotal;
+    });
+
+    const discountPercent = getDiscountPercent(totalQty);
+    const discountAmount = grossPrice * (discountPercent / 100);
+    const netPrice = grossPrice - discountAmount;
+
+    document.getElementById('total-quantity').innerText = totalQty;
+    document.getElementById('gross-price').innerText = formatEuro(grossPrice);
+    document.getElementById('discount-amount').innerText = '− ' + formatEuro(discountAmount) + ' (' + discountPercent + '%)';
+    document.getElementById('net-price').innerText = formatEuro(netPrice);
+
+    const savingsLine = document.getElementById('savings-line');
+    if (discountAmount > 0) {
+      savingsLine.classList.remove('hidden');
+      savingsLine.classList.add('flex');
+      document.getElementById('savings-amount').innerText = formatEuro(discountAmount);
+    } else {
+      savingsLine.classList.add('hidden');
+      savingsLine.classList.remove('flex');
+    }
+
+    document.querySelectorAll('.tier-stamp').forEach(stamp => {
+      const threshold = parseInt(stamp.dataset.threshold, 10);
+      stamp.classList.remove('is-active', 'is-passed');
+      if (totalQty >= threshold) {
+        const tierAtThreshold = DISCOUNT_TIERS.find(t => t.threshold === threshold);
+        const isCurrentTier = tierAtThreshold && getDiscountPercent(totalQty) === tierAtThreshold.percent
+          && !DISCOUNT_TIERS.some(t => t.threshold > threshold && totalQty >= t.threshold);
+        stamp.classList.add(isCurrentTier ? 'is-active' : 'is-passed');
+      }
+    });
+
+    const nextTier = getNextTier(totalQty);
+    const nudgeEl = document.getElementById('tier-nudge');
+    nudgeEl.innerText = nextTier ? `noch ${nextTier.threshold - totalQty} bis ${nextTier.percent}%` : 'Maximalrabatt erreicht';
+  }
+
+  function processOrder() {
+    // TODO(vor Livegang): echte WhatsApp-Bestellnummer eintragen.
+    // Nutzer hat die im ursprünglichen Entwurf enthaltene Nummer als
+    // unbestätigt zurückgewiesen -- Platzhalter, damit keine echten
+    // Bestellungen an eine falsche/erfundene Nummer gehen.
+    const phone = "491700000000"; // PLATZHALTER - NICHT ECHT
+
+    let message = `Hallo Topwash-Team! Ich möchte einen Kombi-Gutschein bestellen:\n\n`;
+    message += `*Gutschein-ID:* ${uniqueId}\n`;
+    message += `*Positionen:*\n`;
+
+    document.querySelectorAll('.position-row').forEach(row => {
+      const name = row.querySelector('.service-select').selectedOptions[0].getAttribute('data-name');
+      const price = row.querySelector('.service-select').value;
+      const qty = row.querySelector('.qty-input').value;
+      message += `- ${qty}× ${name} (à ${price},00 €)\n`;
+    });
+
+    const totalQty = document.getElementById('total-quantity').innerText;
+    const gross = document.getElementById('gross-price').innerText;
+    const discount = document.getElementById('discount-amount').innerText;
+    const net = document.getElementById('net-price').innerText;
+
+    message += `\n*Gesamt:* ${totalQty} Marken\n`;
+    message += `*Brutto:* ${gross}\n`;
+    message += `*Rabatt:* ${discount}\n`;
+    message += `*Endpreis:* ${net}\n\n`;
+    message += `Bitte um Bestätigung. Bezahlung erfolgt vor Ort.`;
+
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+  }
+
+  attachEvents();
+  updateUI();
+</script>
+<script src="chat.js?v=4" defer></script>
+</body>
+</html>

@@ -272,5 +272,35 @@ wäre, außerhalb des Umfangs eines reinen SEO-„Checks"): Der gesamten Seite f
 (`<link rel="icon">`) — kein einziges HTML-Dokument im Repo referenziert eines. Sollte aus dem echten Logo
 erzeugt werden, wenn gewünscht.
 
+## Kombi-Gutschein Konfigurator (`gutschein-shop.html`)
+Interaktiver Konfigurator (2–99 Waschmarken, beliebig kombinierbar über die 5 Programme), der eine
+formatierte Bestellzusammenfassung per WhatsApp verschickt — kein echter Online-Kauf, Bezahlung erfolgt
+weiterhin vor Ort am Standort (bewusst so kommuniziert, um keinen Widerspruch zum in
+`blog/online-shop-eroeffnung.html` angekündigten echten Online-Kauf ab 1. Oktober 2026 zu erzeugen). Optisch
+bewusst abweichend vom Rest der Seite (Kraftpapier-Look, Schrift-Trio Oswald/Inter/IBM Plex Mono) — vom
+Nutzer selbst so vorgegeben und beibehalten, eingebettet in den normalen Header/Footer/Chat-Rahmen der Seite.
+
+**Mengenrabatt-Staffel (nach Wirtschaftlichkeitsprüfung überarbeitet)**: Die ursprünglich eingereichte Formel
+(`Math.floor(qty / 5) * 5`) war unbegrenzt — bei 99 Marken hätte sie 95 % Rabatt ergeben, weit unter
+Selbstkosten selbst beim teuersten Programm. Ersetzt durch feste, bei 25 % gedeckelte Stufen: 0 % bis 9
+Marken, 10 % ab 10, 15 % ab 20, 20 % ab 30, 25 % ab 50 (Maximum, unabhängig von der tatsächlichen Menge).
+Die Stufengrenzen sind ein eigener, plausibler Vorschlag auf Basis allgemeiner Logik für Vorverkaufs-/
+Treuerabatte (Vorauszahlung verbessert Liquidität, senkt den Verwaltungsaufwand pro Einzelzahlung, bindet
+Kunden) — **keine Berechnung anhand echter interner TOPWASH-Kostendaten**, die liegen nicht vor. Vor
+Livegang mit dem Auftraggeber gegenprüfen. Die Vorteile werden zusätzlich sichtbar kommuniziert („im Wort und
+Bild" wie angefragt): eine Rabatt-Leiter mit 4 Stufen-Kacheln (aktuelle Stufe hervorgehoben, „noch X bis Y %"-
+Hinweis), eine „Sie sparen X €"-Anzeige sowie 3 kurze Vorteils-Kacheln mit Icon (günstiger pro Wäsche, eine
+Zahlung statt vieler, übertragbar).
+
+**WhatsApp-Bestellnummer ist ein Platzhalter, nicht echt**: Der vom Nutzer eingereichte Code enthielt die
+Nummer 491632692255 mit dem Kommentar „Verifizierte Nummer" — das war lediglich ein Kommentar im
+eingefügten Code, keine durch mich geprüfte Quelle. Auf Nachfrage bestätigte der Nutzer, dass eine
+Dummy-Nummer verwendet werden soll. Eingesetzt: `491700000000` (offensichtlicher Platzhalter, mit
+`// PLATZHALTER — NICHT ECHT`-Kommentar direkt im Code markiert). **Muss vor Livegang durch die echte
+WhatsApp-Bestellnummer ersetzt werden** — bis dahin würde der Bestell-Button auf eine nicht existierende
+Nummer verweisen.
+
+Verlinkt von `preise.html` („Gut zu wissen") und im Footer von `index.html`; in `sitemap.xml` ergänzt.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
