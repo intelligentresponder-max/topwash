@@ -61,12 +61,22 @@ Countdown-Timer oder "X Personen haben gerade gebucht"-Zähler – das wäre bei
 Werbung.
 
 ## Hero-Slideshow & Blog-Link (`index.html`)
-Der statische 2-Bilder-Grid im Hero wurde durch eine auto-rotierende Slideshow (5 echte Fotos, alle 4 s
+Der statische 2-Bilder-Grid im Hero wurde durch eine auto-rotierende Slideshow (jetzt 6 echte Fotos, alle 4 s
 Crossfade, Dot-Navigation, Pause bei Hover, respektiert `prefers-reduced-motion`) ersetzt. Alle Slides laden mit
 `loading="eager"`, nicht `lazy` – ein erster Versuch mit `lazy` für die nicht-ersten Slides führte dazu, dass der
 Browser sie trotz Sichtbarkeit im Viewport erst beim ersten automatischen Wechsel nachlud (sichtbares
 Nachladen), da sie durch `opacity-0` als unsichtbar galten. Zusätzlich verlinkt ein Hero-Textlink direkt auf den
 Blog-Beitrag „Die Top Wash Formel".
+
+**Neues erstes Bild + Effekte**: Nutzer schickte ein POV-Foto (Blick durch die Windschutzscheibe beim Einfahren
+unter dem „TOP WASH"-Schild) mit der Bitte, es als erstes Slideshow-Bild einzubinden und ein paar
+Spezialeffekte zu ergänzen. Das Hochformat-Handyfoto (822×1096) wurde auf 822×520 zugeschnitten (zeigt Schild
++ Beginn der Textillamellen), da der Hero-Container ein breites Querformat mit `object-cover` erwartet und ein
+unbearbeitetes Hochformat den Schriftzug weggeschnitten hätte. Zwei Effekte ergänzt: ein Ken-Burns-Zoom
+(`scale(1)` → `scale(1.06)`, 5 s), gekoppelt an die von der Slideshow-Logik bereits gesetzte
+`opacity-100`-Klasse statt unsynchronisiert auf allen Bildern gleichzeitig zu laufen (sonst „springt" der Zoom
+beim Bildwechsel sichtbar), sowie eine sanfte Vignette (dunklere Verläufe oben/unten) für mehr Tiefe und
+bessere Lesbarkeit der Dot-Navigation. Beides respektiert `prefers-reduced-motion`.
 
 ## Echte TOPWASH-Fotos (`images/`)
 Der Auftraggeber hat 3 echte Fotos (Original-Dateien, keine Handy-Screenshots) geliefert. Passend zugeschnitten
