@@ -59,7 +59,7 @@
   color: var(--brand-800);
   text-decoration: none;
 }
-.site-logo img { height: 2.5rem; width: auto; }
+.site-logo img { height: 3rem; width: auto; }
 .site-logo span {
   display: none;
   color: var(--slate-500);
