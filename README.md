@@ -17,6 +17,7 @@ Statische Website (Jamstack, GitHub-Pages-tauglich) für TOPWASH – textile Aut
 | `standorte.html` | Standort-Übersicht (Kurzkarten), verlinkt auf die 4 Standort-Einzelseiten |
 | `standorte/bad-nauheim.html`, `standorte/eschborn.html`, `standorte/neu-isenburg.html`, `standorte/frankfurt.html` | Eigenständige Standort-Seiten: Adresse, Öffnungszeiten, Route, Karte, standorteigener Google-Bewertungslink, eigenes `<title>`/Meta/Canonical + `AutoWash`-JSON-LD (lokales SEO) |
 | `preise.html` | Vollständiger Vergleich der 5 Waschprogramme |
+| `jobs.html` | Stellenausschreibung „Mitarbeiter (m/w/d) für die Autowaschstraße" inkl. `JobPosting`-JSON-LD |
 | `faq.html` | Ausführliches FAQ (Ablauf, Fahrzeugeignung, Haftung, Bezahlung) |
 | `impressum.html`, `datenschutz.html`, `agb.html` | Rechtstexte |
 | `blog/die-top-wash-formel.html` | USP-Pillar-Beitrag „Die Top Wash Formel" (Übersicht aller 4 Themen, verlinkt auf die Cluster-Seiten) |
@@ -360,6 +361,18 @@ Banner-/Footer-/Button-Farben, aktive Tarif-Stufe im Gutschein-Konfigurator — 
 (passend zum echten TOP-WASH-Logo) ist weiterhin die Basis-Identität auf allen Seiten; Kraftpapier ist auf den
 Gutschein-Konfigurator begrenzt. Diese Aufteilung wurde vor Beginn der Arbeit ausdrücklich abgefragt und
 bestätigt (siehe Fehlerprotokoll).
+
+## Jobs-Seite (`jobs.html`)
+Nutzer schickte den Text der echten Stellenausschreibung von der Original-Website mit der Bitte, sie „wie im
+Original" unter einem neuen „Jobs"-Reiter zu platzieren. Die enthaltenen Fakten (Telefonnummer 06047 98 69 15,
+E-Mail info@top-wash.de) stimmen mit den bereits an anderer Stelle bestätigten Daten überein. Der Text wurde
+**nicht 1:1 übernommen**, sondern wie bei jedem anderen Inhalt dieses Projekts neu formuliert — Struktur und
+alle Fakten (Aufgaben, Anforderungen, Benefits, Bewerbungsweg) blieben erhalten, nur der Wortlaut ist neu; das
+entspricht der von Beginn an geltenden Vorgabe „kein 1:1-Content-Klon, alle Texte neu geschrieben"
+(Copyright-Gründe). Ergänzt um ein `JobPosting`-JSON-LD (Titel, Beschreibung, alle 4 Standorte als
+`jobLocation`, `employmentType`, `datePosted`) für bessere Auffindbarkeit z. B. über Google for Jobs.
+„Jobs" wurde in die Hauptnavigation aller Seiten mit vollständigem Header (vor „FAQ"), in die mobile
+Menüleiste und den Footer von `index.html` sowie in `sitemap.xml` aufgenommen.
 
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
