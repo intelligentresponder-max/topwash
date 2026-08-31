@@ -493,5 +493,19 @@ sichere, unstrittige Linien-Icons gewählt: Frankfurt → Skyline-Silhouette, Ba
 („Bad"/Kurstadt-Namensgebung), Eschborn → Bürogebäude, Neu-Isenburg → Papierflieger (Nähe zum Frankfurter
 Flughafen). Bewusst nicht auf `standorte.html`s eigene Karten-Übersicht ausgeweitet.
 
+## Neuer Blogbeitrag „Was ist die beste Autowäsche?" (`blog/beste-autowaesche-im-vergleich.html`)
+Nutzer bat um einen Blogbeitrag zur Google-Suchanfrage „Was ist die beste Autowäsche?" und lieferte die von
+Google gezeigte KI-Übersicht („Handwäsche an SB-Waschbox oder Textil-Waschstraße mit manueller Vorwäsche",
+Quelle: ADAC). Die verlinkte ADAC-Seite selbst war nicht abrufbar (wie alle bisherigen externen Domains in
+dieser Sandbox); per `WebSearch` aber mehrere unabhängige Quellen gefunden, die dieselbe Grundaussage stützen.
+Im Beitrag daher als **Paraphrase**, nicht als direktes Zitat wiedergegeben. Passt inhaltlich genau zu
+TOPWASH, da beide genannten Optionen bereits angeboten werden (Textil-Waschstraße mit Handvorwäsche an allen
+4 Standorten, SB-Waschboxen in Bad Nauheim) — nur mit bereits bestätigten Fakten belegt. 2 bereits im Repo
+vorhandene Fotos wiederverwendet statt neuer Bilder. Cross-Links zu den bestehenden Beiträgen
+„Der Schmirgel-Effekt" und „SB-Waschboxen Bad Nauheim" ergänzt (beidseitig), `sitemap.xml` ergänzt.
+
+**Nebenbei behoben**: `blog/glanz-werterhalt-autopflege.html` fehlte in der Footer-Spalte „Wissen & Technik"
+auf `index.html` (offenbar bei diesem PR übersehen) — zusammen mit dem neuen Beitrag nachgetragen.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
