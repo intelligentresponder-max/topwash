@@ -611,5 +611,25 @@ angehängten Buchstaben auftritt und keine echten URLs/Pfade/technische IDs betr
 Fehlerquelle behoben: die 3 vorausgefüllten WhatsApp-Nachrichten auf `angebote.html` hätten sonst ein rohes,
 ungültiges Leerzeichen mitten in der bereits Prozent-kodierten URL enthalten — auf `TOP%20WASH` korrigiert.
 
+## Neuer Blogbeitrag: „Bestellen per WhatsApp bei TOP WASH" (`blog/whatsapp-bestellung-erklaert.html`)
+Da die Firma bislang nicht mit WhatsApp arbeitet, bat der Nutzer um einen Erklär-Beitrag zum neuen Bestellweg —
+insbesondere zum Gutschein-Konfigurator. Vor dem Schreiben `gutschein-shop.html` vollständig gelesen, um den
+echten Ablauf akkurat zu beschreiben (Marken/Mengen wählen, automatische Mengenrabatt-Staffel, optionale
+Geschenk-Personalisierung, Live-Vorschau, „Per WhatsApp bestellen" mit vorausgefüllter Nachricht, alternativ
+Druckvorschau).
+
+Da noch keine echten Fotos/Screenshots vorlagen, **kein** fingierter Screenshot als „echt" ausgegeben — stattdessen
+eine klar als „Beispielhafte Darstellung – kein echter Screenshot" gekennzeichnete Chat-Bubble-Illustration, deren
+Text exakt der echten Nachrichten-Vorlage aus `gutschein-shop.html` entspricht. Der Beitrag ist so aufgebaut, dass
+echte, später nachgereichte Fotos einfach ergänzt werden können. Cross-Links von `gutschein-shop.html`,
+`angebote.html`, der Footer-Spalte „Wissen & Technik" und `sitemap.xml` ergänzt.
+
+**Nebenbei behoben**: Die nummerierten Schritt-Badges in diesem neuen Beitrag sowie im kürzlich gemergten
+`online-shop.html` nutzten ein von der in `index.html` etablierten Konvention abweichendes Markup
+(`<div class="flex-shrink-0 ... bg-brand-700">` statt `<span class="... shrink-0 ... bg-brand-600">`). Da Tailwind
+über `cdn.tailwindcss.com` in dieser Sandbox nachweislich unzuverlässig lädt, ließ sich ein echter Fehler nicht
+zweifelsfrei von einem Sandbox-Ladeproblem unterscheiden — beide Dateien sicherheitshalber auf das bereits
+bewährte `<span>`-Muster vereinheitlicht.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
