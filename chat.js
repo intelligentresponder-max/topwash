@@ -51,8 +51,8 @@
         en: ["price", "cost", "how much", "euro", "€"]
       },
       answer: {
-        de: "Unsere Waschprogramme starten bei 12 € (Soft-Schaum) und reichen bis 23 € (Superschaum mit Politur &amp; Felgenversiegelung). Alle Programme im Vergleich: <a href=\"preise.html\" class=\"underline font-semibold\">Preise-Seite</a>. Aktuell gibt es außerdem 3 Sonderangebote: <a href=\"angebote.html\" class=\"underline font-semibold\">Knallerpreise ansehen</a>.",
-        en: "Our wash programs start at €12 (Soft-Schaum) and go up to €23 (Superschaum with polish &amp; wheel sealant). Full comparison: <a href=\"preise.html\" class=\"underline font-semibold\">Prices page</a>. We currently also have 3 special offers: <a href=\"angebote.html\" class=\"underline font-semibold\">see offers</a>."
+        de: "Unsere Waschprogramme starten bei 12 € (Soft-Schaum) und reichen bis 23 € (Superschaum mit Poliertrocknung &amp; Felgenversiegelung). Alle Programme im Vergleich: <a href=\"preise.html\" class=\"underline font-semibold\">Preise-Seite</a>. Unsere 3 beliebtesten Programme im Überblick: <a href=\"angebote.html\" class=\"underline font-semibold\">Angebote ansehen</a>.",
+        en: "Our wash programs start at €12 (Soft-Schaum) and go up to €23 (Superschaum with polish &amp; wheel sealant). Full comparison: <a href=\"preise.html\" class=\"underline font-semibold\">Prices page</a>. Our 3 most popular programs at a glance: <a href=\"angebote.html\" class=\"underline font-semibold\">see programs</a>."
       }
     },
     {
@@ -71,8 +71,8 @@
         en: ["offer", "deal", "discount", "promo", "voucher", "save"]
       },
       answer: {
-        de: "Aktuell 3 Knallerpreise: Neukunden-Wäsche „Lotus\" für 13,90 € statt 18 €, montags „Superschaum\" zum Preis von „DAS BESTE\" (20 € statt 23 €), und die 5er-Waschkarte Soft-Schaum (5× waschen, nur 4× zahlen). Details: <a href=\"angebote.html\" class=\"underline font-semibold\">Angebote ansehen</a>.",
-        en: "We currently have 3 special deals: a first-time „Lotus\" wash for €13.90 instead of €18, „Superschaum\" at the „DAS BESTE\" price every Monday (€20 instead of €23), and a Soft-Schaum 5-wash card (wash 5×, pay for 4×). Details: <a href=\"angebote.html\" class=\"underline font-semibold\">see offers</a>."
+        de: "Unsere 3 beliebtesten Programme: die Lotus-Wäsche (18 €), die Superschaum-Wäsche mit Poliertrocknung &amp; Felgenversiegelung (23 €) und die 5er-Waschkarte Soft-Schaum zum Vorausbezahlen (60 €). Details: <a href=\"angebote.html\" class=\"underline font-semibold\">Angebote ansehen</a>.",
+        en: "Our 3 most popular programs: the Lotus wash (€18), the Superschaum wash with polish &amp; wheel sealant (€23), and the prepaid Soft-Schaum 5-wash card (€60). Details: <a href=\"angebote.html\" class=\"underline font-semibold\">see programs</a>."
       }
     },
     {

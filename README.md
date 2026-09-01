@@ -13,7 +13,7 @@ Statische Website (Jamstack, GitHub-Pages-tauglich) für TOPWASH – textile Aut
 | Datei | Inhalt |
 |---|---|
 | `index.html` | Startseite: Hero, Standort-Schnellauswahl, Prozess, Preisübersicht, Hinweise, FAQ-Auszug |
-| `angebote.html` | Lead-Landingpage mit 3 Knallerpreisen (Neukunden-, Montags- und Vielfahrer-Angebot) |
+| `angebote.html` | Lead-Landingpage mit den 3 beliebtesten Programmen (Lotus-Wäsche, Superschaum-Wäsche, 5er-Waschkarte) zu regulären Preisen |
 | `standorte.html` | Standort-Übersicht (Kurzkarten), verlinkt auf die 4 Standort-Einzelseiten |
 | `standorte/bad-nauheim.html`, `standorte/eschborn.html`, `standorte/neu-isenburg.html`, `standorte/frankfurt.html` | Eigenständige Standort-Seiten: Adresse, Öffnungszeiten, Route, Karte, standorteigener Google-Bewertungslink, eigenes `<title>`/Meta/Canonical + `AutoWash`-JSON-LD (lokales SEO) |
 | `preise.html` | Vollständiger Vergleich der 5 Waschprogramme |
@@ -43,22 +43,18 @@ nur neue Nachrichten) – jede Nachricht wird intern sprachunabhängig gespeiche
 
 ## Lead-Fokus
 Auf allen Seiten: click-to-call-Button im Header (Desktop + mobiles Icon), rot hervorgehobener „Angebote"-Link in
-Navigation/Footer, durchgängiger roter Ankündigungsbalken zu den Knallerpreisen sowie eine feste mobile CTA-Leiste
-(„Anrufen" / „Standort" bzw. „Angebote") am unteren Bildschirmrand. Da die Seite statisch ist (kein Backend), setzt
-die Lead-Erfassung bewusst auf `tel:`- und Maps-Links statt auf ein Kontaktformular – funktioniert ohne weitere
-Infrastruktur sofort.
+Navigation/Footer, durchgängiger roter Ankündigungsbalken zu den beliebtesten Programmen sowie eine feste mobile
+CTA-Leiste („Anrufen" / „Standort" bzw. „Angebote") am unteren Bildschirmrand. Da die Seite statisch ist (kein
+Backend), setzt die Lead-Erfassung bewusst auf `tel:`- und Maps-Links statt auf ein Kontaktformular – funktioniert
+ohne weitere Infrastruktur sofort.
 
-**Die 3 Knallerpreise auf `angebote.html` (Lotus-Wäsche 13,90 € statt 18 €, Superschaum zum DAS-BESTE-Preis
-20 € statt 23 €, 5er-Waschkarte Soft-Schaum 48 €) sind weiterhin vorgeschlagene, noch nicht vom Auftraggeber
-bestätigte Angebote** – nur die zugrunde liegenden regulären Programmpreise sind bestätigt (siehe Prozess-Sektion
-unten), die Rabattaktionen selbst nicht. Vor Livegang mit den echten, gewünschten Aktionen/Preisen und
-Gültigkeitszeiträumen abgleichen.
-
-`angebote.html` wurde zusätzlich um markterprobte Conversion-Elemente ergänzt: berechnete Rabatt-Badges (aus den
-echten Vorher-/Nachher-Preisen, keine erfundenen Werte), eine 3-Schritte-Einlöse-Anleitung sowie eine
-Einwand-FAQ (Anmeldung nötig? Kombinierbar? Gültigkeitsdauer?). Bewusst **keine** erfundenen Kundenstimmen,
-Countdown-Timer oder "X Personen haben gerade gebucht"-Zähler – das wäre bei einem realen Unternehmen irreführende
-Werbung.
+**Update nach Content-Abgleich mit der echten top-wash.de (siehe Fehlerprotokoll-Eintrag „Content-Abgleich
+top-wash.de"): die zuvor auf `angebote.html` gezeigten Rabatt-„Knallerpreise" (Lotus-Wäsche 13,90 € statt 18 €,
+Superschaum 20 € statt 23 €, 5er-Waschkarte 48 € statt 60 €) waren eine unbestätigte Repo-eigene Konstruktion ohne
+reale Grundlage beim Auftraggeber und wurden entfernt.** `angebote.html` zeigt jetzt dieselben 3 Programme
+(Lotus-Wäsche, Superschaum-Wäsche, 5er-Waschkarte Soft-Schaum) zu ihren regulären, bereits an anderer Stelle
+bestätigten Preisen (18 €/23 €/60 €), ohne Rabatt-Badges, Countdown- oder „Nur diese Woche"-Sprache. Die Seite
+bleibt als Landingpage für die beliebtesten Programme bestehen, macht aber keine Rabattversprechen mehr.
 
 ## Hero-Slideshow & Blog-Link (`index.html`)
 Der statische 2-Bilder-Grid im Hero wurde durch eine auto-rotierende Slideshow (jetzt 6 echte Fotos, alle 4 s
@@ -157,12 +153,16 @@ Der Auftraggeber hat die bisherige, marktübliche Preisschätzung (Basic/Glanz/K
 Lotus 18,00 € (inkl. Unterbodenwäsche mit Rostschutz &amp; Lotusglanz-Versiegelung), DAS BESTE 20,00 € (inkl.
 Staubsaugen, Lackversiegelung &amp; Textilpflege innen), Superschaum 23,00 € (inkl. Politur, Felgenversiegelung
 &amp; Intensiv-Superschaum)**. Umgesetzt auf `index.html` (`#programme`), `preise.html`, `chat.js` und den
-Knallerpreisen auf `angebote.html`.
+3 Programmen auf `angebote.html`.
 
-**Wichtig – Umfang der Bestätigung**: Bestätigt sind Programmnamen und -preise. Die genaue Zuordnung, welche
-einzelne Zusatzleistung zu welchem Programm gehört, wurde NICHT einzeln vom Auftraggeber spezifiziert (nur
-Namen + Preise), sondern von Claude als in sich konsistente Fortschreibung des bisherigen „Gut-besser-am
-besten"-Musters konstruiert – vor Livegang mit dem Betreiber gegenprüfen.
+**Update – Zuordnung jetzt gegengeprüft**: Die genaue Zuordnung, welche einzelne Zusatzleistung zu welchem
+Programm gehört, war ursprünglich NICHT einzeln vom Auftraggeber spezifiziert (nur Namen + Preise), sondern von
+Claude als in sich konsistente Fortschreibung des bisherigen „Gut-besser-am besten"-Musters konstruiert. Per
+Content-Abgleich mit der echten top-wash.de (siehe Fehlerprotokoll) wurde diese Zuordnung inzwischen gegengeprüft
+und die Bezeichnungen entsprechend angepasst (Wachs-Versiegelung, Unterboden-Wäsche, Unterboden-Rostschutz als
+getrennte Position, Lotus-Glanz, Poliertrocknung) – die konkrete Tier-Zuordnung (welches Programm ab welcher Stufe
+welches Merkmal enthält) bleibt dabei unverändert wie zuvor konstruiert, da der Content-Abgleich nur die
+Bezeichnungen, nicht die genaue Stufen-Zuordnung einzeln bestätigt hat.
 
 ## QR-Code-Leitsystem (Anker-IDs auf `index.html`)
 Für ein geplantes QR-Code-Leitsystem (z. B. Aushänge/Flyer, die auf `domain.de/#programme` verweisen) tragen
@@ -676,6 +676,30 @@ zusätzlicher Link „Video auch auf YouTube ansehen" ergänzt (`https://www.you
 `target="_blank" rel="noopener"`), farblich an den hellen Sektionshintergrund angepasst (`text-brand-700 underline`
 statt der für einen dunklen Hero-Hintergrund ausgelegten Original-Farben aus der Nutzer-Vorlage). Kein zweites
 Video-Element, keine iframe-Einbettung — weiterhin genau ein Video mit zwei Zugriffswegen.
+
+## Content-Abgleich mit der echten top-wash.de
+Nutzer lud ein Markdown-Dokument „Content-Abgleich: Repo topwash vs. Original top-wash.de" hoch (Quelle laut Dokument:
+Live-Fetch top-wash.de). Da direkter `WebFetch`-Zugriff auf `top-wash.de` in dieser Sandbox durchgehend mit
+`EGRESS_BLOCKED` fehlschlägt und das Dokument zudem behauptete, die bestehenden „Knallerpreise" auf `angebote.html`
+seien „komplett frei erfunden" (widersprach der bisherigen Projektgrundlage), wurde vor der Umsetzung per
+`AskUserQuestion` nachgefragt: Quelle des Dokuments sowie gewünschter Umgang mit der Preis-Diskrepanz. Der Nutzer
+bestätigte, das Dokument selbst mit echtem Seitenzugriff erstellt zu haben, und entschied sich für einen vollständigen
+Rückbau der Rabatt-Rahmung statt nur der reinen Zahlen.
+
+**Umgesetzt:**
+- `angebote.html`: von einer Rabatt-Landingpage („3 Knallerpreise", durchgestrichene Preise, „-23%"/„-13%"-Badges) zu
+  einer neutralen Übersicht der 3 beliebtesten Programme zu ihren echten regulären Preisen (Lotus-Wäsche 18 €,
+  Superschaum-Wäsche 23 €, 5er-Waschkarte 60 €) umgebaut. Site-weiter Ankündigungsbalken (22 Dateien) sowie 2
+  `chat.js`-Antworten entsprechend angepasst.
+- `preise.html` + `index.html#programme`: Terminologie an die bestätigten Original-Bezeichnungen angeglichen
+  (Wachs-Versiegelung, Unterboden-Wäsche/-Rostschutz als getrennte Positionen, Lotus-Glanz, Poliertrocknung) – die
+  genaue Tier-Zuordnung selbst bleibt unverändert, da nur die Bezeichnungen, nicht die Stufen-Zuordnung einzeln
+  gegengeprüft wurden (siehe „Preisstruktur"-Abschnitt oben).
+- Neuer Blogbeitrag `blog/baumharz-vogelkot-entfernen.html`, „Auto Hold"-Hinweis in `index.html` + `agb.html` § 3,
+  neue FAQ-Frage zu Assistenzsystemen/ADAC in `faq.html` (die 3 mittelpriorisierten, optionalen Ergänzungen aus dem
+  Dokument).
+
+Details, inkl. der Abwägung bei jedem einzelnen Punkt, im Fehlerprotokoll (CLAUDE-BRIEFING.md).
 
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
