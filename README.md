@@ -149,20 +149,20 @@ Korrekturen auf Nutzer-Angaben statt auf einem erneuten Live-Abgleich beruhen.
 
 ## Preisstruktur (bestätigt: Soft-Schaum / Komplett / Lotus / DAS BESTE / Superschaum)
 Der Auftraggeber hat die bisherige, marktübliche Preisschätzung (Basic/Glanz/Komfort/Premium/Deluxe,
-12–36,90 €) durch die echte TOPWASH-Programmstruktur ersetzt: **Soft-Schaum 12,00 €, Komplett 15,00 €,
-Lotus 18,00 € (inkl. Unterbodenwäsche mit Rostschutz &amp; Lotusglanz-Versiegelung), DAS BESTE 20,00 € (inkl.
-Staubsaugen, Lackversiegelung &amp; Textilpflege innen), Superschaum 23,00 € (inkl. Politur, Felgenversiegelung
-&amp; Intensiv-Superschaum)**. Umgesetzt auf `index.html` (`#programme`), `preise.html`, `chat.js` und den
-3 Programmen auf `angebote.html`.
+12–36,90 €) durch die echte TOPWASH-Programmstruktur ersetzt. Umgesetzt auf `index.html` (`#programme`),
+`preise.html`, `chat.js` und den 3 Programmen auf `angebote.html`.
 
-**Update – Zuordnung jetzt gegengeprüft**: Die genaue Zuordnung, welche einzelne Zusatzleistung zu welchem
-Programm gehört, war ursprünglich NICHT einzeln vom Auftraggeber spezifiziert (nur Namen + Preise), sondern von
-Claude als in sich konsistente Fortschreibung des bisherigen „Gut-besser-am besten"-Musters konstruiert. Per
-Content-Abgleich mit der echten top-wash.de (siehe Fehlerprotokoll) wurde diese Zuordnung inzwischen gegengeprüft
-und die Bezeichnungen entsprechend angepasst (Wachs-Versiegelung, Unterboden-Wäsche, Unterboden-Rostschutz als
-getrennte Position, Lotus-Glanz, Poliertrocknung) – die konkrete Tier-Zuordnung (welches Programm ab welcher Stufe
-welches Merkmal enthält) bleibt dabei unverändert wie zuvor konstruiert, da der Content-Abgleich nur die
-Bezeichnungen, nicht die genaue Stufen-Zuordnung einzeln bestätigt hat.
+**Update – Tier-Zuordnung jetzt vollständig bestätigt (3. Content-Abgleich)**: Die genaue Zuordnung, welche
+Zusatzleistung zu welchem Programm gehört, war ursprünglich NICHT einzeln vom Auftraggeber spezifiziert, sondern
+von Claude als in sich konsistente Fortschreibung des „Gut-besser-am besten"-Musters konstruiert. Ein dritter
+Content-Abgleich lieferte erstmals eine vollständige, tier-genaue Original-Referenz und deckte 3 falsche
+Zuordnungen auf, die entsprechend korrigiert wurden: **Soft-Schaum 12,00 €** (Handvorwäsche, 3 Textilwäsche-Stufen,
+Doppelte Trocknung, **Felgenreinigung**), **Komplett 15,00 €** (+ Wachs-Versiegelung, **Unterboden-Wäsche &
+-Rostschutz**), **Lotus 18,00 €** (+ Lotus-Glanz), **DAS BESTE 20,00 €** (+ **Poliertrocknung**),
+**Superschaum 23,00 €** (keine weitere benannte Zusatzleistung – der Programmname selbst ist der Unterschied).
+Fünf zuvor gelistete, unbestätigte Eigenkonstruktionen (Staubsaugen ab DAS BESTE, Lackversiegelung, Textilpflege
+innen, Felgenversiegelung, Intensiv-Superschaum) wurden auf Nutzerentscheidung hin ersatzlos gestrichen, da sie im
+Original in dieser Form nicht vorkommen (Details im Fehlerprotokoll).
 
 ## QR-Code-Leitsystem (Anker-IDs auf `index.html`)
 Für ein geplantes QR-Code-Leitsystem (z. B. Aushänge/Flyer, die auf `domain.de/#programme` verweisen) tragen
@@ -717,6 +717,24 @@ verlinkt. Per Rückfrage geklärt statt blind erneut umgesetzt; der Nutzer wollt
   Varianten per Skript, `index.html`s abweichende Desktop-Nav/Mobilmenü/Footer manuell), plus `sitemap.xml`.
 
 Details im Fehlerprotokoll (CLAUDE-BRIEFING.md).
+
+## Dritter Content-Abgleich – Tier-Korrektur, unbestätigte Features gestrichen, Foto-Audit
+Ein drittes Abgleich-Dokument bestätigte zunächst ausdrücklich, dass PR #49/#50 korrekt umgesetzt waren (Fake-Rabatte
+entfernt, `umwelt.html` fachlich korrekt, SB-Waschplätze nicht erfunden) – die Zurückhaltung beim zweiten Dokument
+war also berechtigt. Neu: eine vollständige, tier-genaue Original-Referenztabelle sowie ein Foto-Audit-Auftrag.
+Nutzer bat ausdrücklich „bitte fragen bei Optionen"; das Dokument nannte für die verbleibenden unbestätigten
+Features zwei Optionen, die per `AskUserQuestion` vorgelegt wurden.
+
+**Umgesetzt:**
+- `preise.html` + `index.html#programme`: 3 falsche Tier-Zuordnungen korrigiert (siehe „Preisstruktur" oben), 5
+  unbestätigte Eigenkonstruktionen ersatzlos gestrichen (Nutzerentscheidung).
+- 2 Blogbeiträge (`lotus-glanz-poliertrocknung.html`, `die-top-wash-formel.html`) sowie eine FAQ-Antwort korrigiert,
+  die durch die Tier-Korrektur inkonsistent geworden waren (Poliertrocknung/Staubsaugen).
+- Foto-Audit: 5 zuvor logo-only Seiten (`preise.html`, `standorte.html`, `umwelt.html`, `jobs.html`, `faq.html`)
+  um passende Fotos aus dem bestehenden Bildfundus ergänzt (keine neuen Bilder erfunden), mit beschreibenden
+  Alt-Texten nach dem Vorbild von `ueber-uns.html`.
+
+Details je Punkt im Fehlerprotokoll (CLAUDE-BRIEFING.md).
 
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
