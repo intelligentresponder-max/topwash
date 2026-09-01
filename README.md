@@ -701,5 +701,22 @@ Rückbau der Rabatt-Rahmung statt nur der reinen Zahlen.
 
 Details, inkl. der Abwägung bei jedem einzelnen Punkt, im Fehlerprotokoll (CLAUDE-BRIEFING.md).
 
+## Zweiter Content-Abgleich – Diskrepanz erkannt, nur bestätigter Teil umgesetzt
+Kurz nach dem Merge des obigen Content-Abgleichs lud der Nutzer ein zweites, chronologisch späteres Abgleich-Dokument
+hoch. Vor der Umsetzung gezielt gegen `main` geprüft: zwei der als „offen" gelisteten Punkte (Feature-Terminologie,
+Knallerpreise) waren zu diesem Zeitpunkt bereits seit dem vorherigen Merge behoben – das Dokument spiegelte den
+aktuellen Stand nicht wider. Ein weiterer neuer Punkt („SB-Waschplätze fehlen im Repo komplett") erwies sich als
+schlicht falsch: `blog/sb-waschplaetze-bad-nauheim.html` existiert bereits ausführlich und ist von mehreren Seiten
+verlinkt. Per Rückfrage geklärt statt blind erneut umgesetzt; der Nutzer wollte diese Diskrepanz selbst noch prüfen.
+
+**Umgesetzt wurde nur der eine unabhängig bestätigte neue Punkt:**
+- Neue Seite `umwelt.html` zur biologischen Wasseraufbereitung (Absetzbecken → Festbett-Bioreaktor → Nachklärung/
+  Filterung → Brauchwasser-Wiederverwendung), in eigenen Worten verfasst, ohne zusätzliche unbestätigte Details
+  (z. B. keine erfundene Wasserersparnis-Prozentzahl).
+- „Umwelt" als neuer Navigationspunkt auf allen 24 Seiten mit Standard-Nav ergänzt (root- und `../`-relative
+  Varianten per Skript, `index.html`s abweichende Desktop-Nav/Mobilmenü/Footer manuell), plus `sitemap.xml`.
+
+Details im Fehlerprotokoll (CLAUDE-BRIEFING.md).
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
