@@ -13,7 +13,7 @@
 <style>
   /* QR-Leitsystem-Ankerpunkte: Offset = sticky Header (h-16 = 64px) + border-b (1px) = 65px,
      berechnet aus den tatsächlich verwendeten Tailwind-Klassen, nicht geschätzt. */
-  #home, #vorreinigung, #programme, #highlights, #standort, #prozess, #bewertungen, #vor-der-einfahrt { scroll-margin-top: 65px; }
+  #home, #vorreinigung, #programme, #highlights, #standort, #prozess, #bewertungen, #vor-der-einfahrt, #video { scroll-margin-top: 65px; }
   .hero-slide { transition: opacity 1s ease-in-out; }
   .hero-slide.opacity-100 { animation: heroKenBurns 5s ease-out forwards; }
   @keyframes heroKenBurns { from { transform: scale(1); } to { transform: scale(1.06); } }
@@ -24,6 +24,82 @@
     .hero-slide.opacity-100 { animation: none; }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TOP WASH Autopflege GmbH",
+  "alternateName": "TOP WASH Autowasch Spezialisten",
+  "url": "https://intelligentresponder-max.github.io/topwash/",
+  "logo": "https://intelligentresponder-max.github.io/topwash/images/logo-top-wash.png",
+  "telephone": "+496047986915",
+  "email": "info@top-wash.de",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Stammheimer Straße 11",
+    "postalCode": "63674",
+    "addressLocality": "Altenstadt",
+    "addressRegion": "Hessen",
+    "addressCountry": "DE"
+  },
+  "sameAs": [
+    "https://intelligentresponder-max.github.io/topwash/standorte/frankfurt.html",
+    "https://intelligentresponder-max.github.io/topwash/standorte/bad-nauheim.html",
+    "https://intelligentresponder-max.github.io/topwash/standorte/eschborn.html",
+    "https://intelligentresponder-max.github.io/topwash/standorte/neu-isenburg.html"
+  ],
+  "department": [
+    {
+      "@type": "AutoWash",
+      "name": "TOP WASH Frankfurt",
+      "url": "https://intelligentresponder-max.github.io/topwash/standorte/frankfurt.html",
+      "telephone": "+496954805773",
+      "priceRange": "€€",
+      "address": { "@type": "PostalAddress", "streetAddress": "Karl-von-Drais-Str. 15", "postalCode": "60435", "addressLocality": "Frankfurt am Main", "addressRegion": "Eckenheim", "addressCountry": "DE" },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "19:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "18:00" }
+      ]
+    },
+    {
+      "@type": "AutoWash",
+      "name": "TOP WASH Bad Nauheim",
+      "url": "https://intelligentresponder-max.github.io/topwash/standorte/bad-nauheim.html",
+      "telephone": "+496032349630",
+      "priceRange": "€€",
+      "address": { "@type": "PostalAddress", "streetAddress": "Hubert-Vergölst-Str. 4", "postalCode": "61231", "addressLocality": "Bad Nauheim", "addressCountry": "DE" },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:30", "closes": "18:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "18:00" }
+      ]
+    },
+    {
+      "@type": "AutoWash",
+      "name": "TOP WASH Eschborn",
+      "url": "https://intelligentresponder-max.github.io/topwash/standorte/eschborn.html",
+      "telephone": "+4961967694769",
+      "priceRange": "€€",
+      "address": { "@type": "PostalAddress", "streetAddress": "Praunheimer Str. 5", "postalCode": "65760", "addressLocality": "Eschborn", "addressCountry": "DE" },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "19:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "18:00" }
+      ]
+    },
+    {
+      "@type": "AutoWash",
+      "name": "TOP WASH Neu-Isenburg",
+      "url": "https://intelligentresponder-max.github.io/topwash/standorte/neu-isenburg.html",
+      "telephone": "+49610234419",
+      "priceRange": "€€",
+      "address": { "@type": "PostalAddress", "streetAddress": "Karlstr. 15", "postalCode": "63263", "addressLocality": "Neu-Isenburg", "addressCountry": "DE" },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:30", "closes": "18:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "18:00" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body class="has-mobile-bar">
 
@@ -165,7 +241,7 @@
 </section>
 
 <!-- ===== VIDEO-EINBLICK ===== -->
-<section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<section id="video" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <h2 class="text-3xl font-extrabold text-slate-900 text-center">Einmal live dabei</h2>
     <p class="mt-3 text-slate-600 text-center max-w-2xl mx-auto">Ein kurzer Videoeinblick von unserem Standort <a href="standorte/neu-isenburg.html" class="text-brand-700 underline font-semibold">Neu-Isenburg</a> – so läuft eine Wäsche bei TOP WASH ab.</p>
     <video controls preload="metadata" playsinline class="mt-8 w-full rounded-2xl shadow-lg">
