@@ -656,5 +656,14 @@ das betrifft nur diesen Test-Build, nicht echte Chrome-/Safari-/Firefox-/Edge-In
 wurde stattdessen strukturell verifiziert (`ffprobe`: sauberer H.264-Codec; Byte-Inspektion: korrektes
 Faststart-Layout).
 
+**Nachtrag – echter YouTube-Link ergänzt**: Der Nutzer bestätigte per Rückfrage, dass er die echte YouTube-ID noch
+nachreichen würde und dass mit „die beiden Videos" zwei Zugriffswege auf dasselbe eine Video gemeint waren (MP4 +
+YouTube), nicht zwei unterschiedliche Dateien. Er lieferte anschließend `https://youtu.be/9pkvGtsX7rQ`
+(Video-ID `9pkvGtsX7rQ`). Unterhalb des nativen `<video>`-Embeds in der „Einmal live dabei"-Sektion wurde ein
+zusätzlicher Link „Video auch auf YouTube ansehen" ergänzt (`https://www.youtube.com/watch?v=9pkvGtsX7rQ`,
+`target="_blank" rel="noopener"`), farblich an den hellen Sektionshintergrund angepasst (`text-brand-700 underline`
+statt der für einen dunklen Hero-Hintergrund ausgelegten Original-Farben aus der Nutzer-Vorlage). Kein zweites
+Video-Element, keine iframe-Einbettung — weiterhin genau ein Video mit zwei Zugriffswegen.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
