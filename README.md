@@ -638,6 +638,18 @@ echte, später nachgereichte Fotos einfach ergänzt werden können. Cross-Links 
 zweifelsfrei von einem Sandbox-Ladeproblem unterscheiden — beide Dateien sicherheitshalber auf das bereits
 bewährte `<span>`-Muster vereinheitlicht.
 
+## Rote Anrufen-Buttons der Angebotskarten durch Shop-Links ersetzt
+Nutzer schickte zwei SingleFile-Snapshots der live deployten Seiten und wies anhand des `angebote.html`-Screenshots
+auf die noch verbliebenen roten `tel:`-Buttons in den 3 Angebotskarten hin (übrig geblieben aus der vorigen
+Anfrage, dort nur WhatsApp zu *ergänzen*). Alle 3 roten „Anrufen"-Buttons durch „Zum Shop" bzw. bei der 3. Karte
+„Kombi-Angebote im Shop" ersetzt (Warenkorb-Icon), der grüne WhatsApp-Button daneben blieb unverändert.
+
+Zusätzlich sollte die 3. Karte („Vielfahrer-Knaller: 5er-Waschkarte Soft-Schaum") gezielt auf die „Kombi-Angebote"
+im Shop verweisen. Da `online-shop.html` bereits eine passende Sektion mit genau diesem Angebot enthält, wurde
+diese nicht dupliziert, sondern per neuem Anker `id="kombi-angebote"` (inkl. `scroll-margin-top` für den
+Sticky-Header) direkt verlinkt (`online-shop.html#kombi-angebote`). Die Karte selbst (Titel/Preis/Beschreibung)
+blieb unverändert — nur der Anruf-Link wurde ersetzt, keine größere Scope-Erweiterung.
+
 ## Echtes Video vom Standort Neu-Isenburg auf der Startseite
 Nutzer lud eine echte MP4-Datei vom Standort Neu-Isenburg hoch (28,4 s, 1920×1080, H.264, 11,5 MB, ohne Ton) und
 schickte zusätzlich eine Code-Vorlage für einen YouTube-Link mit unbrauchbarem Platzhaltertext
