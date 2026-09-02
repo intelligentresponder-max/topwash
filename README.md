@@ -800,5 +800,36 @@ den bereits seit PR #15 im Repo verwendeten und seither mehrfach unabhängig bes
 der Live-Seite top-wash.de ist in dieser Umgebung nicht möglich, da der Domain-Zugriff durchgehend blockiert ist –
 die Bestätigung stützt sich stattdessen auf die bereits im Repo dokumentierte Herkunft dieser Zahlen.
 
+## Fünfter Content-Abgleich: „Preiskorrektur & rechtssichere Rabatt-Formulierung" geprüft
+Ein extern zugeliefertes Auftragsdokument forderte (1) die Korrektur der Preise auf 12/15/18/20/23 € in
+`preise.html`, `angebote.html`, `gutschein-shop.html`, `online-shop.html` und den Blog-Artikeln, (2) das Entfernen
+eines angeblich „frei erfundenen 48-€-Bundles", (3) zwei neue, inline-gestylte Rabatt-/Gutschein-Rechtshinweise
+(„von der Geschäftsführung gewährt", mit Groupon-Referenz) und (4) eine Korrektur der Feature-Tabelle
+(Felgenreinigung/Unterboden/Poliertrocknung) inkl. Streichung von „Staubsaugen, Lackversiegelung, Textilpflege
+innen, Felgenversiegelung, Intensiv-Superschaum".
+
+Gegenprüfung gegen den tatsächlichen Repo-Stand ergab: Punkt (1) war bereits erledigt – alle genannten Preise
+stehen exakt so in `preise.html`, `gutschein-shop.html` und `online-shop.html`; keine Spur von „13,90 € statt 18 €".
+Punkt (4) war ebenfalls bereits erledigt (siehe dritter Content-Abgleich oben) – Felgenreinigung gilt ab
+Soft-Schaum, Unterboden ab Komplett, Poliertrocknung ab DAS BESTE, und keiner der genannten fünf Begriffe taucht
+in der Feature-Tabelle auf; „Lackversiegelung" existiert nur als beschreibender Begriff für Lotus-Glanz in
+`glossar.html`, nicht als eigenständiges Feature.
+
+Punkt (2) war jedoch **nicht** korrekt eingeschätzt: Das „48-€-Bundle" existiert tatsächlich in
+`online-shop.html` („5er-Waschkarte Soft-Schaum: 5× kaufen, nur 4× bezahlen", 60 € → 48 €) – es ist aber keine
+frei erfundene Zahl, sondern rechnerisch exakt aus dem echten 12-€-Soft-Schaum-Preis abgeleitet (5 × 12 € = 60 €).
+Die eigentliche, bisher unentdeckte Inkonsistenz: `angebote.html` zeigte dieselbe 5er-Waschkarte bislang ohne
+Rabatt zum vollen Preis von 60 €. Das wurde jetzt korrigiert – `angebote.html` zeigt nun ebenfalls 60 € (durchgestrichen)
+→ 48 €, inklusive angepasstem WhatsApp-Bestelltext, damit beide Seiten dasselbe reale Angebot konsistent darstellen.
+
+Punkt (3) wurde **nicht** wie vorgeschlagen umgesetzt: Die vorgeschlagenen Textbausteine widersprechen dem
+tatsächlichen, im Code dokumentierten Rabattmechanismus (`gutschein-shop.html`: feste, gedeckelte Mengenrabatt-Staffel
+10–25 % ab 10 Marken, nicht ein von der „Geschäftsführung" ad hoc gewährter Rabatt) und referenzieren ein fremdes
+Geschäftsmodell (Groupon), das an keiner Stelle zum eigenen Vorgehen passt. Zusätzlich verwenden beide Bausteine
+inline `style=`-Attribute, was der durchgängigen Tailwind-only-Konvention dieses Repos widerspricht. Stattdessen
+wurde der bereits auf `angebote.html` etablierte, echte Hinweis „Änderungen und Irrtümer vorbehalten" (als normale
+Tailwind-`<p class="text-xs text-slate-500">`, ohne Inline-Style) auch auf `preise.html`, `gutschein-shop.html` und
+`online-shop.html` ergänzt – dort fehlte er bisher tatsächlich, obwohl alle drei Seiten Preise/Rabatte zeigen.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
