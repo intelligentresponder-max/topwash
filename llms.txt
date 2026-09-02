@@ -23,6 +23,7 @@
 - [Umwelt & Nachhaltigkeit](https://intelligentresponder-max.github.io/topwash/umwelt.html): eigene biologische Wasseraufbereitung (Absetzbecken, Festbett-Bioreaktor, Nachklärung, Brauchwasser-Wiederverwendung)
 - [Jobs](https://intelligentresponder-max.github.io/topwash/jobs.html)
 - [FAQ](https://intelligentresponder-max.github.io/topwash/faq.html)
+- [Glossar: Fachbegriffe](https://intelligentresponder-max.github.io/topwash/glossar.html)
 - Kontakt: info@top-wash.de, Tel. +49 6047 986915 (Zentrale)
 - Impressum: TOP WASH Autopflege GmbH, Stammheimer Straße 11, 63674 Altenstadt/Hessen, Amtsgericht Friedberg, HRB 8993, USt-IdNr. DE114221224
 
