@@ -49,6 +49,12 @@
   height: 4rem;
 }
 
+.site-logo-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
 .site-logo {
   display: flex;
   align-items: center;
@@ -66,6 +72,20 @@
   font-weight: 500;
 }
 @media (min-width: 640px) { .site-logo span { display: inline; } }
+
+/* Animierte Videoschleife neben dem Logo (Einfahrt/Vorwäsche/Felgenreinigung).
+   Nur im mobilen Header (Hamburger-Menü) sichtbar: ab der md-Breite (768px)
+   konkurriert sie mit der Desktop-Nav um Platz in derselben Leiste, die dort
+   bereits ohne die GIF nur sehr knappen Puffer hat (siehe Fehlerprotokoll) -
+   mit der GIF überlappt die Nav dort sichtbar. */
+.header-gif {
+  height: 2.25rem;
+  width: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+@media (min-width: 768px) { .header-gif { display: none; } }
 
 .site-nav {
   display: none;
