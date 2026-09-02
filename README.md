@@ -736,5 +736,69 @@ Features zwei Optionen, die per `AskUserQuestion` vorgelegt wurden.
 
 Details je Punkt im Fehlerprotokoll (CLAUDE-BRIEFING.md).
 
+## Vierter Content-Abgleich – interne Verlinkung, KI-SEO-Struktur, Bild-Konsistenz
+Ein viertes Abgleich-Dokument prüfte diesmal nicht Fakten gegen top-wash.de, sondern die interne Struktur des
+eigenen Repos: sämtliche Sitemap-Seiten und ihr interner Link-Graph sowie alle Bilder wurden ausgewertet. Ergebnis:
+keine defekten internen Links (die Rechtsseiten `impressum.html`/`agb.html`/`datenschutz.html` liefern 200, sind nur
+bewusst nicht in `sitemap.xml` – üblich für Rechtstexte, kein Fehler). Acht konkrete Lücken wurden identifiziert und
+umgesetzt:
+
+**KI-SEO / strukturierte Daten:**
+- `index.html` hatte bisher **kein eigenes** Schema.org-Markup – ergänzt um `Organization`-JSON-LD mit
+  `department`-Verweisen auf die 4 Standorte (Adressen/Telefonnummern/Öffnungszeiten wortgleich aus den jeweiligen
+  Standort-Seiten übernommen, keine neuen Fakten erfunden).
+- `preise.html`: `OfferCatalog`/`Offer`/`Service`-Schema für die 5 Waschprogramme ergänzt.
+- `llms.txt` neu angelegt (Kernfakten: Standorte, Preise, Programme, Kontakt, Blog-Übersicht) – ein noch junger,
+  aber zunehmend empfohlener Standard, damit KI-Crawler/Sprachmodelle die Seitenstruktur sauber zusammenfassen
+  können.
+
+**Interne Verlinkung Blog ↔ Content:**
+- `faq.html` verlinkte zu keinem einzigen Blogartikel, obwohl die Antworten zu Baumharz/Vogelkot und
+  WhatsApp-Bestellung eigene, vertiefende Beiträge haben – beide jetzt kontextuell aus der passenden FAQ-Antwort
+  heraus verlinkt.
+- Der Pillar-Beitrag `blog/die-top-wash-formel.html` verlinkte nur zu 4 von 10 anderen Blogartikeln – jetzt zu
+  allen 10, wo inhaltlich passend, als echter Themen-Hub.
+- Fehlende Rückverlinkung ergänzt: `blog/lotus-glanz-poliertrocknung.html` verlinkt jetzt zurück zu
+  `baumharz-vogelkot-entfernen.html` und `glanz-werterhalt-autopflege.html`.
+- Isolierte Blogartikel-Cluster eingebunden: `online-shop-eroeffnung.html`, `whatsapp-bestellung-erklaert.html`
+  sowie das bis dahin isolierte Zweier-Cluster `12-game-changer-waschanlage.html` /
+  `12-regeln-waschanlage-frankfurt.html` verlinken jetzt jeweils zu mindestens einem weiteren, thematisch
+  passenden Beitrag.
+
+**Bilder:**
+- Die 4 Standort-Unterseiten sowie `gutschein-shop.html` und `online-shop.html` zeigten trotz des vorangegangenen
+  Foto-Audits (siehe dritter Content-Abgleich) weiterhin nur das Logo – jetzt mit thematisch passenden,
+  beschreibenden Fotos aus dem bestehenden Bildfundus ergänzt, mit sichtbaren `<figcaption>`s.
+
+Bewusst abgewichen von einer Einzelempfehlung des Dokuments: für die „Standort-Blog-Rückverlinkung Neu-Isenburg"
+schlug es einen neuen Blogbeitrag über den Videoinhalt vor – da der tatsächliche Bildinhalt des Videos nicht
+geprüft werden konnte, wurde stattdessen nur mit bereits bestätigten, generischen Inhalten verlinkt statt
+Video-Details zu erfinden. Details je Punkt im Fehlerprotokoll (CLAUDE-BRIEFING.md).
+
+## Ergänzung: Video-Sektion Neu-Isenburg (`index.html#video`)
+Nachtrag zu einer früheren, im Repo bereits umgesetzten, aber bisher nicht im README dokumentierten Erweiterung der
+Video-Sektion (Inhalte sichtbar gemacht, interne Verlinkung, YouTube-Vorschaukarte, `VideoObject`-Schema):
+- Sichtbare Video-Beschreibung sowie ein 3-spaltiges Karten-Grid mit Verlinkungen zu
+  `blog/schmirgel-effekt-vermeiden.html`, `blog/lotus-glanz-poliertrocknung.html` und `standorte/neu-isenburg.html`
+  ergänzt – beide Blog-Themen sind tatsächlich im Video zu sehen, keine beliebige Verlinkung.
+- YouTube-Vorschaubild: `maxresdefault.jpg` existiert nicht für jedes Video, `img.youtube.com` ist in dieser Sandbox
+  jedoch blockiert – eine `curl`-Prüfung war technisch nicht möglich. Statt zu raten, direkt `hqdefault.jpg`
+  gewählt, da dieses Format von YouTube für jedes Video garantiert automatisch erzeugt wird (dokumentierte
+  Plattform-Eigenschaft, keine erfundene Tatsache über das Unternehmen).
+- Neuer `VideoObject`-JSON-LD-Block ergänzt – bewusst **ohne** `uploadDate`: das Feld ist laut schema.org kein
+  Pflichtfeld (nur von Google für Video-Rich-Snippets empfohlen), ein erfundenes Datum hätte der Grundregel dieses
+  Projekts widersprochen, keine unbelegten Fakten ins strukturierte Markup zu schreiben. Kann ergänzt werden, sobald
+  das echte Upload-Datum bekannt ist.
+
+Details im Fehlerprotokoll (CLAUDE-BRIEFING.md).
+
+## Nachtrag: `aggregateRating` im neuen `Organization`-Schema gegengecheckt
+Das `Organization`-Schema auf `index.html` enthält seit der OG-/Geo-Meta-Ergänzung ein `aggregateRating`
+(`ratingValue: 4.5`, `reviewCount: 651`). Beide Werte sind keine neue, ungeprüfte Behauptung: Sie decken sich mit
+den bereits seit PR #15 im Repo verwendeten und seither mehrfach unabhängig bestätigten Kennzahlen (siehe
+„Google-Bewertungen"-Abschnitt oben sowie Fehlerprotokoll). Eine Verifikation direkt gegen die Sternchen-Grafik auf
+der Live-Seite top-wash.de ist in dieser Umgebung nicht möglich, da der Domain-Zugriff durchgehend blockiert ist –
+die Bestätigung stützt sich stattdessen auf die bereits im Repo dokumentierte Herkunft dieser Zahlen.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
