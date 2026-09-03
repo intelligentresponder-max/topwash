@@ -868,5 +868,44 @@ Basis-Trocknung), mit Hinweis auf die höherstufige Poliertrocknung.
 
 Details je Punkt im Fehlerprotokoll (CLAUDE-BRIEFING.md).
 
+## Zweiter Verbesserungs-Durchgang: übersehener Duplikat-Schema-Fehler, Favicon, 404-Seite
+Nutzer bat nach dem Merge der beiden parallelen Audit-Sessions erneut, das Repo auf weitere Verbesserungen zu
+prüfen. Repo neu von `origin/main` synchronisiert und die beiden Audit-Skripte aus dem vorigen Durchgang erneut über
+alle 30 (danach 31) HTML-Dateien laufen lassen – keine neuen strukturellen Fehler, aber gezielt tiefer in die
+JSON-LD-Blöcke geschaut, da der vorige Audit nur die einzelnen `standorte/*.html`-Dateien selbst geprüft hatte.
+
+**Echter, bisher übersehener Fehler gefunden und behoben:** `index.html` enthält – unabhängig von den 4 eigenen
+Standort-Seiten – einen zweiten, eigenständigen `Organization`-JSON-LD-Block mit einem `department`-Array aller 4
+Standorte (für Google-Rich-Results direkt auf der Startseite). Dieser zweite Block hatte denselben `addressRegion`-
+Fehler wie ursprünglich `standorte/frankfurt.html` (Stadtteil „Eckenheim" statt Bundesland) – und den drei anderen
+Departments (Bad Nauheim, Eschborn, Neu-Isenburg) fehlte `addressRegion` komplett. Der vorige Audit-Durchgang hatte
+nur nach `addressRegion` innerhalb der einzelnen `standorte/*.html`-Dateien gesucht und dieses zweite, in `index.html`
+eingebettete Duplikat übersehen. Alle 4 Departments jetzt konsistent auf `"addressRegion": "Hessen"` korrigiert.
+Die dort bereits vorhandenen `GeoCoordinates` (Stadt-Ebene, plausibel für alle 4 Orte) wurden geprüft und belassen –
+sie widersprechen nicht der früheren Entscheidung, keine erfundenen straßengenauen Koordinaten zu ergänzen, da es
+sich um bereits vorhandene, plausible Stadt-Koordinaten handelt, keine neu erfundenen. Der `reviewCount`-Wert (652)
+wurde gegen alle anderen Fundstellen im Repo (`angebote.html`, `index.html`-Bewertungskarte,
+`standorte/frankfurt.html`) abgeglichen – überall konsistent 652, keine Abweichung trotz einer älteren, inzwischen
+überholten Notiz im Fehlerprotokoll, die noch 651 nennt (der Wert wurde zwischenzeitlich real aktualisiert, keine
+Inkonsistenz im aktuellen Stand).
+
+**Zwei echte technische Lücken ergänzt, die auf keiner der 31 Seiten existierten:**
+- **Favicon**: Kein `<link rel="icon">` auf irgendeiner Seite – Browser-Tabs zeigten ein generisches Icon. Aus dem
+  bereits bestätigten Logo (`images/logo-top-wash.png`, ein Wortmarken-Rechteck, kein quadratisches Icon) per
+  Bildbearbeitung `images/favicon.png` (512×512, weißer Hintergrund, zentriert/gepolstert) sowie
+  `images/apple-touch-icon.png` (180×180, opak) erzeugt – keine neue Marke erfunden, nur das bestehende Logo auf ein
+  quadratisches Format gebracht. Bei 32×32 gut lesbar, bei 16×16 wie bei den meisten textlastigen Logos ein
+  wiedererkennbarer Blauton-Block statt scharfen Texts – üblich und akzeptabel. Zusätzlich `favicon.ico` (16/32/48 px)
+  im Root für ältere Browser/Lesezeichen. Auf allen 31 Seiten direkt nach dem Canonical-Link verlinkt (`images/...`
+  bzw. `../images/...` je nach Verzeichnistiefe, dem bestehenden Pfad-Muster der Logo-Referenz folgend).
+- **Custom 404-Seite**: GitHub Pages zeigte bisher die generische Standard-404-Seite. Neue `404.html` im Root nach
+  demselben Header/Footer-Muster wie die übrigen Seiten (`theme.css`/`components.css`, Tailwind CDN), mit
+  `noindex` (kein Canonical, da eine 404-Seite keine einzelne kanonische Ressource repräsentiert), kurzer
+  Erklärung und Direktlinks zu Startseite/Standorte/Preise/FAQ. Absichtlich nicht in `sitemap.xml` aufgenommen
+  (wie die 3 bestehenden `noindex`-Rechtsseiten) – vom Audit-Skript korrekt als „fehlt in Sitemap" erkannt und als
+  gewollte Ausnahme bestätigt.
+
+Details je Punkt im Fehlerprotokoll (CLAUDE-BRIEFING.md).
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
