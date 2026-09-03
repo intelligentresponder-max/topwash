@@ -907,5 +907,16 @@ Inkonsistenz im aktuellen Stand).
 
 Details je Punkt im Fehlerprotokoll (CLAUDE-BRIEFING.md).
 
+## `width`/`height` auf allen Bildern ergänzt (CLS-Fix)
+Nutzer griff den im vorigen Abschnitt als offen gelisteten Punkt auf: keines der 84 `<img>`-Tags im Repo hatte
+`width`/`height`-Attribute, was Browsern vor dem Laden kein Seitenverhältnis zur Reservierung des Platzes gibt
+(Cumulative-Layout-Shift-Risiko). Ein Python-Skript liest für jeden `<img>`-Tag über alle 31 Seiten den `src`-Pfad,
+löst ihn relativ zum jeweiligen Verzeichnis auf, ermittelt die echte Bildgröße per Pillow und trägt die realen
+Pixelmaße ein – keine Anzeige- oder Schätzwerte. Vorher geprüft, dass alle betroffenen Bilder ohnehin über
+CSS-Klassen (`w-full h-{fest}`/`object-cover`, Hero-Slides `w-full h-full`, Logo `.site-logo img { height: 3rem;
+width: auto; }`) explizit in ihrer Anzeigegröße gesteuert werden – die neuen HTML-Attribute dienen also nur der
+Seitenverhältnis-Reservierung und verändern die sichtbare Darstellung nicht. Ergebnis: alle 85 `<img>`-Tags haben
+jetzt genau ein `width`/`height`-Paar; repoweiter Audit danach erneut fehlerfrei.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
