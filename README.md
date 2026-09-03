@@ -926,5 +926,19 @@ Text vertrauen, sondern bei nächster Gelegenheit das tatsächliche gemergte Dif
 gegen den erwarteten Endstand) gegenprüfen – insbesondere wenn zwischen zwei Pushes auf denselben Branch der
 Merge-Aufruf folgt.
 
+## Zwei Facebook-Reels eingebettet, ohne Blogbeitrag (Inhalt nicht verifizierbar)
+Nutzer schickte zwei Facebook-„share/r/"-Links (Reel-Format) mit der Bitte, sie einzubinden und nach Möglichkeit
+einen Blogbeitrag dazu zu schreiben. `WebFetch` auf beide URLs scheiterte an `EGRESS_BLOCKED` –
+`www.facebook.com` ist in dieser Sandbox ebenso blockiert wie `cdn.tailwindcss.com`/`img.youtube.com`, der
+tatsächliche Videoinhalt konnte nicht ermittelt werden. Statt zu raten, per `AskUserQuestion` nachgefragt; Nutzer
+wählte: nur als ungeprüften Link einbetten, kein Blogbeitrag.
+
+Umgesetzt: neuer Unterabschnitt „Weitere Eindrücke auf Facebook" am Ende der bestehenden Videosektion (`index.html
+#video`), beide Reels als reine `facebook.com/plugins/video.php?href=...`-iframes (öffentlicher Plugin-Endpunkt,
+kein Login/JS-SDK nötig) im Hochformat-Seitenverhältnis 9:16, responsiv 1-/2-spaltig. Bewusst keine inhaltlichen
+Bildunterschriften ergänzt, da der Inhalt nie verifiziert werden konnte – aus demselben Grund kein Blogbeitrag.
+Mit echtem Tailwind-Build bei Desktop-/Mobilbreite gerendert: Layout korrekt, Iframes bleiben in dieser Sandbox
+naturgemäß leer (Facebook blockiert), sollten auf der echten Seite aber laden. Repoweiter Audit danach fehlerfrei.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
