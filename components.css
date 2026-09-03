@@ -83,7 +83,9 @@
 .site-nav {
   display: none;
   align-items: center;
-  gap: 2rem;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  column-gap: 1.25rem;
   font-size: 0.875rem;
   font-weight: 500;
 }
