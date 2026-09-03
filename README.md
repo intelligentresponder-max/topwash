@@ -907,16 +907,24 @@ Inkonsistenz im aktuellen Stand).
 
 Details je Punkt im Fehlerprotokoll (CLAUDE-BRIEFING.md).
 
-## `width`/`height` auf allen Bildern ergänzt (CLS-Fix)
-Nutzer griff den im vorigen Abschnitt als offen gelisteten Punkt auf: keines der 84 `<img>`-Tags im Repo hatte
-`width`/`height`-Attribute, was Browsern vor dem Laden kein Seitenverhältnis zur Reservierung des Platzes gibt
-(Cumulative-Layout-Shift-Risiko). Ein Python-Skript liest für jeden `<img>`-Tag über alle 31 Seiten den `src`-Pfad,
-löst ihn relativ zum jeweiligen Verzeichnis auf, ermittelt die echte Bildgröße per Pillow und trägt die realen
-Pixelmaße ein – keine Anzeige- oder Schätzwerte. Vorher geprüft, dass alle betroffenen Bilder ohnehin über
-CSS-Klassen (`w-full h-{fest}`/`object-cover`, Hero-Slides `w-full h-full`, Logo `.site-logo img { height: 3rem;
-width: auto; }`) explizit in ihrer Anzeigegröße gesteuert werden – die neuen HTML-Attribute dienen also nur der
-Seitenverhältnis-Reservierung und verändern die sichtbare Darstellung nicht. Ergebnis: alle 85 `<img>`-Tags haben
-jetzt genau ein `width`/`height`-Paar; repoweiter Audit danach erneut fehlerfrei.
+## Regression entdeckt: `width`/`height`-Fix aus PR #78 nie tatsächlich gemergt
+Beim Anlegen einer neuen, unabhängigen Änderung fiel per Stichprobe auf, dass `preise.html`,
+`standorte/frankfurt.html` und weitere Seiten auf `main` KEIN `width`/`height` auf ihren `<img>`-Tags hatten –
+obwohl dieser Fix bereits als Teil von PR #78 dokumentiert und (laut damaligem Bericht) gemergt war. Über
+`mcp__github__pull_request_read` (`get_files`) das tatsächliche Diff von PR #78 abgerufen: Es enthält nur die
+Änderungen des ERSTEN Commits (Favicon/404-Seite/Schema-Fix), nicht die des zweiten, separat gepushten Commits
+(„width/height auf allen 85 img-Tags ergänzt"). Der Merge-Commit auf `main` hat als zweiten Parent nachweislich
+den ersten Commit-SHA, nicht den tatsächlich letzten Branch-Stand – der zweite Commit wurde zwar erfolgreich auf
+den Remote-Branch gepusht (Push-Bestätigung lag vor), landete aber nicht im Merge. Ursache nicht abschließend
+geklärt (möglicher Caching-/Timing-Effekt zwischen Push und Merge-Aufruf) – aber die Auswirkung ist eindeutig:
+eine als erledigt gemeldete, dokumentierte Änderung war auf `main` schlicht nicht vorhanden.
+
+Behoben: das `width`/`height`-Skript erneut über den aktuellen `main`-Stand laufen lassen (idempotent – ergänzt
+nur dort, wo das Attribut fehlt) – wieder 84 von 85 `<img>`-Tags ergänzt, repoweiter Audit danach fehlerfrei.
+Lehre: bei einem mehrteiligen PR mit mehreren Commits nach dem Merge nicht nur `mergeable_state`/den Notification-
+Text vertrauen, sondern bei nächster Gelegenheit das tatsächliche gemergte Diff (`get_files` oder ein `git diff`
+gegen den erwarteten Endstand) gegenprüfen – insbesondere wenn zwischen zwei Pushes auf denselben Branch der
+Merge-Aufruf folgt.
 
 ## Glossar ins Hauptmenü aufgenommen — dabei Nav-Crowding-Schwachstelle gefunden und behoben
 Nutzer fragte „wo ist das Glossar" (bis dahin nur im Footer und per Deep-Links aus `faq.html` erreichbar) und bat
