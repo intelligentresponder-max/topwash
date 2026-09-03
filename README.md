@@ -736,5 +736,38 @@ Features zwei Optionen, die per `AskUserQuestion` vorgelegt wurden.
 
 Details je Punkt im Fehlerprotokoll (CLAUDE-BRIEFING.md).
 
+## Repoweiter Technik-/SEO-Audit + proaktive Verlinkung
+Nutzer bat um eine vollständige Fehlerprüfung des Repos, Geo-SEO-Optimierung und proaktivere interne Verlinkung.
+Ein wiederverwendbares Python-Audit-Skript prüft seither alle HTML-Dateien auf Tag-Balance, JSON-LD-Gültigkeit,
+`sitemap.xml`-Vollständigkeit, tote interne Links/fehlende Bild-Assets, doppelte/fehlende `<title>`/Meta-Description/
+Canonical, Titel-/Description-Längen sowie Anker-Link-Gültigkeit.
+
+**Gefundene und behobene Fehler:**
+- 7 Seiten ohne `<link rel="canonical">` ergänzt, darunter mehrere stark frequentierte Seiten (`preise.html`,
+  `faq.html`, `angebote.html`, `standorte.html`).
+- Alle 4 Standort-Seiten: `addressRegion: "Hessen"` im `AutoWash`-JSON-LD ergänzt (fehlte komplett);
+  `standorte/frankfurt.html` nutzte das Feld zuvor fälschlich für den Stadtteil „Eckenheim" statt des Bundeslands –
+  korrigiert (Stadtteil bleibt in Meta-Description/Seitentext erhalten).
+- 7 Meta-Descriptions über 160 Zeichen gekürzt (bis zu 184 Zeichen bei `index.html`), Geo-Begriffe dabei bevorzugt
+  erhalten.
+- 4 deutlich überlange Seitentitel gekürzt (bis 82 Zeichen), inkl. synchroner Anpassung von `og:title`/`twitter:title`.
+  Die 4 Standort-Titel (61–65 Zeichen, jeweils mit Städtename) bewusst nicht weiter gekürzt, da das nur durch
+  Streichen des Städtenamens möglich gewesen wäre – kontraproduktiv für Geo-SEO.
+
+**Geprüft, aber bewusst nicht geändert:** `GeoCoordinates` für die 4 Standort-Schemas – per `WebSearch` nur
+Näherungswerte auf Stadt-Ebene gefunden, keine straßengenauen Koordinaten; nicht ergänzt, um keine ungenaue Position
+in Rich-Result-Kartenausschnitten zu erzeugen. Die 3 `noindex`-Rechtstexte (Impressum/Datenschutz/AGB) bleiben
+absichtlich ohne Sitemap-Eintrag/Meta-Description (Standardpraxis für noindexte Seiten).
+
+**Proaktive Querverlinkung ergänzt:** u. a. `index.html`s „Wasser im Kreislauf"-Kachel → `umwelt.html`,
+„Lotus-Glanz"-Kachel → `blog/lotus-glanz-poliertrocknung.html`, `preise.html`s Tabellenzeilen „Lotus-Glanz"/
+„Poliertrocknung" anklickbar gemacht, neuer FAQ-Anker `faq.html#assistenzsysteme` mit reziproker Verlinkung zu/von
+`index.html#vor-der-einfahrt`. Dabei nebenbei einen weiteren Fall derselben Tier-Inkonsistenz aus der vorigen
+Content-Abgleich-Runde gefunden: `index.html`s dritte Highlight-Kachel hieß „Textile Poliertrocknung" und behauptete
+„bei jeder Wäsche inklusive" – korrigiert zu „Doppelte Trocknung" (die tatsächlich in allen Programmen enthaltene
+Basis-Trocknung), mit Hinweis auf die höherstufige Poliertrocknung.
+
+Details je Punkt im Fehlerprotokoll (CLAUDE-BRIEFING.md).
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
