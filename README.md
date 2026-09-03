@@ -918,5 +918,25 @@ width: auto; }`) explizit in ihrer Anzeigegröße gesteuert werden – die neuen
 Seitenverhältnis-Reservierung und verändern die sichtbare Darstellung nicht. Ergebnis: alle 85 `<img>`-Tags haben
 jetzt genau ein `width`/`height`-Paar; repoweiter Audit danach erneut fehlerfrei.
 
+## Glossar ins Hauptmenü aufgenommen — dabei Nav-Crowding-Schwachstelle gefunden und behoben
+Nutzer fragte „wo ist das Glossar" (bis dahin nur im Footer und per Deep-Links aus `faq.html` erreichbar) und bat
+danach, es ins Hauptmenü aufzunehmen. Ein Skript ergänzt den Link als letztes Element in jedem `site-nav`-Block
+(27 von 31 Seiten haben eine Desktop-Nav) und in `index.html`s Mobile-Menü.
+
+Vor dem Commit systematisch auf Overflow geprüft – mit einer neu aufgesetzten, verlässlicheren Vorschau-Technik:
+`registry.npmjs.org` ist in dieser Sandbox erreichbar (anders als `cdn.tailwindcss.com`), also `tailwindcss@3`
+lokal installiert, mit der `brand`-Farbpalette aus `theme-config.js` ein echter `output.css`-Build erzeugt und
+`index.html`/`faq.html` damit bei mehreren Breakpoints (768–1440 px) gerendert. Ergebnis: Ein Baseline-Vergleich mit
+dem unveränderten `index.html` zeigte, dass die Desktop-Nav bereits VOR der Glossar-Ergänzung bei 900–1024 px
+teilweise unsichtbar hinter dem CTA-Button „Standort finden" verschwand – eine bislang unbemerkte, vorbestehende
+Schwachstelle (`.site-nav` hatte `gap: 2rem` ohne `flex-wrap`). Die Glossar-Ergänzung verschärfte das zusätzlich.
+
+Behoben: `.site-nav` in `components.css` nutzt jetzt `flex-wrap: wrap; row-gap: 0.5rem; column-gap: 1.25rem` –
+bei zu wenig Platz bricht die Nav sauber auf eine zweite Zeile um, statt Einträge zu verstecken oder zu
+überlappen. Da der Header-Container bei 80rem gedeckelt ist, reichen 11 Menüpunkte auch auf sehr breiten
+Bildschirmen rechnerisch nicht für eine einzeilige Darstellung – „Glossar" bleibt dort meist allein in Zeile 2.
+Bewusst akzeptierter kosmetischer Kompromiss zugunsten der Korrektheit; eine engere Lösung (CTA-Button verkleinern,
+Header-Container verbreitern, Nav-Label kürzen) wäre ein größerer, nicht angefragter Eingriff gewesen.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
