@@ -907,6 +907,25 @@ Inkonsistenz im aktuellen Stand).
 
 Details je Punkt im Fehlerprotokoll (CLAUDE-BRIEFING.md).
 
+## Regression entdeckt: `width`/`height`-Fix aus PR #78 nie tatsächlich gemergt
+Beim Anlegen einer neuen, unabhängigen Änderung fiel per Stichprobe auf, dass `preise.html`,
+`standorte/frankfurt.html` und weitere Seiten auf `main` KEIN `width`/`height` auf ihren `<img>`-Tags hatten –
+obwohl dieser Fix bereits als Teil von PR #78 dokumentiert und (laut damaligem Bericht) gemergt war. Über
+`mcp__github__pull_request_read` (`get_files`) das tatsächliche Diff von PR #78 abgerufen: Es enthält nur die
+Änderungen des ERSTEN Commits (Favicon/404-Seite/Schema-Fix), nicht die des zweiten, separat gepushten Commits
+(„width/height auf allen 85 img-Tags ergänzt"). Der Merge-Commit auf `main` hat als zweiten Parent nachweislich
+den ersten Commit-SHA, nicht den tatsächlich letzten Branch-Stand – der zweite Commit wurde zwar erfolgreich auf
+den Remote-Branch gepusht (Push-Bestätigung lag vor), landete aber nicht im Merge. Ursache nicht abschließend
+geklärt (möglicher Caching-/Timing-Effekt zwischen Push und Merge-Aufruf) – aber die Auswirkung ist eindeutig:
+eine als erledigt gemeldete, dokumentierte Änderung war auf `main` schlicht nicht vorhanden.
+
+Behoben: das `width`/`height`-Skript erneut über den aktuellen `main`-Stand laufen lassen (idempotent – ergänzt
+nur dort, wo das Attribut fehlt) – wieder 84 von 85 `<img>`-Tags ergänzt, repoweiter Audit danach fehlerfrei.
+Lehre: bei einem mehrteiligen PR mit mehreren Commits nach dem Merge nicht nur `mergeable_state`/den Notification-
+Text vertrauen, sondern bei nächster Gelegenheit das tatsächliche gemergte Diff (`get_files` oder ein `git diff`
+gegen den erwarteten Endstand) gegenprüfen – insbesondere wenn zwischen zwei Pushes auf denselben Branch der
+Merge-Aufruf folgt.
+
 ## Zwei Facebook-Reels eingebettet, ohne Blogbeitrag (Inhalt nicht verifizierbar)
 Nutzer schickte zwei Facebook-„share/r/"-Links (Reel-Format) mit der Bitte, sie einzubinden und nach Möglichkeit
 einen Blogbeitrag dazu zu schreiben. `WebFetch` auf beide URLs scheiterte an `EGRESS_BLOCKED` –
