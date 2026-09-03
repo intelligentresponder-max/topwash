@@ -61,8 +61,13 @@
   <header class="mt-4 mb-8 text-center">
     <h1 class="font-oswald text-4xl tracking-tight uppercase mb-2 text-[--kraft-ink]">Kombi-Gutschein Konfigurator</h1>
     <p class="text-sm tracking-widest uppercase text-[--kraft-ink-soft]">Autowasch Spezialisten Frankfurt</p>
-    <p class="mt-2 text-sm text-slate-600 max-w-md mx-auto">Stellen Sie sich Ihren eigenen Gutschein aus 2 bis 99 Waschmarken zusammen und bestellen Sie ihn direkt per WhatsApp – bezahlt wird bequem vor Ort am Standort.</p>
+    <p class="mt-2 text-sm text-slate-600 max-w-md mx-auto">Stellen Sie sich Ihren eigenen Gutschein aus 2 bis 99 Waschmarken zusammen und bestellen Sie ihn direkt per WhatsApp – wahlweise zur Abholung vor Ort oder auch als PDF per E-Mail bzw. per Post, wenn Sie selbst nicht am Standort sind.</p>
   </header>
+
+  <figure class="mb-8 rounded-2xl overflow-hidden border border-slate-200">
+    <img src="images/schaumwaesche-frontscheibe.jpg" alt="Schaummuster auf der Frontscheibe eines Fahrzeugs während der TOP WASH-Textilwäsche" class="w-full h-48 object-cover" loading="lazy">
+    <figcaption class="p-3 text-sm text-slate-600 text-center">Jede Waschmarke gilt für eine vollwertige TOP WASH-Wäsche an allen 4 Standorten.</figcaption>
+  </figure>
 
   <div class="kraft-panel p-6 md:p-10 shadow-xl relative overflow-hidden">
 
@@ -187,6 +192,38 @@
     </div>
 
     <div class="mt-6 pt-6 border-t border-black/10">
+      <p class="text-xs font-bold uppercase tracking-widest mb-1 text-[--kraft-ink]">Versand &amp; Zahlung</p>
+      <p class="text-xs text-[--kraft-ink-soft] mb-3">Praktisch, wenn Sie nicht selbst am Standort abholen können – z.&nbsp;B. als Geschenk aus einer anderen Stadt.</p>
+      <div class="grid sm:grid-cols-3 gap-2" role="radiogroup" aria-label="Versandart">
+        <label class="shipping-option flex items-center gap-2 border rounded p-2.5 text-sm cursor-pointer bg-white">
+          <input type="radio" name="shipping-method" value="vor-ort" checked class="shipping-radio">
+          Abholung vor Ort
+        </label>
+        <label class="shipping-option flex items-center gap-2 border rounded p-2.5 text-sm cursor-pointer bg-white">
+          <input type="radio" name="shipping-method" value="email" class="shipping-radio">
+          PDF per E-Mail
+        </label>
+        <label class="shipping-option flex items-center gap-2 border rounded p-2.5 text-sm cursor-pointer bg-white">
+          <input type="radio" name="shipping-method" value="post" class="shipping-radio">
+          Per Post
+        </label>
+      </div>
+
+      <div id="shipping-email-field" class="mt-3" hidden>
+        <label for="recipient-email" class="text-xs font-semibold text-[--kraft-ink-soft] block mb-1">E-Mail-Adresse für den Versand</label>
+        <input type="email" id="recipient-email" placeholder="z. B. oma-erna@beispiel.de" class="w-full p-2 border rounded bg-white text-sm">
+      </div>
+      <div id="shipping-post-field" class="mt-3" hidden>
+        <label for="recipient-address" class="text-xs font-semibold text-[--kraft-ink-soft] block mb-1">Versandadresse</label>
+        <textarea id="recipient-address" rows="3" placeholder="Name&#10;Straße, Hausnummer&#10;PLZ, Ort" class="w-full p-2 border rounded bg-white text-sm resize-none"></textarea>
+      </div>
+
+      <div id="shipping-note" class="mt-3 rounded bg-[--kraft-card]/60 p-3 text-xs text-[--kraft-ink-soft]">
+        Bezahlung bar oder mit Karte bei Abholung am Standort – wie gewohnt.
+      </div>
+    </div>
+
+    <div class="mt-6 pt-6 border-t border-black/10">
       <p class="text-xs font-bold uppercase tracking-widest mb-3 text-[--kraft-ink]">Gutschein-Vorschau</p>
       <div class="kraft-panel voucher-card" id="voucher-card">
         <div class="voucher-card__stamp">
@@ -243,18 +280,21 @@
         Vorschau drucken
       </button>
     </div>
-    <p class="mt-3 text-center text-xs text-[--kraft-ink-soft]">Kein Online-Kauf – Sie senden Ihre Zusammenstellung per WhatsApp, bezahlt wird direkt am Standort.</p>
+    <p class="mt-3 text-center text-xs text-[--kraft-ink-soft]">Kein Online-Kauf – Sie senden Ihre Zusammenstellung per WhatsApp. Bei Abholung wird direkt am Standort bezahlt, bei Versand per E-Mail/Post vorab per Überweisung.</p>
   </div>
 
   <div class="mt-8 rounded-2xl bg-slate-50 border border-slate-200 p-6 text-sm text-slate-600">
     <h2 class="font-bold text-slate-900 mb-2">Gut zu wissen</h2>
     <ul class="space-y-1.5 list-disc list-inside">
       <li>Die Bestellung ist eine unverbindliche Anfrage – TOP WASH bestätigt sie per WhatsApp.</li>
-      <li>Bezahlt wird bei Abholung bar oder per Karte am gewünschten Standort.</li>
+      <li>Bei Abholung vor Ort wird bar oder per Karte am gewünschten Standort bezahlt. Bei Versand per E-Mail oder Post erfolgt die Zahlung vorab per Überweisung – die Bankverbindung erhalten Sie direkt von uns.</li>
+      <li>Ihre Gutschein-ID aus der WhatsApp-Bestätigung gilt als Nachweis: Bitte Gutschein (ausgedruckt, als PDF oder auf dem Handy) bei der Wäsche vorzeigen.</li>
       <li>Ab dem 1. Oktober 2026 sollen Wertkarten &amp; Waschabos zusätzlich direkt online kaufbar sein – <a href="blog/online-shop-eroeffnung.html" class="text-brand-700 underline">mehr dazu im Blog</a>.</li>
       <li>Neu bei uns: WhatsApp als Bestellweg – <a href="blog/whatsapp-bestellung-erklaert.html" class="text-brand-700 underline">so funktioniert's im Detail</a>.</li>
     </ul>
   </div>
+
+  <p class="mt-4 text-xs text-slate-500 text-center">Rabattstufen und Gutscheinwerte gelten zum Zeitpunkt der Bestellung. Änderungen und Irrtümer vorbehalten.</p>
 </section>
 </main>
 
@@ -336,6 +376,39 @@
     ['gift-to', 'gift-from', 'gift-message'].forEach(id => {
       document.getElementById(id).addEventListener('input', updateUI);
     });
+  }
+
+  function getShippingMethod() {
+    const checked = document.querySelector('input[name="shipping-method"]:checked');
+    return checked ? checked.value : 'vor-ort';
+  }
+
+  function attachShippingEvents() {
+    document.querySelectorAll('.shipping-radio').forEach(radio => {
+      radio.addEventListener('change', updateShippingUI);
+    });
+  }
+
+  function updateShippingUI() {
+    const method = getShippingMethod();
+    const emailField = document.getElementById('shipping-email-field');
+    const postField = document.getElementById('shipping-post-field');
+    const note = document.getElementById('shipping-note');
+
+    emailField.hidden = method !== 'email';
+    postField.hidden = method !== 'post';
+
+    document.querySelectorAll('.shipping-option').forEach(label => {
+      const isActive = label.querySelector('.shipping-radio').checked;
+      label.classList.toggle('border-[--kraft-ink]', isActive);
+      label.classList.toggle('border-black/10', !isActive);
+    });
+
+    if (method === 'vor-ort') {
+      note.innerText = 'Bezahlung bar oder mit Karte bei Abholung am Standort – wie gewohnt.';
+    } else {
+      note.innerText = 'Da wir Fernbestellungen nicht bar vor Ort kassieren können, ist hierfür eine Vorab-Zahlung per Überweisung nötig. Die Bankverbindung erhalten Sie zusammen mit der Bestellbestätigung direkt von uns per WhatsApp.';
+    }
   }
 
   function addRow() {
@@ -507,13 +580,31 @@
       if (giftMessage) message += `Nachricht: „${giftMessage}"\n`;
     }
 
-    message += `\nBitte um Bestätigung. Bezahlung erfolgt vor Ort.`;
+    const shippingMethod = getShippingMethod();
+    const shippingLabels = { 'vor-ort': 'Abholung vor Ort', 'email': 'PDF per E-Mail', 'post': 'Per Post' };
+    message += `\n*Versandart:* ${shippingLabels[shippingMethod]}\n`;
+
+    if (shippingMethod === 'email') {
+      const email = document.getElementById('recipient-email').value.trim();
+      if (email) message += `E-Mail-Adresse: ${email}\n`;
+    } else if (shippingMethod === 'post') {
+      const address = document.getElementById('recipient-address').value.trim();
+      if (address) message += `Versandadresse:\n${address}\n`;
+    }
+
+    if (shippingMethod === 'vor-ort') {
+      message += `\nBitte um Bestätigung. Bezahlung erfolgt vor Ort.`;
+    } else {
+      message += `\nBitte um Bestätigung und Zusendung der Bankverbindung für die Vorab-Zahlung, damit der Versand losgehen kann.`;
+    }
 
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
   }
 
   attachEvents();
   attachGiftEvents();
+  attachShippingEvents();
+  updateShippingUI();
   updateUI();
 </script>
 <script src="chat.js?v=5" defer></script>

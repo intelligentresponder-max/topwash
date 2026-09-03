@@ -736,11 +736,110 @@ Features zwei Optionen, die per `AskUserQuestion` vorgelegt wurden.
 
 Details je Punkt im Fehlerprotokoll (CLAUDE-BRIEFING.md).
 
-## Repoweiter Technik-/SEO-Audit + proaktive Verlinkung
-Nutzer bat um eine vollständige Fehlerprüfung des Repos, Geo-SEO-Optimierung und proaktivere interne Verlinkung.
-Ein wiederverwendbares Python-Audit-Skript prüft seither alle HTML-Dateien auf Tag-Balance, JSON-LD-Gültigkeit,
-`sitemap.xml`-Vollständigkeit, tote interne Links/fehlende Bild-Assets, doppelte/fehlende `<title>`/Meta-Description/
-Canonical, Titel-/Description-Längen sowie Anker-Link-Gültigkeit.
+## Vierter Content-Abgleich – interne Verlinkung, KI-SEO-Struktur, Bild-Konsistenz
+Ein viertes Abgleich-Dokument prüfte diesmal nicht Fakten gegen top-wash.de, sondern die interne Struktur des
+eigenen Repos: sämtliche Sitemap-Seiten und ihr interner Link-Graph sowie alle Bilder wurden ausgewertet. Ergebnis:
+keine defekten internen Links (die Rechtsseiten `impressum.html`/`agb.html`/`datenschutz.html` liefern 200, sind nur
+bewusst nicht in `sitemap.xml` – üblich für Rechtstexte, kein Fehler). Acht konkrete Lücken wurden identifiziert und
+umgesetzt:
+
+**KI-SEO / strukturierte Daten:**
+- `index.html` hatte bisher **kein eigenes** Schema.org-Markup – ergänzt um `Organization`-JSON-LD mit
+  `department`-Verweisen auf die 4 Standorte (Adressen/Telefonnummern/Öffnungszeiten wortgleich aus den jeweiligen
+  Standort-Seiten übernommen, keine neuen Fakten erfunden).
+- `preise.html`: `OfferCatalog`/`Offer`/`Service`-Schema für die 5 Waschprogramme ergänzt.
+- `llms.txt` neu angelegt (Kernfakten: Standorte, Preise, Programme, Kontakt, Blog-Übersicht) – ein noch junger,
+  aber zunehmend empfohlener Standard, damit KI-Crawler/Sprachmodelle die Seitenstruktur sauber zusammenfassen
+  können.
+
+**Interne Verlinkung Blog ↔ Content:**
+- `faq.html` verlinkte zu keinem einzigen Blogartikel, obwohl die Antworten zu Baumharz/Vogelkot und
+  WhatsApp-Bestellung eigene, vertiefende Beiträge haben – beide jetzt kontextuell aus der passenden FAQ-Antwort
+  heraus verlinkt.
+- Der Pillar-Beitrag `blog/die-top-wash-formel.html` verlinkte nur zu 4 von 10 anderen Blogartikeln – jetzt zu
+  allen 10, wo inhaltlich passend, als echter Themen-Hub.
+- Fehlende Rückverlinkung ergänzt: `blog/lotus-glanz-poliertrocknung.html` verlinkt jetzt zurück zu
+  `baumharz-vogelkot-entfernen.html` und `glanz-werterhalt-autopflege.html`.
+- Isolierte Blogartikel-Cluster eingebunden: `online-shop-eroeffnung.html`, `whatsapp-bestellung-erklaert.html`
+  sowie das bis dahin isolierte Zweier-Cluster `12-game-changer-waschanlage.html` /
+  `12-regeln-waschanlage-frankfurt.html` verlinken jetzt jeweils zu mindestens einem weiteren, thematisch
+  passenden Beitrag.
+
+**Bilder:**
+- Die 4 Standort-Unterseiten sowie `gutschein-shop.html` und `online-shop.html` zeigten trotz des vorangegangenen
+  Foto-Audits (siehe dritter Content-Abgleich) weiterhin nur das Logo – jetzt mit thematisch passenden,
+  beschreibenden Fotos aus dem bestehenden Bildfundus ergänzt, mit sichtbaren `<figcaption>`s.
+
+Bewusst abgewichen von einer Einzelempfehlung des Dokuments: für die „Standort-Blog-Rückverlinkung Neu-Isenburg"
+schlug es einen neuen Blogbeitrag über den Videoinhalt vor – da der tatsächliche Bildinhalt des Videos nicht
+geprüft werden konnte, wurde stattdessen nur mit bereits bestätigten, generischen Inhalten verlinkt statt
+Video-Details zu erfinden. Details je Punkt im Fehlerprotokoll (CLAUDE-BRIEFING.md).
+
+## Ergänzung: Video-Sektion Neu-Isenburg (`index.html#video`)
+Nachtrag zu einer früheren, im Repo bereits umgesetzten, aber bisher nicht im README dokumentierten Erweiterung der
+Video-Sektion (Inhalte sichtbar gemacht, interne Verlinkung, YouTube-Vorschaukarte, `VideoObject`-Schema):
+- Sichtbare Video-Beschreibung sowie ein 3-spaltiges Karten-Grid mit Verlinkungen zu
+  `blog/schmirgel-effekt-vermeiden.html`, `blog/lotus-glanz-poliertrocknung.html` und `standorte/neu-isenburg.html`
+  ergänzt – beide Blog-Themen sind tatsächlich im Video zu sehen, keine beliebige Verlinkung.
+- YouTube-Vorschaubild: `maxresdefault.jpg` existiert nicht für jedes Video, `img.youtube.com` ist in dieser Sandbox
+  jedoch blockiert – eine `curl`-Prüfung war technisch nicht möglich. Statt zu raten, direkt `hqdefault.jpg`
+  gewählt, da dieses Format von YouTube für jedes Video garantiert automatisch erzeugt wird (dokumentierte
+  Plattform-Eigenschaft, keine erfundene Tatsache über das Unternehmen).
+- Neuer `VideoObject`-JSON-LD-Block ergänzt – bewusst **ohne** `uploadDate`: das Feld ist laut schema.org kein
+  Pflichtfeld (nur von Google für Video-Rich-Snippets empfohlen), ein erfundenes Datum hätte der Grundregel dieses
+  Projekts widersprochen, keine unbelegten Fakten ins strukturierte Markup zu schreiben. Kann ergänzt werden, sobald
+  das echte Upload-Datum bekannt ist.
+
+Details im Fehlerprotokoll (CLAUDE-BRIEFING.md).
+
+## Nachtrag: `aggregateRating` im neuen `Organization`-Schema gegengecheckt
+Das `Organization`-Schema auf `index.html` enthält seit der OG-/Geo-Meta-Ergänzung ein `aggregateRating`
+(`ratingValue: 4.5`, `reviewCount: 651`). Beide Werte sind keine neue, ungeprüfte Behauptung: Sie decken sich mit
+den bereits seit PR #15 im Repo verwendeten und seither mehrfach unabhängig bestätigten Kennzahlen (siehe
+„Google-Bewertungen"-Abschnitt oben sowie Fehlerprotokoll). Eine Verifikation direkt gegen die Sternchen-Grafik auf
+der Live-Seite top-wash.de ist in dieser Umgebung nicht möglich, da der Domain-Zugriff durchgehend blockiert ist –
+die Bestätigung stützt sich stattdessen auf die bereits im Repo dokumentierte Herkunft dieser Zahlen.
+
+## Fünfter Content-Abgleich: „Preiskorrektur & rechtssichere Rabatt-Formulierung" geprüft
+Ein extern zugeliefertes Auftragsdokument forderte (1) die Korrektur der Preise auf 12/15/18/20/23 € in
+`preise.html`, `angebote.html`, `gutschein-shop.html`, `online-shop.html` und den Blog-Artikeln, (2) das Entfernen
+eines angeblich „frei erfundenen 48-€-Bundles", (3) zwei neue, inline-gestylte Rabatt-/Gutschein-Rechtshinweise
+(„von der Geschäftsführung gewährt", mit Groupon-Referenz) und (4) eine Korrektur der Feature-Tabelle
+(Felgenreinigung/Unterboden/Poliertrocknung) inkl. Streichung von „Staubsaugen, Lackversiegelung, Textilpflege
+innen, Felgenversiegelung, Intensiv-Superschaum".
+
+Gegenprüfung gegen den tatsächlichen Repo-Stand ergab: Punkt (1) war bereits erledigt – alle genannten Preise
+stehen exakt so in `preise.html`, `gutschein-shop.html` und `online-shop.html`; keine Spur von „13,90 € statt 18 €".
+Punkt (4) war ebenfalls bereits erledigt (siehe dritter Content-Abgleich oben) – Felgenreinigung gilt ab
+Soft-Schaum, Unterboden ab Komplett, Poliertrocknung ab DAS BESTE, und keiner der genannten fünf Begriffe taucht
+in der Feature-Tabelle auf; „Lackversiegelung" existiert nur als beschreibender Begriff für Lotus-Glanz in
+`glossar.html`, nicht als eigenständiges Feature.
+
+Punkt (2) war jedoch **nicht** korrekt eingeschätzt: Das „48-€-Bundle" existiert tatsächlich in
+`online-shop.html` („5er-Waschkarte Soft-Schaum: 5× kaufen, nur 4× bezahlen", 60 € → 48 €) – es ist aber keine
+frei erfundene Zahl, sondern rechnerisch exakt aus dem echten 12-€-Soft-Schaum-Preis abgeleitet (5 × 12 € = 60 €).
+Die eigentliche, bisher unentdeckte Inkonsistenz: `angebote.html` zeigte dieselbe 5er-Waschkarte bislang ohne
+Rabatt zum vollen Preis von 60 €. Das wurde jetzt korrigiert – `angebote.html` zeigt nun ebenfalls 60 € (durchgestrichen)
+→ 48 €, inklusive angepasstem WhatsApp-Bestelltext, damit beide Seiten dasselbe reale Angebot konsistent darstellen.
+
+Punkt (3) wurde **nicht** wie vorgeschlagen umgesetzt: Die vorgeschlagenen Textbausteine widersprechen dem
+tatsächlichen, im Code dokumentierten Rabattmechanismus (`gutschein-shop.html`: feste, gedeckelte Mengenrabatt-Staffel
+10–25 % ab 10 Marken, nicht ein von der „Geschäftsführung" ad hoc gewährter Rabatt) und referenzieren ein fremdes
+Geschäftsmodell (Groupon), das an keiner Stelle zum eigenen Vorgehen passt. Zusätzlich verwenden beide Bausteine
+inline `style=`-Attribute, was der durchgängigen Tailwind-only-Konvention dieses Repos widerspricht. Stattdessen
+wurde der bereits auf `angebote.html` etablierte, echte Hinweis „Änderungen und Irrtümer vorbehalten" (als normale
+Tailwind-`<p class="text-xs text-slate-500">`, ohne Inline-Style) auch auf `preise.html`, `gutschein-shop.html` und
+`online-shop.html` ergänzt – dort fehlte er bisher tatsächlich, obwohl alle drei Seiten Preise/Rabatte zeigen.
+
+## Repoweiter Technik-/SEO-Audit + proaktive Verlinkung (parallele Session)
+Nutzer bat in einer zweiten, parallel laufenden Session um eine vollständige Fehlerprüfung des Repos,
+Geo-SEO-Optimierung und proaktivere interne Verlinkung. Ein wiederverwendbares Python-Audit-Skript prüft seither
+alle HTML-Dateien auf Tag-Balance, JSON-LD-Gültigkeit, `sitemap.xml`-Vollständigkeit, tote interne Links/fehlende
+Bild-Assets, doppelte/fehlende `<title>`/Meta-Description/Canonical, Titel-/Description-Längen sowie
+Anker-Link-Gültigkeit. Beim Zusammenführen mit der oben dokumentierten, zeitgleich entstandenen Arbeit
+überschneidende Meta-Description-Änderungen an `preise.html`/`jobs.html`/`standorte/bad-nauheim.html` festgestellt –
+inhaltlich kombiniert statt eine Version zu verwerfen (Geo-Ergänzungen der einen Session + Zeichenlängen-Disziplin
+der anderen, jede Description erneut auf ≤160 Zeichen geprüft).
 
 **Gefundene und behobene Fehler:**
 - 7 Seiten ohne `<link rel="canonical">` ergänzt, darunter mehrere stark frequentierte Seiten (`preise.html`,
@@ -748,8 +847,8 @@ Canonical, Titel-/Description-Längen sowie Anker-Link-Gültigkeit.
 - Alle 4 Standort-Seiten: `addressRegion: "Hessen"` im `AutoWash`-JSON-LD ergänzt (fehlte komplett);
   `standorte/frankfurt.html` nutzte das Feld zuvor fälschlich für den Stadtteil „Eckenheim" statt des Bundeslands –
   korrigiert (Stadtteil bleibt in Meta-Description/Seitentext erhalten).
-- 7 Meta-Descriptions über 160 Zeichen gekürzt (bis zu 184 Zeichen bei `index.html`), Geo-Begriffe dabei bevorzugt
-  erhalten.
+- Mehrere Meta-Descriptions über 160 Zeichen gekürzt (bis zu 184 Zeichen bei `index.html`), Geo-Begriffe dabei
+  bevorzugt erhalten.
 - 4 deutlich überlange Seitentitel gekürzt (bis 82 Zeichen), inkl. synchroner Anpassung von `og:title`/`twitter:title`.
   Die 4 Standort-Titel (61–65 Zeichen, jeweils mit Städtename) bewusst nicht weiter gekürzt, da das nur durch
   Streichen des Städtenamens möglich gewesen wäre – kontraproduktiv für Geo-SEO.
