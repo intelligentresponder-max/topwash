@@ -321,7 +321,6 @@
       lang = lang === "de" ? "en" : "de";
       applyLang();
       rerenderHistory();
-      pushMessage({ from: "bot", kind: "greeting" });
     });
     formEl.addEventListener("submit", function (e) {
       e.preventDefault();
