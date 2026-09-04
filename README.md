@@ -25,6 +25,7 @@ Statische Website (Jamstack, GitHub-Pages-tauglich) für TOPWASH – textile Aut
 | `blog/sb-waschplaetze-bad-nauheim.html` | Cluster-Seite: SB-Waschboxen am Standort Bad Nauheim |
 | `blog/lotus-glanz-poliertrocknung.html` | Cluster-Seite: Lotus-Glanz-Versiegelung und textile Poliertrocknung |
 | `blog/online-shop-eroeffnung.html` | Ankündigung Online-Shop (Wertkarten/Waschabos), mit echtem Countdown bis 1.10.2026 |
+| `blog/wasseraufbereitung-nachhaltigkeit-top-wash.html` | Technik-Deep-Dive: biologische Brauchwasseraufbereitung, Zulassung Z-83.1-17, Regenwasseranlage Eschborn |
 | `chat.js` | Zweisprachiger (DE/EN) Chat-Assistent, auf jeder Seite eingebunden |
 | `theme.css` | Marken-Design-Tokens (Farben, Basis-Styles) als CSS-Variablen, auf jeder Seite eingebunden |
 | `components.css` | Wiederverwendbare Komponenten (Header, Footer, mobile CTA-Leiste, Buttons, Kraftpapier-Akzent) |
@@ -1110,6 +1111,62 @@ Den reinen Text-Badge „hr Testsieger 'Textile Autowaschstraßen'" im Hero-Bere
 (`images/hr-testsieger-schriftzug.jpg`, 700×167, ~23 KB) nebeneinander in derselben Pillenform wie die
 Nachbar-Badges, verlinkt auf `blog/hr-testsieger-2016.html`. Mit lokalem Tailwind-Build + Playwright in Desktop-
 und Mobile-Breite verifiziert, inklusive Nahaufnahme-Screenshot zur Lesbarkeitsprüfung bei Badge-Größe.
+
+## Blog: „Wasseraufbereitung bei TOP WASH" (`blog/wasseraufbereitung-nachhaltigkeit-top-wash.html`)
+Technischer Deep Dive zur biologischen Brauchwasseraufbereitung (Festbettreaktor, Zulassung Z-83.1-17) und zur
+Regenwasseranlage am Standort Eschborn (700.000 Liter Vorlagevolumen). Der Artikel kam als fertiges
+Standalone-HTML mit eigenem `<style>`-Block ins Projekt — **ohne** Header, Navigation, Footer, mobile CTA-Leiste,
+`theme.css`, `components.css`, Tailwind und `chat.js`. So gespeichert wäre eine navigationslose Fremdseite online
+gegangen; der Inhalt wurde deshalb vollständig ins bestehende Artikel-Template überführt (gleicher Aufbau wie
+`blog/schmirgel-effekt-vermeiden.html`, inkl. Eyebrow, nummerierten Prozess-Schritten und „Weiterlesen"-Pillen).
+
+**Vier falsche Annahmen aus dem Briefing, die vorher am echten Repo-Baum geprüft wurden:**
+1. *Bildpfad unklar, evtl. `blog/images/`* — es gibt nur `images/` im Root, alle Blogartikel referenzieren
+   `../images/…`. Damit ist die Konvention festgeschrieben: **Blog-Bilder liegen in `images/`, Referenz aus
+   `blog/` heraus mit `../images/`.** Kein zweiter Bildordner.
+2. *Link auf `blog/glanz-oder-grauen-autowaesche.html`* — diese Datei existiert nicht (der Artikel liegt nur als
+   Markdown vor, nie gepusht). Wäre ein 404 gewesen; ersetzt durch `glanz-werterhalt-autopflege.html`.
+3. *„Blog-Übersichtsseite `blog/index.html` ergänzen"* — existiert nicht. Der Blog-Hub ist die Footer-Sektion
+   „Wissen & Technik" auf `index.html`.
+4. *`sitemap.xml`* war im Briefing gar nicht erwähnt, muss aber bei jedem neuen Artikel mit.
+
+**Bilder:** Die zwei angeforderten Fotos (biologische Anlage, Regenwassertank) existieren nicht und werden nicht
+nachgeliefert. Statt toter Bildpfade wird `images/anlage-aussenansicht-team.jpg` als Beitrags-, `og:`- und
+`twitter:image` verwendet; Alt-Text und Bildunterschrift beschreiben, was tatsächlich zu sehen ist (Anlagen-
+Außenansicht), nicht die Aufbereitungsanlage. Merksatz: **ein fehlendes Foto betrifft drei Stellen** — `<img>`,
+`og:image`/`twitter:image` und das JSON-LD-Feld `image`. In der Erstfassung zeigten alle drei auf dasselbe nicht
+existierende Bild, zusätzlich stand `twitter:card` auf `summary_large_image` ohne Bild.
+
+**Themenüberschneidung mit `umwelt.html`:** Die Umwelt-Seite beschreibt denselben Prozess bereits in vier Stufen.
+Um Keyword-Kannibalisierung zu vermeiden, ist `umwelt.html` die Kundenübersicht und der Blogartikel der
+technische Deep Dive (FARITEC, Festbettreaktor-Detail, Zulassung, Eschborn/Regenwasser, Wasserqualität ↔
+Waschergebnis). Beide Seiten verlinken aufeinander; der Artikel weist ausdrücklich darauf hin, dass die Übersicht
+Vorrat und Wiederverwendung zu einem Schritt zusammenfasst (4 statt 5 Stufen), statt die Zahlen widersprüchlich
+stehen zu lassen.
+
+**Noch ungeprüfte Tatsachenbehauptungen** (vor bzw. nach Livegang beim Auftraggeber bestätigen lassen, analog zum
+Vorgehen bei den SB-Boxen Bad Nauheim): Hersteller **FARITEC**, Zulassungsnummer **Z-83.1-17** sowie
+**700.000 Liter** Vorlagevolumen in Eschborn samt der Aussage „größte ihrer Art im Rhein-Main-Gebiet".
+
+**Beidseitige Verlinkung:** `index.html` (Footer „Wissen & Technik"), `sitemap.xml`, `umwelt.html` (nach dem
+Abschnitt „Warum uns das wichtig ist"), `standorte/eschborn.html` (Link-Box am Seitenende, Aufhänger Regenwasser),
+`blog/schmirgel-effekt-vermeiden.html` („Weiterlesen"-Pille), `blog/die-top-wash-formel.html` (im Absatz zur
+Trocknung/Wasserflecken) und `blog/beste-autowaesche-im-vergleich.html` (neuer Absatz zum Wasserverbrauch im
+Vergleich SB-Box ↔ Waschstraße). Ein repoweiter Link-Check über alle HTML-Dateien lief danach ohne Treffer durch.
+
+**Nebenbefund beim Audit (behoben):** In `blog/hr-testsieger-2016.html` war das JSON-LD ungültig — im
+`description`-Feld stand ein deutsches Anführungszeichen-Paar, dessen schließendes Zeichen ein gerades ASCII-`"`
+war und damit den JSON-String vorzeitig beendete. Google konnte das BlogPosting-Schema dieser Seite deshalb gar
+nicht lesen. Korrigiert auf das typografische Schlusszeichen. **Regel:** In JSON-LD-Feldern nur typografische
+Anführungszeichen (`„ … “`) verwenden, nie das gerade `"`. Alle JSON-LD-Blöcke im Repo werden seitdem per Skript
+gegen `json.loads()` geprüft.
+
+**Offen aus demselben Audit (nicht angefasst, da Kunden-Copy):** Mehrere `<title>` liegen über der 60-Zeichen-
+Empfehlung (`blog/hr-testsieger-2016.html` mit 94 Zeichen am deutlichsten, dazu `index.html`, `angebote.html`,
+`blog/schmirgel-effekt-vermeiden.html`, `blog/whatsapp-bestellung-erklaert.html`, alle vier Standortseiten).
+`standorte/bad-nauheim.html` (158) und `standorte/eschborn.html` (157) überschreiten die 155-Zeichen-Empfehlung
+der Meta-Description knapp. `404.html`, `agb.html`, `datenschutz.html` und `impressum.html` haben weder
+Description noch `og:image` — bei Rechtstexten vertretbar, bei `404.html` eher nicht.
 
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
