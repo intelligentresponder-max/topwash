@@ -976,5 +976,16 @@ Verhalten für jeden Facebook-Plugin-Pfad. Beide `<iframe>`-Einbindungen durch r
 `.fb-reel-card`-Komponente: Marken-Farbverlauf, Play-Icon, „Auf Facebook ansehen") – kein Third-Party-Request
 mehr beim Laden, kann nicht mehr geblockt werden. Mit echtem Tailwind-Build geprüft, repoweiter Audit fehlerfrei.
 
+## Duplicate Content zwischen den beiden „12 Punkte"-Blogartikeln behoben
+Nutzer fragte, ob `blog/12-game-changer-waschanlage.html` und `blog/12-regeln-waschanlage-frankfurt.html`
+„nicht das Gleiche sind". Beide waren von Anfang an bewusst mit identischer 12-Punkte-Liste als generische vs.
+Frankfurt-lokalisierte SEO-Variante konzipiert – ein `diff` zeigte aber, dass 10 von 12 Erklärsätzen wortwörtlich
+identisch waren, nur Title/Meta/H1/Intro/Outro unterschieden sich. Ein reales Duplicate-Content-Risiko: Google
+kann eine der beiden Seiten bei so hoher Textübereinstimmung unterdrücken. Nutzer wählte auf Nachfrage: die 12
+Erklärsätze im Frankfurt-Artikel umschreiben (gleiche Punkte/Icons behalten, nur die Formulierung ändern) statt
+sie unverändert zu lassen oder den Artikel zu kürzen. Alle 12 Sätze eigenständig neu formuliert – reine
+Umformulierung desselben bereits bestätigten Fachwissens, keine neuen Behauptungen. `diff` bestätigt: jetzt 0 von
+12 Sätzen identisch.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
