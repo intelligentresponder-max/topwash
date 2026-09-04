@@ -1049,5 +1049,19 @@ Hessen" hat ein Auto frühlings-hübsch gemacht). Grid auf 3 Spalten erweitert; 
 ein kleines Badge „Hit Radio FFH" oben links (neue `.fb-reel-card__badge`-Klasse in `components.css`) und einen
 Label-Text, der die Presse-Erwähnung benennt, statt nur „Auf Facebook ansehen" wie bei den anderen beiden.
 
+## FFH-Karte überarbeitet: echtes Foto statt Farbverlauf, zweite Karte entfernt
+Nutzer bestätigte per Screenshot die korrekte Facebook-URL (`.../1Empssteyc/`, TOP WASHs eigenes Konto) und
+merkte an, dass diese das ursprüngliche zweite Reel inhaltlich ersetzt — die mittlere Karte (`1KgVEZqzpi`) wurde
+entfernt, Grid zurück auf 2 Spalten. Aus dem mitgeschickten Screenshot (Standbild des Videos: TOP WASH-Mitarbeiter
+mit Schaumbürste, Untertitel „Es ist ein bisschen wie Zähneputzen.") Handy-Statusleiste und Facebook-App-Chrome
+(Zurück-/Such-Icons, Reaktions-Icons, Account-Zeile, „Als nächstes"-Leiste) herausgeschnitten und als
+`images/schaumbuerste-nahaufnahme-ffh-aktion.jpg` (900×1256, ~100 KB) gespeichert. Neue `.fb-reel-card__photo`
+(Bild, `object-fit: cover`) und `.fb-reel-card__gradient`-Klasse (abdunkelnder Verlauf für Lesbarkeit) ergänzt;
+Badge/Play/Label bekamen `position: relative`, damit sie in derselben Stacking-Reihenfolge wie das absolut
+positionierte Bild landen und die DOM-Reihenfolge (Bild → Verlauf → Text) die sichtbare Ebenenreihenfolge
+bestimmt — sonst hätte das Bild Play-Button und Label verdeckt. Alt-Text und Label geo/SEO-optimiert („Rhein-Main",
+„Handwäsche mit Schaumbürste", Standort- und Markenbezug) statt generischem „Auf Facebook ansehen". Mit lokalem
+Tailwind-Build + Playwright in Desktop- und Mobile-Breite verifiziert.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
