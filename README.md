@@ -987,5 +987,17 @@ sie unverändert zu lassen oder den Artikel zu kürzen. Alle 12 Sätze eigenstä
 Umformulierung desselben bereits bestätigten Fachwissens, keine neuen Behauptungen. `diff` bestätigt: jetzt 0 von
 12 Sätzen identisch.
 
+## „Feedback-Formular" über den schwebenden Button geprüft — echter Chat-Bug gefunden und behoben
+Nutzer bat, das über den schwebenden Button (jede Seite) erreichbare „Feedback-Formular" zu prüfen. Klarstellung:
+`chat.js` ist ein rein clientseitiger, regelbasierter FAQ-Assistent ohne Backend — es gibt kein Feedback-Formular,
+keine Nachricht verlässt jemals den Browser. Bei der Prüfung per echtem lokalem Tailwind-Build (Content-Scan
+diesmal zusätzlich auf `chat.js` selbst ausgeweitet, da per `innerHTML` injizierte Klassen sonst beim Purging
+verloren gehen) mit Playwright einen echten Bug reproduziert: der DE/EN-Sprachumschalter rief sowohl
+`rerenderHistory()` als auch zusätzlich `pushMessage({kind:"greeting"})` auf — jeder Klick stapelte eine weitere
+Begrüßungsblase (3 Klicks → 4 Blasen statt 1). Behoben durch Entfernen der überflüssigen Zeile; erneut mit
+Playwright verifiziert: 3 Klicks → weiterhin genau 1 Begrüßung, bestehende Konversationen bleiben beim
+Sprachwechsel erhalten und werden nur neu übersetzt, nicht dupliziert. `chat.js?v=5` auf allen 31 Seiten auf
+`?v=6` hochgezählt, damit der Fix die Browser-Caches erreicht.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
