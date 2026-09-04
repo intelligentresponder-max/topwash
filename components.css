@@ -346,3 +346,41 @@
   font-size: 0.875rem;
   text-align: center;
 }
+
+/* Facebook-Reel-Karte: reiner Link statt iframe-Embed (kein Tracking,
+   kein Third-Party-Request, funktioniert auch bei blockiertem
+   connect.facebook.net/facebook.com/plugins durch Werbe-/Trackingschutz). */
+.fb-reel-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  border-radius: 1rem;
+  background: linear-gradient(160deg, var(--brand-700), var(--brand-900));
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+.fb-reel-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16); }
+.fb-reel-card__play {
+  width: 3.5rem; height: 3.5rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+.fb-reel-card__label {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-align: center;
+  padding-inline: 1rem;
+}

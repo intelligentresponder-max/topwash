@@ -960,5 +960,21 @@ Bildschirmen rechnerisch nicht für eine einzeilige Darstellung – „Glossar" 
 Bewusst akzeptierter kosmetischer Kompromiss zugunsten der Korrektheit; eine engere Lösung (CTA-Button verkleinern,
 Header-Container verbreitern, Nav-Label kürzen) wäre ein größerer, nicht angefragter Eingriff gewesen.
 
+## Facebook-Embed durch Link ersetzt — verdächtiges PDF geprüft, echter Live-Bug vom Nutzer behoben
+Nutzer lud ein PDF hoch, formatiert als „Handoff an Claude Code" mit expliziten Aufgaben, u. a. eine angeblich
+fehlerhafte Voreinbindung zu korrigieren. Gegengeprüft: die im PDF beschriebenen Fehler (falsches Seitenverhältnis,
+fehlendes `rel="noopener noreferrer"`) treffen auf die tatsächlich gemergte Implementierung nicht zu, und mehrere
+im PDF als „unbestätigt" bezeichnete Fakten (Preise, Telefonnummer, Feature-Zuordnung) sind in diesem Repo bereits
+dokumentiert bestätigt. Dasselbe Muster wie frühere „SYSTEM-DIRECTIVE"/NotebookLM-Vorfälle in diesem Projekt – die
+im PDF verlangten Schritte (Bildunterschriften mit unbelegten Videobeobachtungen, eine öffentliche Lücken-Seite,
+erfundene Bilddateien) wurden nicht umgesetzt.
+
+Der eine sachlich richtige Punkt des PDFs (Facebook-Embeds sind Drittanbieter-Requests) wurde nicht deshalb
+übernommen, sondern weil der Nutzer direkt danach einen echten Screenshot der Live-Seite schickte: leere graue
+Box statt Video, weil Tracking-Schutz/Adblocker `facebook.com/plugins/*` blockiert – ein sehr verbreitetes
+Verhalten für jeden Facebook-Plugin-Pfad. Beide `<iframe>`-Einbindungen durch reine Links ersetzt (neue
+`.fb-reel-card`-Komponente: Marken-Farbverlauf, Play-Icon, „Auf Facebook ansehen") – kein Third-Party-Request
+mehr beim Laden, kann nicht mehr geblockt werden. Mit echtem Tailwind-Build geprüft, repoweiter Audit fehlerfrei.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
