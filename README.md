@@ -999,5 +999,24 @@ Playwright verifiziert: 3 Klicks → weiterhin genau 1 Begrüßung, bestehende K
 Sprachwechsel erhalten und werden nur neu übersetzt, nicht dupliziert. `chat.js?v=5` auf allen 31 Seiten auf
 `?v=6` hochgezählt, damit der Fix die Browser-Caches erreicht.
 
+## Proaktive Artikel-Verlinkung im Chat-Assistenten — dabei zweiten echten Bug gefunden (kaputte relative Links)
+Nutzer bat, aus `chat.js` heraus proaktiv Links zu Artikeln zu ergänzen, unter Beachtung aktueller SEO-Regeln.
+Vor der Verlinkung einen echten, bisher unbemerkten Fehler gefunden: `chat.js` wird von jeder Seite auf jeder
+Verzeichnistiefe geladen, enthielt aber feste Links wie `href="preise.html"` — von einer Seite in `blog/` oder
+`standorte/` aus wäre das fälschlich zu z. B. `blog/preise.html` (404) statt `../preise.html` aufgelöst worden,
+betraf jeden bisherigen internen Chat-Link auf 18 Unterseiten. Behoben durch eine pro Seitenaufruf berechnete
+`BASE`-Konstante, die abhängig vom aktuellen Pfad automatisch `../` voranstellt.
+
+Anschließend Links zu inhaltlich passenden bestehenden Artikeln ergänzt (Preise → Autowäsche-Vergleichsartikel,
+Standorte/Bad-Nauheim → SB-Waschboxen-Artikel, Angebote/Gutschein → WhatsApp-Gutschein-Konfigurator + Erklärartikel,
+Fahrzeug-geeignet → Einfahrt-Checkliste, Haftung/Kratzer → Schmirgel-Effekt-Artikel, Ablauf → TOP-WASH-Formel-Artikel)
+— jeweils nur, wo eine echte thematische Überschneidung besteht.
+
+**SEO-Hinweis**: Da das Chat-Panel und seine Antworten erst nach einer Nutzerinteraktion (Klick) sichtbar werden,
+simuliert Google beim Crawlen diese Interaktion in der Regel nicht — die neuen Links sind primär ein
+Navigations-/UX-Gewinn für echte Besucher, tragen aber vermutlich nicht zuverlässig zur klassischen internen
+Verlinkung/Crawl-Entdeckung bei wie Links im statischen Seiteninhalt. Verifiziert mit Playwright von Root-, Blog-
+und Standort-Unterseiten aus (alle Links lösen jetzt korrekt auf, per HTTP geprüft). `chat.js?v=6` → `?v=7`.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
