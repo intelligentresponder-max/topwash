@@ -1018,5 +1018,29 @@ Navigations-/UX-Gewinn für echte Besucher, tragen aber vermutlich nicht zuverl�
 Verlinkung/Crawl-Entdeckung bei wie Links im statischen Seiteninhalt. Verifiziert mit Playwright von Root-, Blog-
 und Standort-Unterseiten aus (alle Links lösen jetzt korrekt auf, per HTTP geprüft). `chat.js?v=6` → `?v=7`.
 
+## Repoweiter Verbesserungs-Audit: Preisfehler, Hero-Performance, Open-Graph-Lücken behoben
+Auf Nutzerwunsch das komplette Repo vom Index ausgehend geprüft (alle 31 Seiten, Assets, Schemas, `chat.js`,
+`llms.txt`) und eine priorisierte Liste vorgelegt. Nutzer bat um die drei wichtigsten Punkte:
+
+1. **Echter Preisfehler**: `chat.js` (DE+EN) und `llms.txt` nannten für die 5er-Waschkarte Soft-Schaum „60 €"
+   (den durchgestrichenen Listenpreis) statt der tatsächlichen „48 €" (5× kaufen, 4× bezahlen) — auf
+   `angebote.html`/`online-shop.html` stand der richtige Preis bereits korrekt. Beide Stellen korrigiert.
+2. **Hero-Slideshow-Performance**: 5 der 6 Hero-Bilder (740 KB) luden bisher alle beim Erstaufruf mit
+   `loading="eager"`, obwohl nur eines sichtbar ist — natives `loading="lazy"` hilft hier nicht, da alle Bilder
+   `position: absolute` im selben, bereits sichtbaren Container liegen. Stattdessen bekommen die 5 unsichtbaren
+   Bilder `data-src` statt `src` (kein Browser-Request bis JS eingreift) und werden erst nach dem `load`-Event
+   nachgeladen; das erste (sichtbare) Bild bekommt zusätzlich `fetchpriority="high"`. Das 11-MB-Video erhält ein
+   `poster`-Bild (ein bereits bestätigtes echtes Foto desselben Standorts). Mit Playwright per Netzwerk-Log
+   verifiziert: die 5 Bilder werden nachweislich erst im 167–169-ms-Fenster angefragt, zeitgleich mit dem
+   `load`-Event (170 ms).
+3. **Open Graph für 12 Seiten ergänzt**: `angebote.html`, `faq.html`, `gutschein-shop.html`, `jobs.html`,
+   `preise.html`, `standorte.html`, `ueber-uns.html`, `umwelt.html` sowie 4 Blogbeiträge hatten trotz Title/
+   Description keine OG-Tags — beim Teilen (v. a. per WhatsApp) erschien nur eine nackte URL. Für jede Seite ein
+   passendes, bereits vorhandenes Bild als `og:image`/`twitter:image` gewählt, keines erfunden. Bewusst
+   ausgenommen: `404.html`/`agb.html`/`datenschutz.html`/`impressum.html` (haben aus einer früheren Session
+   bewusst keine Meta-Description, `noindex`-Konvention).
+
+`chat.js?v=7` → `?v=8`. Repoweiter Audit danach fehlerfrei.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
