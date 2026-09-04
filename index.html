@@ -231,12 +231,12 @@
     </div>
     <div class="relative">
       <div id="hero-slideshow" class="relative w-full h-72 sm:h-96 rounded-2xl shadow-2xl overflow-hidden">
-        <img src="images/einfahrt-topwash-schild-lamellen.jpg" width="822" height="520" alt="Blick durch die Windschutzscheibe bei der Einfahrt unter dem TOP WASH Schild in die Waschstraße" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-100" loading="eager">
-        <img src="images/vorbehandlung-aussen.jpg" width="1200" height="391" alt="TOP WASH-Mitarbeiter bei der Vorbehandlung eines Fahrzeugs im Freien vor der Waschanlage" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-0" loading="eager">
-        <img src="images/hochdruck-felgenreinigung.jpg" width="1200" height="615" alt="TOP WASH-Mitarbeiter reinigt die Felgen eines Fahrzeugs gründlich mit dem Hochdruckreiniger" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-0" loading="eager">
-        <img src="images/handvorwaesche-team.jpg" width="1200" height="590" alt="Zwei TOP WASH-Mitarbeiter bei der gründlichen Handvorwäsche eines Fahrzeugs im Freien" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-0" loading="eager">
-        <img src="images/textile-waschstrasse-eingang.jpg" width="1200" height="603" alt="Fahrzeug fährt in die TOP WASH-Textilwaschstraße mit weichen Textillamellen ein" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-0" loading="eager">
-        <img src="images/trocknung-geblaese.jpg" width="1200" height="603" alt="Leistungsstarkes Trocknungsgebläse an der TOP WASH-Waschanlage nach der Textilwäsche" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-0" loading="eager">
+        <img src="images/einfahrt-topwash-schild-lamellen.jpg" width="822" height="520" alt="Blick durch die Windschutzscheibe bei der Einfahrt unter dem TOP WASH Schild in die Waschstraße" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-100" loading="eager" fetchpriority="high">
+        <img data-src="images/vorbehandlung-aussen.jpg" width="1200" height="391" alt="TOP WASH-Mitarbeiter bei der Vorbehandlung eines Fahrzeugs im Freien vor der Waschanlage" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-0">
+        <img data-src="images/hochdruck-felgenreinigung.jpg" width="1200" height="615" alt="TOP WASH-Mitarbeiter reinigt die Felgen eines Fahrzeugs gründlich mit dem Hochdruckreiniger" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-0">
+        <img data-src="images/handvorwaesche-team.jpg" width="1200" height="590" alt="Zwei TOP WASH-Mitarbeiter bei der gründlichen Handvorwäsche eines Fahrzeugs im Freien" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-0">
+        <img data-src="images/textile-waschstrasse-eingang.jpg" width="1200" height="603" alt="Fahrzeug fährt in die TOP WASH-Textilwaschstraße mit weichen Textillamellen ein" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-0">
+        <img data-src="images/trocknung-geblaese.jpg" width="1200" height="603" alt="Leistungsstarkes Trocknungsgebläse an der TOP WASH-Waschanlage nach der Textilwäsche" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-0">
         <div class="hero-slideshow-vignette absolute inset-0 pointer-events-none"></div>
         <div class="absolute inset-x-0 bottom-3 flex justify-center gap-2" id="hero-slideshow-dots"></div>
       </div>
@@ -289,7 +289,7 @@
 <section id="video" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <h2 class="text-3xl font-extrabold text-slate-900 text-center">Einmal live dabei</h2>
     <p class="mt-3 text-slate-600 text-center max-w-2xl mx-auto">Ein kurzer Videoeinblick von unserem Standort <a href="standorte/neu-isenburg.html" class="text-brand-700 underline font-semibold">Neu-Isenburg</a> – so läuft eine Wäsche bei TOP WASH ab.</p>
-    <video controls preload="metadata" playsinline aria-label="Kurzvideo: Einfahrt mit Hochdruckreiniger und Felgenreinigung, manuelle Handvorwäsche und Durchfahrt durch die textile Waschstraße bei TOP WASH Neu-Isenburg" class="mt-8 w-full rounded-2xl shadow-lg">
+    <video controls preload="metadata" playsinline poster="images/textile-waschstrasse-eingang.jpg" aria-label="Kurzvideo: Einfahrt mit Hochdruckreiniger und Felgenreinigung, manuelle Handvorwäsche und Durchfahrt durch die textile Waschstraße bei TOP WASH Neu-Isenburg" class="mt-8 w-full rounded-2xl shadow-lg">
       <source src="videos/neu-isenburg-eindruecke.mp4" type="video/mp4">
       Ihr Browser unterstützt die Videowiedergabe leider nicht. <a href="videos/neu-isenburg-eindruecke.mp4" class="text-brand-700 underline">Video direkt herunterladen</a>.
     </video>
@@ -912,6 +912,24 @@
     });
     const dots = dotsWrap.querySelectorAll('.hero-slideshow-dot');
 
+    // Only the first (visible) slide loads eagerly. The other 5 sit at the
+    // same position:absolute box, so native loading="lazy" would not defer
+    // them (the browser sees them as viewport-adjacent regardless of
+    // opacity) — swapping in their src after the page's "load" event does.
+    function loadDeferredSlides() {
+      slides.forEach((slide) => {
+        if (slide.dataset.src) {
+          slide.src = slide.dataset.src;
+          slide.removeAttribute('data-src');
+        }
+      });
+    }
+    if (document.readyState === 'complete') {
+      loadDeferredSlides();
+    } else {
+      window.addEventListener('load', loadDeferredSlides);
+    }
+
     function goTo(index) {
       slides[current].classList.remove('opacity-100');
       slides[current].classList.add('opacity-0');
@@ -932,6 +950,6 @@
     }
   })();
 </script>
-<script src="chat.js?v=7" defer></script>
+<script src="chat.js?v=8" defer></script>
 </body>
 </html>

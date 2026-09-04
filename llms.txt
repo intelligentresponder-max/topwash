@@ -13,7 +13,7 @@
 ## Preise & Waschprogramme
 
 - [Preise & Waschprogramme](https://intelligentresponder-max.github.io/topwash/preise.html): 5 gestaffelte Programme – Soft-Schaum 12,00 €, Komplett 15,00 €, Lotus 18,00 €, DAS BESTE 20,00 €, Superschaum 23,00 €. Alle Preise inkl. MwSt.
-- [Angebote](https://intelligentresponder-max.github.io/topwash/angebote.html): die 3 beliebtesten Programme im Überblick, inkl. 5er-Waschkarte Soft-Schaum (60 €)
+- [Angebote](https://intelligentresponder-max.github.io/topwash/angebote.html): die 3 beliebtesten Programme im Überblick, inkl. 5er-Waschkarte Soft-Schaum (48 € statt 60 €, 5× kaufen, 4× bezahlen)
 - [Gutschein-Shop](https://intelligentresponder-max.github.io/topwash/gutschein-shop.html): Wertkarten-Konfigurator mit WhatsApp-Bestellung, Mengenrabatt-Staffel
 - [Online-Shop (Vorschau)](https://intelligentresponder-max.github.io/topwash/online-shop.html): Vorschau des künftigen Online-Kaufs, Zahlungsabwicklung noch nicht aktiv
 
