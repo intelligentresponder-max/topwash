@@ -1063,5 +1063,22 @@ bestimmt — sonst hätte das Bild Play-Button und Label verdeckt. Alt-Text und 
 „Handwäsche mit Schaumbürste", Standort- und Markenbezug) statt generischem „Auf Facebook ansehen". Mit lokalem
 Tailwind-Build + Playwright in Desktop- und Mobile-Breite verifiziert.
 
+## Vierte Facebook-Karte: Vatertags-Gewinnspiel als Rückblick
+Nutzer schickte eine ausführliche „Übergabe"-Aufgabenbeschreibung (Ziel: Vatertags-Aktion mit Licher Bier und
+Sprudelhof Therme Bad Nauheim einbauen, samt Text „Mach mit und sicher dir deinen Gewinn!") plus 5 Screenshots.
+Vor der Umsetzung geprüft: Teilnahmeschluss laut Screenshot war 13.05.2026, Auflösung 14.05.2026 — heute ist
+04.09.2026, das Gewinnspiel ist also seit knapp 4 Monaten vorbei. Ein aktiver „Mach mit!"-Aufruf auf der Live-Seite
+hätte ein bereits abgeschlossenes Gewinnspiel fälschlich als laufend beworben. Per `AskUserQuestion` nachgefragt;
+Nutzer entschied: Rückblickende Darstellung wie bei der FFH-Karte (kein aktiver Teilnahme-Aufruf), und die
+bestehende bildlose Karte (`1FMNHLdmzs`) auf den vom Nutzer bestätigten Link `1EqziFLKxu` umstellen statt eine
+neue dritte Karte zu ergänzen.
+Aus den 5 Screenshots das stärkste Einzelbild gewählt (Licher-Bierkästen im Kofferraum, Mann auf der Kofferraumkante
+sitzend — direkter Bezug zum Kernpreis „Bierkästen ... gewinnen"; ein Screenshot mit unangemessener Geste des
+Fahrers bewusst nicht verwendet), UI-Chrome herausgeschnitten, als `images/licher-bierkaesten-vatertag-aktion.jpg`
+(900×1294, ~100 KB) gespeichert — selbes Muster wie die FFH-Karte (`.fb-reel-card__photo`/`__gradient`). Badge
+„Vatertag 2026", Label „Rückblick: Vatertags-Gewinnspiel mit Licher & Sprudelhof Therme Bad Nauheim (Mai 2026)" —
+„Bad Nauheim" stammt direkt aus der auf einem Screenshot sichtbaren Adresse der Sprudelhof Therme, nicht erfunden.
+Mit lokalem Tailwind-Build + Playwright in Desktop- (2 Karten nebeneinander) und Mobile-Breite verifiziert.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
