@@ -366,6 +366,20 @@
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }
 .fb-reel-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16); }
+.fb-reel-card__badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+}
 .fb-reel-card__play {
   width: 3.5rem; height: 3.5rem;
   border-radius: 9999px;

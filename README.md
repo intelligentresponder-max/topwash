@@ -1042,5 +1042,12 @@ Auf Nutzerwunsch das komplette Repo vom Index ausgehend geprüft (alle 31 Seiten
 
 `chat.js?v=7` → `?v=8`. Repoweiter Audit danach fehlerfrei.
 
+## Drittes Facebook-Reel auf der Startseite: Presse-Erwähnung Hit Radio FFH
+Im Abschnitt „Weitere Eindrücke auf Facebook" auf `index.html` bislang zwei `fb-reel-card`-Links (2-Spalten-Grid).
+Ein drittes Video ergänzt: der Hit-Radio-FFH-Beitrag mit „Carwash-Granny" bei TOP WASH (Aktion „Guten Morgen
+Hessen" hat ein Auto frühlings-hübsch gemacht). Grid auf 3 Spalten erweitert; die neue Karte bekommt zusätzlich
+ein kleines Badge „Hit Radio FFH" oben links (neue `.fb-reel-card__badge`-Klasse in `components.css`) und einen
+Label-Text, der die Presse-Erwähnung benennt, statt nur „Auf Facebook ansehen" wie bei den anderen beiden.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
