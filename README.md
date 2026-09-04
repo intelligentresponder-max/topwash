@@ -1080,5 +1080,36 @@ Fahrers bewusst nicht verwendet), UI-Chrome herausgeschnitten, als `images/liche
 „Bad Nauheim" stammt direkt aus der auf einem Screenshot sichtbaren Adresse der Sprudelhof Therme, nicht erfunden.
 Mit lokalem Tailwind-Build + Playwright in Desktop- (2 Karten nebeneinander) und Mobile-Breite verifiziert.
 
+## Neuer Blogartikel: hr-Testsieger 2016
+Nutzer bat um einen ausführlichen neuen Blogartikel zum „hr-Waschanlagentest 2016" plus Link dazu im Hero-Bereich
+der Startseite, und schickte dafür Text von einem anderen KI-Tool (mit „Yelp"-Quellenverweisen nach praktisch jeder
+Aussage). Vor dem Schreiben gegen die bereits im Repo verifizierten Fakten geprüft: Der eigentliche Kern (hr-Test
+„Textile Autowaschstraßen", Hessischer Rundfunk, April 2016, TOP WASH Testsieger, 3-Stufen-Handvorwäsche +
+moderne Textil-Waschelemente, zusätzlich ADAC „GUT") deckt sich mit dem, was `llms.txt`, `index.html` und
+`blog/glanz-werterhalt-autopflege.html` bereits längst aussagen. „Yelp" als Quelle für ein TV-Testergebnis von 2016
+ergibt inhaltlich keinen Sinn (Yelp ist eine Bewertungsplattform, kein Nachrichten-/Pressearchiv) und wurde bewusst
+nicht übernommen.
+Neuer Artikel `blog/hr-testsieger-2016.html` geschrieben — ausschließlich mit den bereits verifizierten Fakten,
+keine neuen, unbelegten Details erfunden. Als Beleg-Foto ein bereits vorhandener Screenshot verwendet (von der
+Vatertags-Aktion mitgeschickt): die echte TOP-WASH-Werbetafel mit der Originalbeschriftung „hr Testsieger — Test
+‚Textile Autowaschstraßen' April 2016", zugeschnitten auf `images/hr-testsieger-banner-2016.jpg`. Der bestehende
+„📖 Neu im Blog"-Link im Hero-Bereich von `index.html` (bisher: Glanz &amp; Werterhalt) auf den neuen Artikel
+umgestellt — dieser Slot zeigt laut Bezeichnung ohnehin immer auf den jeweils neuesten Beitrag. Sitemap.xml und
+llms.txt ergänzt. Mit lokalem Tailwind-Build + Playwright verifiziert: Hero-Link korrekt, Artikel-Rendering
+korrekt, alle internen Links im neuen Artikel aufgelöst, Tag-Balance geprüft.
+
+## hr-Testsieger-Badge im Hero: Logo + Original-Schriftzug statt reinem Text
+Nutzer schickte einen Screenshot der echten top-wash.de-Seite (mit dem roten „hr Testsieger"-Schriftzug als Teil
+einer Animation) sowie separat das TOP-WASH-Logo und bat, aus beidem inline eine verlinkte Grafik zu bauen, die
+zum neuen hr-Test-Artikel führt. Ein zusätzlich angehängtes GIF wurde per Frame-Analyse geprüft (41 Frames,
+Rotanteil in jedem Frame < 0,5 %) — enthält den roten Bereich nicht, stammt also nicht aus dieser Quelle; die
+Zuschneidung erfolgte stattdessen aus dem mitgeschickten Screenshot.
+Den reinen Text-Badge „hr Testsieger 'Textile Autowaschstraßen'" im Hero-Bereich von `index.html` (bisher
+`<span>`, nicht klickbar) durch einen anklickbaren Link ersetzt: TOP-WASH-Logo (bereits vorhandene
+`images/logo-top-wash.png`) plus der aus dem Screenshot zugeschnittene rote Original-Schriftzug
+(`images/hr-testsieger-schriftzug.jpg`, 700×167, ~23 KB) nebeneinander in derselben Pillenform wie die
+Nachbar-Badges, verlinkt auf `blog/hr-testsieger-2016.html`. Mit lokalem Tailwind-Build + Playwright in Desktop-
+und Mobile-Breite verifiziert, inklusive Nahaufnahme-Screenshot zur Lesbarkeitsprüfung bei Badge-Größe.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
