@@ -5,6 +5,13 @@
   var PHONE_DISPLAY = "06047 98 69 15";
   var PHONE_TEL = "tel:+496047986915";
 
+  // chat.js is loaded from every page at every folder depth (root, blog/, standorte/)
+  // via a single shared script, but its answer texts contain page-relative links.
+  // Without this prefix, a link like href="preise.html" written from within a page in
+  // blog/ or standorte/ would incorrectly resolve to blog/preise.html (404) instead of
+  // the real ../preise.html — this computes the right prefix once per page load.
+  var BASE = /\/(blog|standorte)\//.test(location.pathname) ? "../" : "";
+
   var STRINGS = {
     de: {
       title: "TOP WASH Assistent",
@@ -15,7 +22,7 @@
       send: "Senden",
       greeting: "Hallo! Ich bin der TOP WASH Assistent und beantworte häufige Fragen zu Preisen, Standorten und Öffnungszeiten. Was möchten Sie wissen?",
       chips: ["Öffnungszeiten", "Preise", "Standorte", "Aktuelle Angebote", "Fahrzeug geeignet?"],
-      fallback: "Diese Frage kann ich leider nicht automatisch beantworten. Rufen Sie uns gerne direkt an: <a href=\"" + PHONE_TEL + "\" class=\"underline font-semibold\">" + PHONE_DISPLAY + "</a>, oder schauen Sie in unsere <a href=\"faq.html\" class=\"underline font-semibold\">FAQ</a>.",
+      fallback: "Diese Frage kann ich leider nicht automatisch beantworten. Rufen Sie uns gerne direkt an: <a href=\"" + PHONE_TEL + "\" class=\"underline font-semibold\">" + PHONE_DISPLAY + "</a>, oder schauen Sie in unsere <a href=\"" + BASE + "faq.html\" class=\"underline font-semibold\">FAQ</a>.",
       langToggle: "EN"
     },
     en: {
@@ -27,7 +34,7 @@
       send: "Send",
       greeting: "Hi! I'm the TOP WASH Assistant and can answer common questions about prices, locations and opening hours. What would you like to know?",
       chips: ["Opening hours", "Prices", "Locations", "Current offers", "Is my car suitable?"],
-      fallback: "I can't answer that automatically yet. Feel free to call us directly: <a href=\"" + PHONE_TEL + "\" class=\"underline font-semibold\">" + PHONE_DISPLAY + "</a>, or check our <a href=\"faq.html\" class=\"underline font-semibold\">FAQ</a>.",
+      fallback: "I can't answer that automatically yet. Feel free to call us directly: <a href=\"" + PHONE_TEL + "\" class=\"underline font-semibold\">" + PHONE_DISPLAY + "</a>, or check our <a href=\"" + BASE + "faq.html\" class=\"underline font-semibold\">FAQ</a>.",
       langToggle: "DE"
     }
   };
@@ -41,8 +48,8 @@
         en: ["opening", "hours", "open", "when are you", "what time"]
       },
       answer: {
-        de: "Die Öffnungszeiten variieren leicht je Standort: meist Mo–Fr zwischen 08:00 und 19:00 Uhr (je nach Standort 08:30–18:30 bzw. 08:00–19:00 Uhr), Sa 08:00–18:00 Uhr, sonntags geschlossen. Genaue Zeiten je Standort auf der <a href=\"standorte.html\" class=\"underline font-semibold\">Standorte-Seite</a>.",
-        en: "Opening hours vary slightly by location: generally Mon–Fri between 8am and 7pm (8:30am–6:30pm or 8am–7pm depending on location), Sat 8am–6pm, closed Sundays. Exact hours per location on our <a href=\"standorte.html\" class=\"underline font-semibold\">Locations page</a>."
+        de: "Die Öffnungszeiten variieren leicht je Standort: meist Mo–Fr zwischen 08:00 und 19:00 Uhr (je nach Standort 08:30–18:30 bzw. 08:00–19:00 Uhr), Sa 08:00–18:00 Uhr, sonntags geschlossen. Genaue Zeiten je Standort auf der <a href=\"" + BASE + "standorte.html\" class=\"underline font-semibold\">Standorte-Seite</a>.",
+        en: "Opening hours vary slightly by location: generally Mon–Fri between 8am and 7pm (8:30am–6:30pm or 8am–7pm depending on location), Sat 8am–6pm, closed Sundays. Exact hours per location on our <a href=\"" + BASE + "standorte.html\" class=\"underline font-semibold\">Locations page</a>."
       }
     },
     {
@@ -51,8 +58,8 @@
         en: ["price", "cost", "how much", "euro", "€"]
       },
       answer: {
-        de: "Unsere Waschprogramme starten bei 12 € (Soft-Schaum) und reichen bis 23 € (Superschaum). Alle Programme im Vergleich: <a href=\"preise.html\" class=\"underline font-semibold\">Preise-Seite</a>. Unsere 3 beliebtesten Programme im Überblick: <a href=\"angebote.html\" class=\"underline font-semibold\">Angebote ansehen</a>.",
-        en: "Our wash programs start at €12 (Soft-Schaum) and go up to €23 (Superschaum). Full comparison: <a href=\"preise.html\" class=\"underline font-semibold\">Prices page</a>. Our 3 most popular programs at a glance: <a href=\"angebote.html\" class=\"underline font-semibold\">see programs</a>."
+        de: "Unsere Waschprogramme starten bei 12 € (Soft-Schaum) und reichen bis 23 € (Superschaum). Alle Programme im Vergleich: <a href=\"" + BASE + "preise.html\" class=\"underline font-semibold\">Preise-Seite</a>. Unsere 3 beliebtesten Programme im Überblick: <a href=\"" + BASE + "angebote.html\" class=\"underline font-semibold\">Angebote ansehen</a>. Warum sich der Preis lohnt, erklärt unser Vergleich <a href=\"" + BASE + "blog/beste-autowaesche-im-vergleich.html\" class=\"underline font-semibold\">„Was ist die beste Autowäsche?“</a>.",
+        en: "Our wash programs start at €12 (Soft-Schaum) and go up to €23 (Superschaum). Full comparison: <a href=\"" + BASE + "preise.html\" class=\"underline font-semibold\">Prices page</a>. Our 3 most popular programs at a glance: <a href=\"" + BASE + "angebote.html\" class=\"underline font-semibold\">see programs</a>. Curious why it's worth it? Read our comparison <a href=\"" + BASE + "blog/beste-autowaesche-im-vergleich.html\" class=\"underline font-semibold\">\"What's the best car wash?\"</a>."
       }
     },
     {
@@ -61,8 +68,8 @@
         en: ["location", "where are you", "address", "near me", "bad nauheim", "eschborn", "frankfurt", "neu-isenburg"]
       },
       answer: {
-        de: "TOP WASH hat 4 Standorte in Rhein-Main: Bad Nauheim, Eschborn, Frankfurt und Neu-Isenburg. Adressen, Karte &amp; Routenplaner: <a href=\"standorte.html\" class=\"underline font-semibold\">Standorte-Seite</a>.",
-        en: "TOP WASH has 4 locations in the Rhein-Main area: Bad Nauheim, Eschborn, Frankfurt and Neu-Isenburg. Addresses, map &amp; directions: <a href=\"standorte.html\" class=\"underline font-semibold\">Locations page</a>."
+        de: "TOP WASH hat 4 Standorte in Rhein-Main: Bad Nauheim, Eschborn, Frankfurt und Neu-Isenburg. Adressen, Karte &amp; Routenplaner: <a href=\"" + BASE + "standorte.html\" class=\"underline font-semibold\">Standorte-Seite</a>. Am Standort Bad Nauheim gibt es zusätzlich überdachte <a href=\"" + BASE + "blog/sb-waschplaetze-bad-nauheim.html\" class=\"underline font-semibold\">SB-Waschboxen</a> für die eigene Nacharbeit.",
+        en: "TOP WASH has 4 locations in the Rhein-Main area: Bad Nauheim, Eschborn, Frankfurt and Neu-Isenburg. Addresses, map &amp; directions: <a href=\"" + BASE + "standorte.html\" class=\"underline font-semibold\">Locations page</a>. Our Bad Nauheim location also has covered <a href=\"" + BASE + "blog/sb-waschplaetze-bad-nauheim.html\" class=\"underline font-semibold\">self-service wash bays</a> for your own finishing touches."
       }
     },
     {
@@ -71,8 +78,8 @@
         en: ["offer", "deal", "discount", "promo", "voucher", "save"]
       },
       answer: {
-        de: "Unsere 3 beliebtesten Programme: die Lotus-Wäsche (18 €), die Superschaum-Wäsche (23 €) und die 5er-Waschkarte Soft-Schaum zum Vorausbezahlen (60 €). Details: <a href=\"angebote.html\" class=\"underline font-semibold\">Angebote ansehen</a>.",
-        en: "Our 3 most popular programs: the Lotus wash (€18), the Superschaum wash (€23), and the prepaid Soft-Schaum 5-wash card (€60). Details: <a href=\"angebote.html\" class=\"underline font-semibold\">see programs</a>."
+        de: "Unsere 3 beliebtesten Programme: die Lotus-Wäsche (18 €), die Superschaum-Wäsche (23 €) und die 5er-Waschkarte Soft-Schaum zum Vorausbezahlen (60 €). Details: <a href=\"" + BASE + "angebote.html\" class=\"underline font-semibold\">Angebote ansehen</a>. Einen TOP WASH-Gutschein können Sie schon heute direkt per WhatsApp zusammenstellen: <a href=\"" + BASE + "gutschein-shop.html\" class=\"underline font-semibold\">Gutschein-Konfigurator</a> (so funktioniert's: <a href=\"" + BASE + "blog/whatsapp-bestellung-erklaert.html\" class=\"underline font-semibold\">Schritt-für-Schritt-Anleitung</a>).",
+        en: "Our 3 most popular programs: the Lotus wash (€18), the Superschaum wash (€23), and the prepaid Soft-Schaum 5-wash card (€60). Details: <a href=\"" + BASE + "angebote.html\" class=\"underline font-semibold\">see programs</a>. You can already put together a TOP WASH voucher via WhatsApp today: <a href=\"" + BASE + "gutschein-shop.html\" class=\"underline font-semibold\">voucher configurator</a> (here's how it works: <a href=\"" + BASE + "blog/whatsapp-bestellung-erklaert.html\" class=\"underline font-semibold\">step-by-step guide</a>)."
       }
     },
     {
@@ -81,8 +88,8 @@
         en: ["fit", "suitable", "dimension", "height", "width", "suv", "van", "vehicle size"]
       },
       answer: {
-        de: "Unsere Anlagen sind für fast alle Fahrzeugtypen geeignet: bis 200 cm Breite und 205 cm Höhe (inkl. Spiegel, notfalls einklappen). Details &amp; Grafik auf der <a href=\"index.html#prozess\" class=\"underline font-semibold\">Startseite</a> oder in den <a href=\"faq.html\" class=\"underline font-semibold\">FAQ</a>.",
-        en: "Our facilities fit almost all vehicle types: up to 200 cm width and 205 cm height (incl. mirrors, fold in if needed). Details &amp; diagram on our <a href=\"index.html#prozess\" class=\"underline font-semibold\">homepage</a> or in the <a href=\"faq.html\" class=\"underline font-semibold\">FAQ</a>."
+        de: "Unsere Anlagen sind für fast alle Fahrzeugtypen geeignet: bis 200 cm Breite und 205 cm Höhe (inkl. Spiegel, notfalls einklappen). Details &amp; Grafik auf der <a href=\"" + BASE + "index.html#prozess\" class=\"underline font-semibold\">Startseite</a> oder in den <a href=\"" + BASE + "faq.html\" class=\"underline font-semibold\">FAQ</a>. Was Sie vor der Einfahrt sonst noch beachten sollten (Antenne, Spiegel, Scheibenwischer &amp; Co.): <a href=\"" + BASE + "blog/12-game-changer-waschanlage.html\" class=\"underline font-semibold\">12 Game Changer-Checkliste</a>.",
+        en: "Our facilities fit almost all vehicle types: up to 200 cm width and 205 cm height (incl. mirrors, fold in if needed). Details &amp; diagram on our <a href=\"" + BASE + "index.html#prozess\" class=\"underline font-semibold\">homepage</a> or in the <a href=\"" + BASE + "faq.html\" class=\"underline font-semibold\">FAQ</a>. What else to check before driving in (antenna, mirrors, wipers &amp; more): our <a href=\"" + BASE + "blog/12-game-changer-waschanlage.html\" class=\"underline font-semibold\">12 game-changer checklist</a>."
       }
     },
     {
@@ -101,8 +108,8 @@
         en: ["liability", "damage", "scratch", "insurance", "broken"]
       },
       answer: {
-        de: "Wie branchenüblich gelten Haftungsgrenzen, u. a. für nicht werkseitiges Zubehör, Vorschäden/Folierung und hochglanzpolierte Felgen. Details in unseren <a href=\"agb.html\" class=\"underline font-semibold\">AGB</a> oder den <a href=\"faq.html\" class=\"underline font-semibold\">FAQ</a>.",
-        en: "As is standard in the industry, some liability limits apply — e.g. for non-factory accessories, pre-existing damage/wraps, and high-gloss polished wheels. Details in our <a href=\"agb.html\" class=\"underline font-semibold\">terms</a> or <a href=\"faq.html\" class=\"underline font-semibold\">FAQ</a>."
+        de: "Wie branchenüblich gelten Haftungsgrenzen, u. a. für nicht werkseitiges Zubehör, Vorschäden/Folierung und hochglanzpolierte Felgen. Details in unseren <a href=\"" + BASE + "agb.html\" class=\"underline font-semibold\">AGB</a> oder den <a href=\"" + BASE + "faq.html\" class=\"underline font-semibold\">FAQ</a>. Wie wir Kratzer durch den sogenannten Schmirgel-Effekt von vornherein vermeiden, erklärt unsere <a href=\"" + BASE + "blog/schmirgel-effekt-vermeiden.html\" class=\"underline font-semibold\">3-Stufen-Handvorwäsche</a>.",
+        en: "As is standard in the industry, some liability limits apply — e.g. for non-factory accessories, pre-existing damage/wraps, and high-gloss polished wheels. Details in our <a href=\"" + BASE + "agb.html\" class=\"underline font-semibold\">terms</a> or <a href=\"" + BASE + "faq.html\" class=\"underline font-semibold\">FAQ</a>. How we prevent scratches from the so-called grit effect in the first place: our <a href=\"" + BASE + "blog/schmirgel-effekt-vermeiden.html\" class=\"underline font-semibold\">3-stage hand pre-wash</a>."
       }
     },
     {
@@ -131,8 +138,8 @@
         en: ["how does it work", "process", "steps"]
       },
       answer: {
-        de: "Sauber wie von Hand gewaschen: gründliche Handvorwäsche im Freien (Felgen, Schmutzlöser, Hochdruck, Handwäsche), 3 Textilwäsche-Stufen in der Waschhalle, dann doppelte Trocknung mit 2 Gebläsen plus polierender Textiltrocknung. Mehr dazu auf der <a href=\"index.html#prozess\" class=\"underline font-semibold\">Startseite</a>.",
-        en: "Clean as if washed by hand: thorough outdoor hand pre-wash (free rim cleaning, dirt loosener, pressure wash, hand wash), 3 textile wash stages inside, then double drying with 2 blowers plus a polishing textile dry. More on our <a href=\"index.html#prozess\" class=\"underline font-semibold\">homepage</a>."
+        de: "Sauber wie von Hand gewaschen: gründliche Handvorwäsche im Freien (Felgen, Schmutzlöser, Hochdruck, Handwäsche), 3 Textilwäsche-Stufen in der Waschhalle, dann doppelte Trocknung mit 2 Gebläsen plus polierender Textiltrocknung. Mehr dazu auf der <a href=\"" + BASE + "index.html#prozess\" class=\"underline font-semibold\">Startseite</a> oder in unserem Artikel <a href=\"" + BASE + "blog/die-top-wash-formel.html\" class=\"underline font-semibold\">„Die TOP WASH Formel“</a>, warum das sicherer als klassische Handwäsche ist.",
+        en: "Clean as if washed by hand: thorough outdoor hand pre-wash (free rim cleaning, dirt loosener, pressure wash, hand wash), 3 textile wash stages inside, then double drying with 2 blowers plus a polishing textile dry. More on our <a href=\"" + BASE + "index.html#prozess\" class=\"underline font-semibold\">homepage</a> or in our article <a href=\"" + BASE + "blog/die-top-wash-formel.html\" class=\"underline font-semibold\">\"The TOP WASH Formula\"</a> on why that's safer than classic hand washing."
       }
     }
   ];
