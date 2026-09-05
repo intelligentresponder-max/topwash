@@ -1168,5 +1168,51 @@ Empfehlung (`blog/hr-testsieger-2016.html` mit 94 Zeichen am deutlichsten, dazu 
 der Meta-Description knapp. `404.html`, `agb.html`, `datenschutz.html` und `impressum.html` haben weder
 Description noch `og:image` — bei Rechtstexten vertretbar, bei `404.html` eher nicht.
 
+## Rechtstexte-Audit: Platzhalter, OS-Plattform, Google-Fonts/Maps ohne Consent
+Nutzer hat die Live-Seite komplett gecrawlt und eine priorisierte Liste mit 10 Punkten vorgelegt (kritisch,
+wichtig, technische Schulden, offen/unbestätigt). Die drei kritischen Punkte wurden vor der Umsetzung einzeln
+verifiziert statt der Liste blind zu vertrauen:
+
+1. **Platzhalter-Text in Rechtstexten**: `datenschutz.html` zeigte sichtbar für jeden Besucher einen amber
+   Hinweiskasten „Diese Datenschutzerklärung ist ein allgemeiner Ausgangstext … muss vor Veröffentlichung
+   entsprechend ergänzt und juristisch geprüft werden." — bestätigt echt, Wortlaut exakt wie gemeldet. Beim
+   Durchsuchen zusätzlich denselben Fehler in `agb.html` gefunden (im Audit nicht erwähnt, aber derselbe Verstoß
+   gegen die eigene Vertical-Coding-Regel „keine Platzhalter"). Beide Hinweiskästen entfernt.
+2. **OS-Streitbeilegungsplattform in `impressum.html`**: Per Websuche gegengeprüft statt der Behauptung blind zu
+   vertrauen — mehrere unabhängige Quellen (IHK Osnabrück, IHK Lahn-Dill, IHK Düsseldorf, wbs.legal, DATEV
+   magazin) bestätigen: Die Plattform wurde zum 20.07.2025 durch Verordnung (EU) 2024/3228 endgültig eingestellt,
+   ein verbliebener Link/Hinweis gilt als Irreführung und UWG-Verstoß (Abmahnrisiko). Abschnitt „EU-Streitschlichtung"
+   komplett entfernt; der Satz zur Nicht-Teilnahme an Verbraucherschlichtung (§ 36 VSBG) bleibt unter neuer,
+   passender Überschrift „Verbraucherstreitbeilegung" erhalten.
+3. **Google Fonts/Maps ohne Consent**: Vor der Umsetzung geprüft, wie groß das Problem tatsächlich ist — Ergebnis
+   weicht vom Audit ab: Google Fonts wird entgegen der Behauptung „alle 31 Seiten" tatsächlich nur auf **einer
+   einzigen Seite** (`gutschein-shop.html`) per CDN-Link geladen, nirgendwo sonst im Repo referenziert. Die vier
+   Standorte-Seiten laden dagegen tatsächlich alle direkt beim Seitenaufruf ein Google-Maps-`<iframe>` — bestätigt.
+   Umsetzung:
+   - **Fonts selbst hosten** statt CDN-Link entfernen und Design verlieren: Oswald (600/700) und IBM Plex Mono
+     (500/700) als `.woff2` von `@fontsource` (SIL Open Font License, frei einbettbar) bezogen, unter `fonts/`
+     abgelegt (~55 KB gesamt), per `@font-face` in `theme.css` eingebunden. `gutschein-shop.html`s „Kraftpapier"-
+     Design (Oswald-Überschriften, Mono-Formularreferenzen) bleibt dadurch optisch unverändert, aber ganz ohne
+     externen Request — kein Endgerätezugriff eines Dritten, § 25 TDDDG greift nicht, kein Consent-Banner nötig.
+   - **Maps-iframes entfernt** (alle vier Standorte-Seiten) statt Consent-Banner oder Zwei-Klick-Lösung mit
+     Static-Maps-Bild (keine Maps-API-Zugangsdaten vorhanden, ein erfundenes Vorschaubild wäre irreführend gewesen).
+     Der bereits vorhandene „Route planen"-Button (externer Link, öffnet erst bei aktivem Klick) bleibt bestehen
+     und wird jetzt alleiniger Anfahrtsweg — Layout von 2-spaltig auf 1-spaltig angepasst, damit keine leere Spalte
+     entsteht.
+   - `datenschutz.html` entsprechend aktualisiert: Abschnitt „Eingebundene Karten (Google Maps)" durch „Externe
+     Links (Google Maps, Google-Bewertungen)" ersetzt (reine Links ohne Datenübertragung beim Seitenaufruf, keine
+     Art. 6 Abs. 1 lit. f-Grundlage mehr nötig), neuer Abschnitt „Eingebundene Schriftarten" (lokal, keine
+     Drittanbieter-Verbindung) ergänzt, Nummerierung entsprechend verschoben, Stand-Datum aktualisiert.
+   Verifiziert: repoweiter Link-/JSON-LD-Check (0 Probleme), keine verbliebenen `<iframe>`- oder
+   `fonts.googleapis`-Referenzen im gesamten Repo, mit lokalem Tailwind-Build + Playwright bestätigt, dass die
+   selbst gehosteten Fonts tatsächlich geladen werden (`getComputedStyle` zeigt „Oswald, sans-serif" statt
+   Fallback) und keine Seite durch die Entfernung von Inhalten eine sichtbare Lücke im Layout hat.
+
+**Aus der Liste bewusst noch nicht umgesetzt** (Punkte 4–10, „Wichtig"/„Technische Schulden"/„Offen"): ADAC-Test
+ohne Fundstelle/Testjahr, Streichpreis-Formulierung, hartkodierte Google-Bewertungszahl, WhatsApp/Widerrufsrecht
+in der DSE, Tailwind-CDN in Produktion, `innerHTML` in `chat.js`, fehlende Meta-Description auf Rechtstexten,
+unbestätigte Telefonnummer Bad Nauheim, fehlendes Bewerbungsformular — auf Rückfrage warten, da teils
+Kunden-Entscheidungen (Copy, Bewerbungsweg) oder größere technische Umbauten (Tailwind-Build-Pipeline) nötig sind.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
