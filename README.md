@@ -1214,5 +1214,24 @@ in der DSE, Tailwind-CDN in Produktion, `innerHTML` in `chat.js`, fehlende Meta-
 unbestätigte Telefonnummer Bad Nauheim, fehlendes Bewerbungsformular — auf Rückfrage warten, da teils
 Kunden-Entscheidungen (Copy, Bewerbungsweg) oder größere technische Umbauten (Tailwind-Build-Pipeline) nötig sind.
 
+## Echte Vorher-Fotos im Baumharz/Vogelkot-Artikel
+Nutzer schickte 6 Facebook-Screenshots eines echten Kundenfahrzeugs vor der Wäsche bei TOP WASH (Dach, Motorhaube,
+Kotflügel) mit der Bitte, sie in `blog/baumharz-vogelkot-entfernen.html` einzubauen und zu beschriften. Vor der
+Auswahl auf Datenschutz geprüft: Ein Bild zeigte im Hintergrund das Kennzeichen eines fremden, nicht am Waschvorgang
+beteiligten Fahrzeugs, ein anderes das (im Original bereits vom Fotografen unkenntlich gemachte) Kennzeichen sowie
+Gesichter der Insassen des eigenen Fahrzeugs durch die Windschutzscheibe — beides herausgeschnitten bzw. nicht
+verwendet, statt nur auf die bereits vorhandene Unkenntlichmachung zu vertrauen.
+Von den 6 Fotos 3 ausgewählt, die den Artikel-Inhalt am direktesten illustrieren: Dach mit frischem Vogelkot,
+Motorhaube mit angetrocknetem Straßenschmutz, Kotflügel mit eingetrocknetem Vogelkot-Fleck. Aus den Phone-
+Screenshots (Facebook-Fotoansicht mit Statusleiste/„X von 6"-Kopfzeile/Bildunterschriftenleiste) jeweils nur den
+reinen Bildinhalt zugeschnitten, zusätzlich auf ein für die spätere `object-cover`-Darstellung passendes
+Seitenverhältnis vorab zugeschnitten (statt der CSS-Zuschneidung eine zufällige Bildmitte zu überlassen), gespeichert
+als `images/vogelkot-dachflaeche.jpg`, `images/motorhaube-verschmutzt-vorwaesche.jpg`,
+`images/vogelkot-fleck-kotfluegel.jpg` (zusammen ~320 KB). Als neue 3-spaltige Bildergalerie „So sieht es in der
+Praxis aus" zwischen dem bestehenden Vorbehandlungs-Foto und dem Abschnitt „Warum Zeit hier der entscheidende
+Faktor ist" eingefügt — Reihenfolge im Artikel: Chemie/Risiko erklären → bestehendes Vorbehandlungsfoto → echte
+Vorher-Belege → Zeitfaktor → Lösung. Mit lokalem Tailwind-Build + Playwright in Desktop- (3-Spalten-Grid) und
+Mobile-Breite (1-Spalten-Stack) verifiziert, repoweiter Link-/JSON-LD-Check danach ohne Befund.
+
 ## Deployment
 GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
