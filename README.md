@@ -4,10 +4,12 @@ Statische Website (Jamstack, GitHub-Pages-tauglich) für TOPWASH – textile Aut
 
 ## Stack
 - Semantisches HTML5, kein JS-Framework
-- Tailwind CSS via CDN (`cdn.tailwindcss.com`) für Utility-Klassen im Seiteninhalt
-- `theme.css`/`components.css`/`theme-config.js` als geteiltes Design-System für Marken-Tokens
+- Tailwind CSS als lokal gebautes `tailwind.css` (per `npm run build:css`, Config in `tailwind.config.js`)
+  für Utility-Klassen im Seiteninhalt — kein CDN-Script mehr zur Laufzeit
+- `theme.css`/`components.css` als geteiltes Design-System für Marken-Tokens
   und die auf jeder Seite wiederkehrende Rahmen-Struktur (siehe „Design-System" unten)
-- Keine Build-Pipeline nötig – Dateien direkt per GitHub Pages ausliefern
+- Einziger Build-Schritt ist `npm run build:css`; ausgeliefert wird weiterhin nur das fertige
+  `tailwind.css` direkt per GitHub Pages, keine Server-Build-Pipeline nötig
 
 ## Seiten
 | Datei | Inhalt |
@@ -29,7 +31,8 @@ Statische Website (Jamstack, GitHub-Pages-tauglich) für TOPWASH – textile Aut
 | `chat.js` | Zweisprachiger (DE/EN) Chat-Assistent, auf jeder Seite eingebunden |
 | `theme.css` | Marken-Design-Tokens (Farben, Basis-Styles) als CSS-Variablen, auf jeder Seite eingebunden |
 | `components.css` | Wiederverwendbare Komponenten (Header, Footer, mobile CTA-Leiste, Buttons, Kraftpapier-Akzent) |
-| `theme-config.js` | Geteilte Tailwind-Konfiguration (Marken-Blau-Palette), ersetzt das früher pro Seite wiederholte Config-Script |
+| `tailwind.config.js` / `input.css` / `package.json` | Build-Konfiguration für das lokal gebaute `tailwind.css` (Marken-Blau-Palette, `npm run build:css`) |
+| `tailwind.css` | Fertig gebautes, minifiziertes Tailwind-Utility-CSS, auf jeder Seite eingebunden (ersetzt `cdn.tailwindcss.com` + `theme-config.js`) |
 
 ## Chat-Assistent (`chat.js`)
 Regelbasierter, clientseitiger Chat-Assistent unten rechts auf jeder Seite – **kein echtes LLM/keine externe API**,
@@ -1233,5 +1236,46 @@ Faktor ist" eingefügt — Reihenfolge im Artikel: Chemie/Risiko erklären → b
 Vorher-Belege → Zeitfaktor → Lösung. Mit lokalem Tailwind-Build + Playwright in Desktop- (3-Spalten-Grid) und
 Mobile-Breite (1-Spalten-Stack) verifiziert, repoweiter Link-/JSON-LD-Check danach ohne Befund.
 
+## Verifizierungs-Auftrag zu einem externen „Erfolgsbericht" (05.09.2026)
+Nutzer legte den Auftrag ausdrücklich so an, dass ein extern zugeliefertes Dokument mit acht Behauptungen
+**keine Quelle** ist, sondern jede einzelne Behauptung zuerst gegen den echten `main`-Branch geprüft werden muss,
+bevor irgendetwas umgesetzt wird. Ergebnis der Prüfung, Datei-für-Datei:
+
+1. **„Google Fonts entfernt"** — geprüft per `grep -r fonts.googleapis`: kein Treffer im gesamten Repo. Real,
+   aber nicht neu: bereits im vorherigen Rechtstexte-Audit (siehe oben, Abschnitt „Rechtstexte-Audit") umgesetzt,
+   unabhängig von diesem Dokument. Keine weitere Maßnahme nötig.
+2. **„Google-Maps-Iframes entfernt"** — geprüft per `grep -r maps.google.com`/`google.com/maps/embed`: kein
+   Treffer. Ebenfalls real, ebenfalls bereits vorher erledigt (selbes Audit). Keine weitere Maßnahme nötig.
+3. **„Tailwind self-hosted"** — geprüft per `grep -rl cdn.tailwindcss.com`: **33 von 33** Seiten luden Tailwind
+   zum Zeitpunkt dieses Audits noch immer per CDN-Script (`<script src="https://cdn.tailwindcss.com">`), exakt
+   der im vorherigen Rechtstexte-Audit als offen benannte Punkt „Tailwind-CDN in Produktion". Die Behauptung war
+   zum Prüfzeitpunkt **falsch**. Da der Grund dafür unabhängig vom Fake-Dokument real ist (CDN in Produktion ist
+   ein Robustheits-/Performance-Risiko, siehe Historie oben), jetzt tatsächlich umgesetzt: `tailwindcss@3` lokal
+   installiert, `tailwind.config.js` mit der bereits aus `theme-config.js` bekannten `brand`-Palette angelegt,
+   `content` scannt alle `**/*.html` plus `chat.js` (einzige Stelle mit zur Laufzeit injizierten Tailwind-Klassen,
+   vorher per `grep` auf String-Konkatenation bei Klassennamen geprüft — keine gefunden, rein statisches Scannen
+   reicht). Build per `npm run build:css` erzeugt `tailwind.css` (28,9 KB minifiziert). Alle 33 Seiten von
+   `<script src="https://cdn.tailwindcss.com"></script>` + `<script src="[../]theme-config.js"></script>` auf
+   `<link rel="stylesheet" href="[../]tailwind.css">` umgestellt (identisches Muster in jeder Datei, per Skript
+   ersetzt, danach `grep` auf Restvorkommen: keine). `theme-config.js` war danach vollständig unreferenziert und
+   wurde entfernt (Inhalt lebt jetzt in `tailwind.config.js` weiter). Repoweiter Link-/JSON-LD-Check nach der
+   Umstellung: 0 Probleme.
+4. **„651 vs. Trustindex verifiziert"** — geprüft per `grep -rn "651"` repoweit: **kein einziges Vorkommen** von
+   „651" im gesamten Repo, überall durchgängig „652" (Google-Bewertungen, `aggregateRating`-Schema, sichtbarer
+   Text). Es gibt somit keine Inkonsistenz zu beheben, und „Trustindex" kommt im Repo an keiner Stelle vor — die
+   Behauptung ist nicht nachvollziehbar und wurde nicht übernommen.
+5. **OS-Streitschlichtungsplattform in `impressum.html`** — zusätzlich zu den acht Behauptungen vom Nutzer als
+   eigenständig zu prüfender echter Rechts-Fix genannt: geprüft, ob noch ein Verweis existiert. Ergebnis: nein —
+   bereits im vorherigen Rechtstexte-Audit entfernt, `impressum.html` enthält nur noch den unabhängigen § 36
+   VSBG-Satz unter „Verbraucherstreitbeilegung". Keine weitere Maßnahme nötig.
+
+**Damit von den ursprünglich genannten Punkten**: zwei bereits vorher real erledigt (Google Fonts, Maps-Iframes),
+einer neu tatsächlich real und jetzt behoben (Tailwind-CDN), einer im Repo nicht auffindbar und nicht übernommen
+(651/Trustindex). Das externe Dokument selbst wurde an keiner Stelle als Quelle für Zahlen, Wortlaut oder Umfang
+verwendet — jede Zeile dieses Abschnitts basiert auf einem eigenen `grep`/`git`-Befund gegen den echten `main`.
+
 ## Deployment
-GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis.
+GitHub Pages: Repository-Einstellungen → Pages → Branch `main`, Root-Verzeichnis. Nach jeder Änderung an
+Tailwind-Klassen in einer Seite oder in `chat.js` vor dem Commit `npm install && npm run build:css` ausführen und
+das aktualisierte `tailwind.css` mitcommitten — es ist die einzige zur Laufzeit ausgelieferte CSS-Quelle für
+Utility-Klassen, es gibt keinen CDN-Fallback mehr.
